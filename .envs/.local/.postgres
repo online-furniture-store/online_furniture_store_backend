@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=online_furniture_store_backend
+POSTGRES_USER=rQvxSgsGtOfCyoUGRQNmeYJfVyHxLJPQ
+POSTGRES_PASSWORD=VqQjA8wMkNujeJwhMgyGyRKMu8QMcxw0sVkz72BfRCx5j9AeF0S4Qc2VT5nKHEze
