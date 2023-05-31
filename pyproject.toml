@@ -18,6 +18,9 @@ plugins = ["django_coverage_plugin"]
 [tool.black]
 line-length = 119
 target-version = ['py311']
+skip-string-normalization = true
+skip-magic-trailing-comma = true
+exclude = '/migrations/'
 
 
 # ==== isort ====
@@ -28,8 +31,14 @@ known_first_party = [
     "online_furniture_store_backend",
     "config",
 ]
-skip = ["venv/"]
-skip_glob = ["**/migrations/*.py"]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+ensure_newline_before_comments = true
+use_parentheses = true
+skip = [".venv/"]
+skip_gitignore = true
+skip = ['migrations']
 
 
 # ==== mypy ====
@@ -52,33 +61,3 @@ ignore_errors = true
 
 [tool.django-stubs]
 django_settings_module = "config.settings.test"
-
-
-# ==== PyLint ====
-[tool.pylint.MASTER]
-load-plugins = [
-    "pylint_django",
-]
-django-settings-module = "config.settings.local"
-
-[tool.pylint.FORMAT]
-max-line-length = 119
-
-[tool.pylint."MESSAGES CONTROL"]
-disable = [
-    "missing-docstring",
-    "invalid-name",
-]
-
-[tool.pylint.DESIGN]
-max-parents = 13
-
-[tool.pylint.TYPECHECK]
-generated-members = [
-    "REQUEST",
-    "acl_users",
-    "aq_parent",
-    "[a-zA-Z]+_set{1,2}",
-    "save",
-    "delete",
-]
