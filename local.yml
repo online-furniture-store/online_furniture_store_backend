@@ -33,4 +33,3 @@ services:
       - online_furniture_store_backend_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
-

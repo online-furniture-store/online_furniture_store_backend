@@ -8,8 +8,8 @@ if settings.DEBUG:
 else:
     router = SimpleRouter()
 
-router.register("users", UserViewSet)
+router.register('users', UserViewSet)
 
 
-app_name = "api"
+app_name = 'api'
 urlpatterns = router.urls
