@@ -11,7 +11,7 @@ User = get_user_model()
 class UserAdminChangeForm(admin_forms.UserChangeForm):
     class Meta(admin_forms.UserChangeForm.Meta):
         model = User
-        field_classes = {"email": EmailField}
+        field_classes = {'email': EmailField}
 
 
 class UserAdminCreationForm(admin_forms.UserCreationForm):
@@ -22,11 +22,9 @@ class UserAdminCreationForm(admin_forms.UserCreationForm):
 
     class Meta(admin_forms.UserCreationForm.Meta):
         model = User
-        fields = ("email",)
-        field_classes = {"email": EmailField}
-        error_messages = {
-            "email": {"unique": _("This email has already been taken.")},
-        }
+        fields = ('email',)
+        field_classes = {'email': EmailField}
+        error_messages = {'email': {'unique': _('This email has already been taken.')}}
 
 
 class UserSignupForm(SignupForm):
