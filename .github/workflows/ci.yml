@@ -10,7 +10,7 @@ on:
     branches: ['master', 'main', 'dev']
 
   push:
-    branches: ['master', 'main']
+    branches: ['master', 'main', 'dev']
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
