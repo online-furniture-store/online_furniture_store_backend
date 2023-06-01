@@ -63,29 +63,14 @@ DJANGO_APPS = [
     'django.contrib.admin',
     'django.forms',
 ]
-THIRD_PARTY_APPS = [
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'corsheaders',
-    'drf_spectacular',
-]
+THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'corsheaders', 'drf_spectacular']
 
 LOCAL_APPS = [
-    'online_furniture_store_backend.users',
+    'apps.users',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-
-# MIGRATIONS
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {'sites': 'online_furniture_store_backend.contrib.sites.migrations'}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -178,7 +163,6 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                'online_furniture_store_backend.users.context_processors.allauth_settings',
             ]
         },
     }
@@ -234,28 +218,6 @@ LOGGING = {
     'root': {'level': 'INFO', 'handlers': ['console']},
 }
 
-
-# django-allauth
-# ------------------------------------------------------------------------------
-ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_REQUIRED = True
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_USERNAME_REQUIRED = False
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = 'online_furniture_store_backend.users.adapters.AccountAdapter'
-# https://django-allauth.readthedocs.io/en/latest/forms.html
-ACCOUNT_FORMS = {'signup': 'online_furniture_store_backend.users.forms.UserSignupForm'}
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = 'online_furniture_store_backend.users.adapters.SocialAccountAdapter'
-# https://django-allauth.readthedocs.io/en/latest/forms.html
-SOCIALACCOUNT_FORMS = {'signup': 'online_furniture_store_backend.users.forms.UserSocialSignupForm'}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------

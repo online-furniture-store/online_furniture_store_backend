@@ -1,7 +1,7 @@
 from django.conf import settings
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
-from online_furniture_store_backend.users.api.views import UserViewSet
+from apps.users.views import UserViewSet
 
 if settings.DEBUG:
     router = DefaultRouter()
