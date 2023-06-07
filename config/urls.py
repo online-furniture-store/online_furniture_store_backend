@@ -2,21 +2,22 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.views import defaults as default_views
-from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.routers import DefaultRouter
+
+from apps.users.views import UserViewSet
+
+router = DefaultRouter()
+router.register('users', UserViewSet, basename='users')
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='pages/home.html'), name='home'),
-    path('about/', TemplateView.as_view(template_name='pages/about.html'), name='about'),
-    # Django Admin, use {% url 'admin:index' %}
-    path(settings.ADMIN_URL, admin.site.urls),
-    # User management
-    path('users/', include('online_furniture_store_backend.users.urls', namespace='users')),
-    path('accounts/', include('allauth.urls')),
-    # Your stuff: custom urls includes go here
+    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('auth/', include('djoser.urls')),
+    re_path(r'^auth/', include('djoser.urls.authtoken')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development

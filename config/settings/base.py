@@ -76,7 +76,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'online_furniture_store_backend.users',
+    'apps.users',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -85,7 +85,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {'sites': 'online_furniture_store_backend.contrib.sites.migrations'}
+# MIGRATION_MODULES = {'sites': 'online_furniture_store_backend.contrib.sites.migrations'}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -178,7 +178,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                'online_furniture_store_backend.users.context_processors.allauth_settings',
+                # 'online_furniture_store_backend.users.context_processors.allauth_settings',
             ]
         },
     }
@@ -249,13 +249,13 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = 'online_furniture_store_backend.users.adapters.AccountAdapter'
-# https://django-allauth.readthedocs.io/en/latest/forms.html
-ACCOUNT_FORMS = {'signup': 'online_furniture_store_backend.users.forms.UserSignupForm'}
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = 'online_furniture_store_backend.users.adapters.SocialAccountAdapter'
-# https://django-allauth.readthedocs.io/en/latest/forms.html
-SOCIALACCOUNT_FORMS = {'signup': 'online_furniture_store_backend.users.forms.UserSocialSignupForm'}
+# ACCOUNT_ADAPTER = 'online_furniture_store_backend.users.adapters.AccountAdapter'
+# # https://django-allauth.readthedocs.io/en/latest/forms.html
+# ACCOUNT_FORMS = {'signup': 'online_furniture_store_backend.users.forms.UserSignupForm'}
+# # https://django-allauth.readthedocs.io/en/latest/configuration.html
+# SOCIALACCOUNT_ADAPTER = 'online_furniture_store_backend.users.adapters.SocialAccountAdapter'
+# # https://django-allauth.readthedocs.io/en/latest/forms.html
+# SOCIALACCOUNT_FORMS = {'signup': 'online_furniture_store_backend.users.forms.UserSocialSignupForm'}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------

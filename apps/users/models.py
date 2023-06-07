@@ -3,7 +3,7 @@ from django.db.models import CharField, EmailField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from online_furniture_store_backend.users.managers import UserManager
+from apps.users.managers import UserManager
 
 
 class User(AbstractUser):
@@ -14,14 +14,15 @@ class User(AbstractUser):
     """
 
     # First and last name do not cover name patterns around the globe
-    name = CharField(_('Name of User'), blank=True, max_length=255)
-    first_name = None  # type: ignore
-    last_name = None  # type: ignore
+    # name = CharField(_('Name of User'), blank=True, max_length=255)
+    first_name = CharField('Имя', max_length=50, blank=True)
+    last_name = CharField('Фамилия', max_length=50, blank=True)
     email = EmailField(_('email address'), unique=True)
-    username = None  # type: ignore
+    username = CharField('Имя пользователя', max_length=50, blank=True)
+    phone = CharField('Телефон', max_length=50, unique=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    USERNAME_FIELD = 'phone'
+    REQUIRED_FIELDS = ['email']
 
     objects = UserManager()
 
