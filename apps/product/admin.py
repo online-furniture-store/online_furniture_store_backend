@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 
-from apps.product.models import Categories, Favorite, Materials, Product
+from apps.product.models import Categories, Colors, Favorite, Materials, Product
 
 User = get_user_model()
 
@@ -35,4 +35,12 @@ class FavoriteAdmin(admin.ModelAdmin):
     list_display = ('pk', 'product', 'user')
     search_fields = ('product', 'user')
     list_filter = ('product', 'user')
+    empty_value_display = '-пусто-'
+
+
+@admin.register(Colors)
+class ColorsAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name')
+    search_fields = ('name',)
+    list_filter = ('name',)
     empty_value_display = '-пусто-'

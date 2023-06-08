@@ -9,10 +9,11 @@ if settings.DEBUG:
 else:
     router = SimpleRouter()
 
-router.register('users', UserViewSet)
+router.register('users', UserViewSet, basename='users')
+router.register('colors', ProductViewSet, basename='colors')
 router.register('categories', CategoriesViewSet, basename='categories')
 router.register('materials', MaterialsViewSet, basename='materials')
-router.register(r'product', ProductViewSet, basename='product')
+router.register('products', ProductViewSet, basename='products')
 
 app_name = 'api'
 urlpatterns = router.urls

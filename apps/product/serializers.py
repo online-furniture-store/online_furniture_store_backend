@@ -3,7 +3,7 @@ import base64
 from django.core.files.base import ContentFile
 from rest_framework import serializers
 
-from apps.product.models import Categories, Favorite, Materials, Product
+from apps.product.models import Categories, Colors, Favorite, Materials, Product
 
 
 class Base64ImageField(serializers.ImageField):
@@ -35,14 +35,20 @@ class MaterialsSerializer(serializers.ModelSerializer):
         fields = ['name']
 
 
+class ColorsSerializer(serializers.ModelSerializer):
+    """Сериалайзер для модели Color."""
+
+    class Meta:
+        model = Colors
+        fields = ['name']
+
+
 class ProductSerializer(serializers.ModelSerializer):
     """Сериалайзер для модели Product."""
 
     category = CategoriesSerializer(read_only=True)
     material = MaterialsSerializer(many=True, read_only=True)
-
     image = Base64ImageField(required=True)
-
     is_favorited = serializers.SerializerMethodField(read_only=True)
 
     def is_item_related(self, product, model):

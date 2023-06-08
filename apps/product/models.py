@@ -1,3 +1,4 @@
+from django.core.validators import MaxValueValidator
 from django.db import models
 
 from apps.users.models import User
@@ -30,24 +31,45 @@ class Materials(models.Model):
         return self.name
 
 
+class Colors(models.Model):
+    """Модель цветов товаров в магазине."""
+
+    name = models.CharField(verbose_name='Название цвета', max_length=20, unique=True)
+
+    class Meta:
+        verbose_name = 'Цвет'
+        verbose_name_plural = 'Цвета'
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     """Модель Продуктов(Товаров) магазина"""
 
-    article = models.IntegerField(verbose_name='Артикул', null=False, unique=True)
+    article = models.PositiveIntegerField(verbose_name='Артикул', null=False, unique=True)
     name = models.CharField(verbose_name='Название', max_length=20, unique=True)
-    width = models.IntegerField(verbose_name='Ширина, см', null=False)
-    height = models.IntegerField(verbose_name='Высота, см', null=False)
-    length = models.IntegerField(verbose_name='Длина, см', null=False)
-    weight = models.IntegerField(verbose_name='Вес, кг', null=False)
-    color = models.CharField(verbose_name='Цвет')
+    width = models.PositiveSmallIntegerField(
+        verbose_name='Ширина, см', validators=[MaxValueValidator(15000)], null=False
+    )
+    height = models.PositiveSmallIntegerField(
+        verbose_name='Высота, см', validators=[MaxValueValidator(15000)], null=False
+    )
+    length = models.PositiveSmallIntegerField(
+        verbose_name='Длина, см', validators=[MaxValueValidator(15000)], null=False
+    )
+    weight = models.PositiveSmallIntegerField(verbose_name='Вес, кг', validators=[MaxValueValidator(500)], null=False)
+    color = models.ForeignKey(Colors, verbose_name='Цвет', on_delete=models.CASCADE, related_name='color')
     image = models.ImageField(verbose_name='Фотография продукта', upload_to='')
-    material = models.ManyToManyField(Materials)
+    material = models.ManyToManyField(Materials, related_name='material')
     country = models.CharField(verbose_name='Страна-производитель')
     brand = models.CharField(verbose_name='Бренд', null=True)
     warranty = models.IntegerField(verbose_name='Гарантия , лет', null=True)
     price = models.DecimalField(verbose_name='Цена', null=False, max_digits=10, decimal_places=2)
     description = models.CharField(verbose_name='Описание', null=False)
-    category = models.ForeignKey(Categories, verbose_name='Категория', on_delete=models.CASCADE, null=False)
+    category = models.ForeignKey(
+        Categories, verbose_name='Категория', on_delete=models.CASCADE, related_name='category', null=False
+    )
 
     class Meta:
         verbose_name = 'Товар'

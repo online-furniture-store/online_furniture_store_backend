@@ -2,18 +2,19 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-from apps.product.models import Categories, Favorite, Materials, Product
+from apps.product.models import Categories, Colors, Favorite, Materials, Product
 from apps.product.serializers import (
     CategoriesSerializer,
+    ColorsSerializer,
     MaterialsSerializer,
     ProductSerializer,
     ShortProductSerializer,
 )
 
 
-class CategoriesViewSet(ModelViewSet):
+class CategoriesViewSet(ReadOnlyModelViewSet):
     """Вьюсет для категорий товаров."""
 
     queryset = Categories.objects.all()
@@ -22,11 +23,20 @@ class CategoriesViewSet(ModelViewSet):
     http_method_names = ['get']
 
 
-class MaterialsViewSet(ModelViewSet):
+class MaterialsViewSet(ReadOnlyModelViewSet):
     """Вьюсет для материалов товаров."""
 
     queryset = Materials.objects.all()
     serializer_class = MaterialsSerializer
+    ordering_fields = ['name']
+    http_method_names = ['get']
+
+
+class ColorsViewSet(ReadOnlyModelViewSet):
+    """Вьюсет для материалов товаров."""
+
+    queryset = Colors.objects.all()
+    serializer_class = ColorsSerializer
     ordering_fields = ['name']
     http_method_names = ['get']
 
@@ -47,6 +57,5 @@ class ProductViewSet(ModelViewSet):
             serializer.is_valid(raise_exception=True)
             Favorite.objects.get_or_create(user=request.user, product=product)
             return Response(serializer.data, status=HTTP_201_CREATED)
-        elif request.method == 'DELETE':
-            get_object_or_404(Favorite, user=request.user, product=product).delete()
-            return Response(status=HTTP_204_NO_CONTENT)
+        get_object_or_404(Favorite, user=request.user, product=product).delete()
+        return Response(status=HTTP_204_NO_CONTENT)
