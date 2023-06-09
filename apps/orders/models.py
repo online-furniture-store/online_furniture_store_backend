@@ -88,5 +88,6 @@ class Storehouse(models.Model):
 #                          name='unique_products')
 #     ]
 
+
 # def __str__(self):
 #     return f'{self.product} --> {self.amount}'
