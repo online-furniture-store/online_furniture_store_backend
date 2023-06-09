@@ -53,9 +53,9 @@ class Product(models.Model):
     height = models.PositiveSmallIntegerField(verbose_name='Высота, см', validators=[MaxValueValidator(15000)])
     length = models.PositiveSmallIntegerField(verbose_name='Длина, см', validators=[MaxValueValidator(15000)])
     weight = models.PositiveSmallIntegerField(verbose_name='Вес, кг', validators=[MaxValueValidator(500)])
-    color = models.ForeignKey(Color, verbose_name='Цвет', on_delete=models.CASCADE, related_name='colors')
+    color = models.ForeignKey(Color, verbose_name='Цвет', on_delete=models.CASCADE, related_name='products')
     image = models.ImageField(verbose_name='Фотография продукта', upload_to='')
-    material = models.ManyToManyField(Material, related_name='materials')
+    material = models.ManyToManyField(Material, related_name='products')
     country = models.CharField(verbose_name='Страна-производитель', max_length=40)
     brand = models.CharField(verbose_name='Бренд', null=True, max_length=100)
     warranty = models.PositiveSmallIntegerField(
@@ -63,9 +63,7 @@ class Product(models.Model):
     )
     price = models.DecimalField(verbose_name='Цена', null=False, max_digits=10, decimal_places=2)
     description = models.CharField(verbose_name='Описание')
-    category = models.ForeignKey(
-        Category, verbose_name='Категория', on_delete=models.CASCADE, related_name='categories'
-    )
+    category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE, related_name='products')
 
     class Meta:
         verbose_name = 'Товар'
