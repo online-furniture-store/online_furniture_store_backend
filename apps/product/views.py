@@ -4,41 +4,38 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-from apps.product.models import Categories, Colors, Favorite, Materials, Product
+from apps.product.models import Category, Color, Favorite, Material, Product
 from apps.product.serializers import (
-    CategoriesSerializer,
-    ColorsSerializer,
-    MaterialsSerializer,
+    CategorySerializer,
+    ColorSerializer,
+    MaterialSerializer,
     ProductSerializer,
     ShortProductSerializer,
 )
 
 
-class CategoriesViewSet(ReadOnlyModelViewSet):
+class CategoryViewSet(ReadOnlyModelViewSet):
     """Вьюсет для категорий товаров."""
 
-    queryset = Categories.objects.all()
-    serializer_class = CategoriesSerializer
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
     lookup_field = 'slug'
-    http_method_names = ['get']
 
 
-class MaterialsViewSet(ReadOnlyModelViewSet):
+class MaterialViewSet(ReadOnlyModelViewSet):
     """Вьюсет для материалов товаров."""
 
-    queryset = Materials.objects.all()
-    serializer_class = MaterialsSerializer
+    queryset = Material.objects.all()
+    serializer_class = MaterialSerializer
     ordering_fields = ['name']
-    http_method_names = ['get']
 
 
-class ColorsViewSet(ReadOnlyModelViewSet):
+class ColorViewSet(ReadOnlyModelViewSet):
     """Вьюсет для материалов товаров."""
 
-    queryset = Colors.objects.all()
-    serializer_class = ColorsSerializer
+    queryset = Color.objects.all()
+    serializer_class = ColorSerializer
     ordering_fields = ['name']
-    http_method_names = ['get']
 
 
 class ProductViewSet(ModelViewSet):

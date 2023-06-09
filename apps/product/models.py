@@ -4,7 +4,7 @@ from django.db import models
 from apps.users.models import User
 
 
-class Categories(models.Model):
+class Category(models.Model):
     """Модель категорий товаров в магазине."""
 
     name = models.CharField(verbose_name='Название категории', max_length=20, unique=True)
@@ -18,7 +18,7 @@ class Categories(models.Model):
         return self.name
 
 
-class Materials(models.Model):
+class Material(models.Model):
     """Модель материалов товаров в магазине."""
 
     name = models.CharField(verbose_name='Название материала', max_length=20, unique=True)
@@ -31,7 +31,7 @@ class Materials(models.Model):
         return self.name
 
 
-class Colors(models.Model):
+class Color(models.Model):
     """Модель цветов товаров в магазине."""
 
     name = models.CharField(verbose_name='Название цвета', max_length=20, unique=True)
@@ -47,28 +47,24 @@ class Colors(models.Model):
 class Product(models.Model):
     """Модель Продуктов(Товаров) магазина"""
 
-    article = models.PositiveIntegerField(verbose_name='Артикул', null=False, unique=True)
+    article = models.PositiveIntegerField(verbose_name='Артикул', unique=True)
     name = models.CharField(verbose_name='Название', max_length=20, unique=True)
-    width = models.PositiveSmallIntegerField(
-        verbose_name='Ширина, см', validators=[MaxValueValidator(15000)], null=False
-    )
-    height = models.PositiveSmallIntegerField(
-        verbose_name='Высота, см', validators=[MaxValueValidator(15000)], null=False
-    )
-    length = models.PositiveSmallIntegerField(
-        verbose_name='Длина, см', validators=[MaxValueValidator(15000)], null=False
-    )
-    weight = models.PositiveSmallIntegerField(verbose_name='Вес, кг', validators=[MaxValueValidator(500)], null=False)
-    color = models.ForeignKey(Colors, verbose_name='Цвет', on_delete=models.CASCADE, related_name='color')
+    width = models.PositiveSmallIntegerField(verbose_name='Ширина, см', validators=[MaxValueValidator(15000)])
+    height = models.PositiveSmallIntegerField(verbose_name='Высота, см', validators=[MaxValueValidator(15000)])
+    length = models.PositiveSmallIntegerField(verbose_name='Длина, см', validators=[MaxValueValidator(15000)])
+    weight = models.PositiveSmallIntegerField(verbose_name='Вес, кг', validators=[MaxValueValidator(500)])
+    color = models.ForeignKey(Color, verbose_name='Цвет', on_delete=models.CASCADE, related_name='colors')
     image = models.ImageField(verbose_name='Фотография продукта', upload_to='')
-    material = models.ManyToManyField(Materials, related_name='material')
-    country = models.CharField(verbose_name='Страна-производитель')
-    brand = models.CharField(verbose_name='Бренд', null=True)
-    warranty = models.IntegerField(verbose_name='Гарантия , лет', null=True)
+    material = models.ManyToManyField(Material, related_name='materials')
+    country = models.CharField(verbose_name='Страна-производитель', max_length=40)
+    brand = models.CharField(verbose_name='Бренд', null=True, max_length=100)
+    warranty = models.PositiveSmallIntegerField(
+        verbose_name='Гарантия , лет', null=True, validators=[MaxValueValidator(100)]
+    )
     price = models.DecimalField(verbose_name='Цена', null=False, max_digits=10, decimal_places=2)
-    description = models.CharField(verbose_name='Описание', null=False)
+    description = models.CharField(verbose_name='Описание')
     category = models.ForeignKey(
-        Categories, verbose_name='Категория', on_delete=models.CASCADE, related_name='category', null=False
+        Category, verbose_name='Категория', on_delete=models.CASCADE, related_name='categories'
     )
 
     class Meta:
