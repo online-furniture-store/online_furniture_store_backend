@@ -67,6 +67,7 @@ THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'corsheaders',
 
 LOCAL_APPS = [
     'apps.users',
+    'apps.product',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -127,7 +128,7 @@ STATIC_ROOT = '/var/www/django/static'
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(APPS_DIR / 'static')]
+STATICFILES_DIRS = ['static']
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -137,7 +138,7 @@ STATICFILES_FINDERS = [
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APPS_DIR / 'media')
+MEDIA_ROOT = 'media'
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = '/media/'
 
@@ -244,3 +245,4 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+ADMIN_EMPTY_VALUE_DISPLAY = '--пусто--'

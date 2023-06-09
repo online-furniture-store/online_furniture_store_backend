@@ -5,7 +5,7 @@ whitenoise==6.4.0  # https://github.com/evansd/whitenoise
 redis==4.5.5  # https://github.com/redis/redis-py
 hiredis==2.2.3  # https://github.com/redis/hiredis-py
 uvicorn[standard]==0.22.0  # https://github.com/encode/uvicorn
-
+drf-extra-fields == 3.5.0
 # Django
 # ------------------------------------------------------------------------------
 django==4.2.2  # pyup: < 4.2  # https://www.djangoproject.com/
