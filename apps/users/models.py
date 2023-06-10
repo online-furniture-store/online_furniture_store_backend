@@ -1,12 +1,9 @@
 from django.contrib.auth.models import AbstractUser
-from django.db.models import CharField, DateField, DateTimeField, EmailField
-from django.urls import reverse
-from django.utils import timezone
+from django.db.models import CharField, DateField, EmailField
 from django.utils.translation import gettext_lazy as _
 
 from apps.users.managers import UserManager
-
-GENDER = ['мужской', 'женский']
+from apps.users.validators import validate_phone
 
 
 class User(AbstractUser):
@@ -14,21 +11,18 @@ class User(AbstractUser):
     Кастомная модель пользоввателя
     """
 
-    first_name = CharField('Имя', max_length=20, blank=True)
+    MAN = 'M'
+    WOMAN = 'W'
+    GENDER = [(MAN, 'мужской'), (WOMAN, 'женский')]
+
+    phone = CharField('Телефон', validators=(validate_phone,), max_length=30, unique=True)
+    first_name = CharField('Имя', max_length=30, blank=True)
     last_name = CharField('Фамилия', max_length=50, blank=True)
     email = EmailField(_('Email'), unique=True)
-    phone = CharField('Телефон', max_length=50, unique=True)
-    gender = CharField('Пол', max_length=10, default=GENDER[0])
+    gender = CharField('Пол', max_length=30, choices=GENDER, default=GENDER[0])
     birthday = DateField('День рождения', blank=True, null=True)
-    date_joined = DateTimeField(default=timezone.now)
 
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = []
 
     objects = UserManager()
-
-    def get_absolute_url(self) -> str:
-        """
-        Профиль пользователя
-        """
-        return reverse('users:detail', kwargs={'pk': self.id})
