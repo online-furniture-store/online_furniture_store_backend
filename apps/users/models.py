@@ -16,10 +16,10 @@ class User(AbstractUser):
     GENDER = [(MAN, 'мужской'), (WOMAN, 'женский')]
 
     phone = CharField('Телефон', validators=(validate_phone,), max_length=30, unique=True)
-    first_name = CharField('Имя', max_length=30, blank=True)
-    last_name = CharField('Фамилия', max_length=50, blank=True)
+    first_name = CharField('Имя', max_length=30, blank=True, null=True)
+    last_name = CharField('Фамилия', max_length=50, blank=True, null=True)
     email = EmailField(_('Email'), unique=True)
-    gender = CharField('Пол', max_length=30, choices=GENDER, default=GENDER[0])
+    gender = CharField('Пол', max_length=30, choices=GENDER, default=GENDER[0][1])
     birthday = DateField('День рождения', blank=True, null=True)
 
     USERNAME_FIELD = 'phone'
