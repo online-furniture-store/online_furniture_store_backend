@@ -5,8 +5,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views import defaults as default_views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from rest_framework.authtoken import views
-from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 
 from apps.users.views import UserViewSet
@@ -14,13 +12,9 @@ from apps.users.views import UserViewSet
 router = DefaultRouter()
 router.register('users', UserViewSet, basename='users')
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-    path('api-token-auth/', views.obtain_auth_token),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = [path('admin/', admin.site.urls), path('', include(router.urls))] + static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+)
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
@@ -30,7 +24,8 @@ urlpatterns += [
     # API base url
     path('api/', include('config.api_router')),
     # DRF auth token
-    path('auth-token/', obtain_auth_token),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.jwt')),
     path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'), name='api-docs'),
 ]

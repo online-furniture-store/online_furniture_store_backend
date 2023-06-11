@@ -19,7 +19,7 @@ class User(AbstractUser):
     first_name = CharField('Имя', max_length=30, blank=True, null=True)
     last_name = CharField('Фамилия', max_length=50, blank=True, null=True)
     email = EmailField(_('Email'), unique=True)
-    gender = CharField('Пол', max_length=30, choices=GENDER, default=GENDER[0][1])
+    gender = CharField('Пол', max_length=30, choices=GENDER, default=GENDER[0][0])
     birthday = DateField('День рождения', blank=True, null=True)
 
     USERNAME_FIELD = 'phone'
