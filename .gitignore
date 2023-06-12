@@ -279,3 +279,6 @@ online_furniture_store_backend/media/
 .env
 .envs/*
 !.envs/.local/
+
+# .idea
+.idea
