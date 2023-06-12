@@ -1,6 +1,7 @@
 
-# define an alias for the specific python version used in this file.
-FROM python:3.11.4-slim-bullseye as python
+
+# define an alias for the specfic python version used in this file.
+FROM python:3.11.3-slim-bullseye as python
 
 # Python build stage
 FROM python as python-build-stage
@@ -25,8 +26,10 @@ RUN pip wheel --wheel-dir /usr/src/app/wheels  \
 # Python 'run' stage
 FROM python as python-run-stage
 
-ARG BUILD_ENVIRONMENT=production
-ARG APP_HOME=/app
+ARG BUILD_ENVIRONMENT=production \
+  UID=1000 \
+  GID=1000 \
+  APP_HOME=/app
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -34,8 +37,15 @@ ENV BUILD_ENV ${BUILD_ENVIRONMENT}
 
 WORKDIR ${APP_HOME}
 
-RUN addgroup --system django \
-    && adduser --system --ingroup django django
+# RUN addgroup --system django \
+#     && adduser --system --ingroup django django
+
+RUN groupadd -g "${GID}" -r django \
+  && useradd -d ${APP_HOME} -g django -l -r -u "${UID}" django \
+  && chown django:django -R ${APP_HOME} \
+  # Static and media files:
+  && mkdir -p '/var/www/django/static' '/var/www/django/media' \
+  && chown django:django '/var/www/django/static' '/var/www/django/media'
 
 
 # Install required system dependencies
@@ -57,12 +67,12 @@ RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* \
   && rm -rf /wheels/
 
 
-COPY --chown=django:django ./compose/production/django/entrypoint /entrypoint
+COPY --chown=django:django ./compose/dev_prod/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
 RUN chmod +x /entrypoint
 
 
-COPY --chown=django:django ./compose/production/django/start /start
+COPY --chown=django:django ./compose/dev_prod/django/start /start
 RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
 

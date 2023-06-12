@@ -76,8 +76,11 @@ THIRD_PARTY_APPS = [
     'drf_spectacular',
 ]
 
-LOCAL_APPS = ['apps.users']
-
+LOCAL_APPS = [
+    'apps.users',
+    'apps.product',
+]
+# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # AUTHENTICATION
@@ -131,11 +134,11 @@ MIDDLEWARE = [
 # STATIC
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+STATIC_ROOT = '/var/www/django/static'
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(APPS_DIR / 'static')]
+STATICFILES_DIRS = ['static']
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -145,7 +148,7 @@ STATICFILES_FINDERS = [
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APPS_DIR / 'media')
+MEDIA_ROOT = 'media'
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = '/media/'
 
@@ -226,27 +229,6 @@ LOGGING = {
     'root': {'level': 'INFO', 'handlers': ['console']},
 }
 
-# django-allauth
-# ------------------------------------------------------------------------------
-ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_REQUIRED = True
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_USERNAME_REQUIRED = False
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-# ACCOUNT_ADAPTER = 'online_furniture_store_backend.users.adapters.AccountAdapter'
-# # https://django-allauth.readthedocs.io/en/latest/forms.html
-# ACCOUNT_FORMS = {'signup': 'online_furniture_store_backend.users.forms.UserSignupForm'}
-# # https://django-allauth.readthedocs.io/en/latest/configuration.html
-# SOCIALACCOUNT_ADAPTER = 'online_furniture_store_backend.users.adapters.SocialAccountAdapter'
-# # https://django-allauth.readthedocs.io/en/latest/forms.html
-# SOCIALACCOUNT_FORMS = {'signup': 'online_furniture_store_backend.users.forms.UserSocialSignupForm'}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------
@@ -272,3 +254,5 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=100),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+ADMIN_EMPTY_VALUE_DISPLAY = '--пусто--'
