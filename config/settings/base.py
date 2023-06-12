@@ -60,6 +60,7 @@ DJANGO_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # "django.contrib.humanize", # Handy template tags
     'django.contrib.admin',
     'django.forms',
 ]
@@ -76,7 +77,7 @@ THIRD_PARTY_APPS = [
     'drf_spectacular',
 ]
 
-LOCAL_APPS = ['apps.users', 'apps.product']
+LOCAL_APPS = ['apps.users', 'apps.product', 'apps.feedbacks']
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -239,6 +240,8 @@ REST_FRAMEWORK = {
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
 CORS_URLS_REGEX = r'^/api/.*$'
 
+# By Default swagger ui is available only to admin user(s). You can change permission classes to change that
+# See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
 SPECTACULAR_SETTINGS = {
     'TITLE': 'online-furniture-store-backend API',
     'DESCRIPTION': 'Documentation of API endpoints of online-furniture-store-backend',
