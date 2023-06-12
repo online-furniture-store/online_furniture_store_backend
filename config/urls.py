@@ -6,9 +6,9 @@ from django.urls import include, path
 from django.views import defaults as default_views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
-urlpatterns = [
-    path(settings.ADMIN_URL, admin.site.urls)
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = [path(settings.ADMIN_URL, admin.site.urls)] + static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+)
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
