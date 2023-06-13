@@ -1,6 +1,3 @@
-"""
-Base settings to build other settings files upon.
-"""
 from datetime import timedelta
 from pathlib import Path
 
@@ -26,7 +23,7 @@ DEBUG = env.bool('DJANGO_DEBUG', False)
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = 'UTC'
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -63,18 +60,7 @@ DJANGO_APPS = [
     'django.contrib.admin',
     'django.forms',
 ]
-THIRD_PARTY_APPS = [
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'djoser',
-    'corsheaders',
-    'drf_spectacular',
-]
+THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'djoser', 'corsheaders', 'drf_spectacular']
 
 LOCAL_APPS = ['apps.users', 'apps.product']
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -179,9 +165,6 @@ TEMPLATES = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
 FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
-# http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
-CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 
 # FIXTURES
 # ------------------------------------------------------------------------------
@@ -243,7 +226,8 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'online-furniture-store-backend API',
     'DESCRIPTION': 'Documentation of API endpoints of online-furniture-store-backend',
     'VERSION': '1.0.0',
-    'SERVE_PERMISSIONS': ['rest_framework.permissions.IsAdminUser'],
+    'SERVE_PERMISSIONS': ['rest_framework.permissions.IsAuthenticated'],
+    'SERVE_AUTHENTICATION': ['rest_framework.authentication.SessionAuthentication'],
 }
 
 SIMPLE_JWT = {
