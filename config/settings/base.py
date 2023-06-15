@@ -62,7 +62,7 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'djoser', 'corsheaders', 'drf_spectacular']
 
-LOCAL_APPS = ['apps.users', 'apps.product', 'apps.feedbacks']
+LOCAL_APPS = ['apps.users', 'apps.product', 'apps.reviews']
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
