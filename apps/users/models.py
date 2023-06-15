@@ -14,23 +14,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     Кастомная модель пользоввателя
     """
 
-    MAN = 'M'
-    WOMAN = 'W'
-    GENDER = [(MAN, 'мужской'), (WOMAN, 'женский')]
-
     email = EmailField('Email', validators=(validate_email,), unique=True)
     phone = CharField('Телефон', validators=(validate_phone,), max_length=30)
     first_name = CharField('Имя', max_length=30, blank=True, null=True)
     last_name = CharField('Фамилия', max_length=50, blank=True, null=True)
-    gender = CharField('Пол', max_length=30, choices=GENDER,
-                       default=GENDER[0][0])
     birthday = DateField('День рождения', blank=True, null=True)
     date_joined = models.DateTimeField('Дата создания', default=timezone.now)
     is_staff = models.BooleanField('Статус пользователя', default=False)
-    is_active = models.BooleanField(
-        'Активен',
-        default=True,
-    )
+    is_active = models.BooleanField('Активен', default=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
