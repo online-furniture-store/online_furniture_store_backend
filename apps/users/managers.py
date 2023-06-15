@@ -13,7 +13,6 @@ class UserManager(DjangoUserManager):
             raise ValueError('Необходим email.')
         user = self.model(email=email, **extra_fields)
         user.password = make_password(password)
-        user.username = None
         user.save(using=self._db)
         return user
 
