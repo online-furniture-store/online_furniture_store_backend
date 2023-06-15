@@ -273,6 +273,7 @@ dump.rdb
 
 ### Project template
 online_furniture_store_backend/media/
+media/*
 
 .pytest_cache/
 .ipython/
@@ -282,3 +283,6 @@ online_furniture_store_backend/media/
 
 # .idea
 .idea
+
+# vscode
+.vscode
