@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
+from django.core.validators import MinValueValidator
 from django.db import models
-from django.db.models import UniqueConstraint
 
 from apps.product.models import Product
 
@@ -16,14 +16,22 @@ class DeliveryMethod(models.Model):
         verbose_name = 'Способ доставки'
         verbose_name_plural = 'Способы  доставки'
 
+    def __str__(self):
+        return f'{self.name}'
+
 
 class Delivery(models.Model):
     """Модель доставки"""
 
+    # TODO поле user
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='delivery',verbose_name='Клиент')
     adres = models.CharField(max_length=200, verbose_name='Адрес')
     phone = models.CharField(max_length=12, verbose_name='Телефон')
-    type_delivery = models.ForeignKey(DeliveryMethod, verbose_name='Доставка', on_delete=models.PROTECT)
+    type_delivery = models.ForeignKey(
+        DeliveryMethod, related_name='delivery', verbose_name='Доставка', on_delete=models.PROTECT
+    )
     created = models.DateTimeField(verbose_name='Дата оформления', auto_now_add=True)
+    updated = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
 
     class Meta:
         verbose_name = 'Доставка'
@@ -36,58 +44,56 @@ class Delivery(models.Model):
 class Orders(models.Model):
     """Модель заказов"""
 
-    number = models.AutoField(verbose_name='Номер заказа', primary_key=True)
+    # TODO поле user
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders',verbose_name='Клиент')
     created = models.DateTimeField(verbose_name='Дата заказа', auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders', verbose_name='Клиент')
-    products = models.ManyToManyField(Product, through='ProductsOrder', verbose_name='Товар')
-    total = models.DecimalField(max_digits=50, decimal_places=2, verbose_name='Стоимость')
-    delivery = models.ManyToManyField(
-        Delivery, through='Delivery_order', related_name='delivery', verbose_name='Доставка'
+    updated = models.DateTimeField(verbose_name='Дата обновления заказа', auto_now=True)
+    products = models.ManyToManyField(Product, through='OrderProduct', verbose_name='Товар')
+    delivery = models.ForeignKey(
+        Delivery, related_name='order_delivery', verbose_name='Доставка', on_delete=models.PROTECT
     )
+    paid = models.BooleanField(default=False)
+    total_cost = models.DecimalField(max_digits=40, decimal_places=2, null=True, blank=True)
 
     class Meta:
+        ordering = ('-created',)
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
 
     def __str__(self):
-        return f'{self.number}'
+        return f'Order {self.id}'
 
 
-class ProductsOrder(models.Model):
+class OrderProduct(models.Model):
     """Модель продукты/заказ"""
 
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Товар')
-    amount = models.PositiveIntegerField(verbose_name='Колличество')
-    order = models.ForeignKey(Orders, on_delete=models.CASCADE, verbose_name='Заказ')
+    order = models.ForeignKey(Orders, on_delete=models.CASCADE, verbose_name='Заказ', related_name='items')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Товар', related_name='order_item')
+    quantity = models.PositiveIntegerField(verbose_name='Колличество', default=1)
+    price = models.DecimalField(max_digits=20, decimal_places=2)
+    cost = models.DecimalField(max_digits=40, decimal_places=2, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Товар в заказе'
         verbose_name_plural = 'Товары в заказе'
 
+    def __str__(self):
+        return f'{self.id}'
 
-class DeliveryOrder(models.Model):
-    """Модель заказ/доставка"""
-
-    order = models.ForeignKey(Orders, on_delete=models.CASCADE, verbose_name='Заказ')
-    delivery = models.ForeignKey(Delivery, on_delete=models.PROTECT, verbose_name='Доставка')
-
-    class Meta:
-        verbose_name = 'Доставка'
-        constraints = [UniqueConstraint(fields=['order', 'delivery'], name='unique_delivery')]
+    def save(self, *args, **kwargs):
+        self.cost = self.order_item.price * self.quantity
+        return super().save(*args, **kwargs)
 
 
 class Storehouse(models.Model):
-    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE)
-    amount = models.IntegerField()
+    product = models.OneToOneField(Product, verbose_name='Товар', on_delete=models.CASCADE, related_name='storehouse')
+    quantity = models.PositiveIntegerField(
+        validators=[MinValueValidator(limit_value=0, message='Минимальное количество 1!')]
+    )
 
+    class Meta:
+        verbose_name = 'Склад'
+        verbose_name_plural = 'Склад'
 
-# class Meta:
-#     verbose_name = 'Склад'
-#     constraints = [
-#         UniqueConstraint(fields=['product', 'amount'],
-#                          name='unique_products')
-#     ]
-
-
-# def __str__(self):
-#     return f'{self.product} --> {self.amount}'
+    def __str__(self):
+        return f'{self.product} ---> {self.quantity}'
