@@ -59,6 +59,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.forms',
+    'import_export',
 ]
 THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'djoser', 'corsheaders', 'drf_spectacular']
 
@@ -71,7 +72,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    # 'allauth.account.auth_backends.AuthenticationBackend',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = 'users.User'
