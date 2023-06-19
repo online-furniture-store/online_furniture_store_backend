@@ -1,7 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from apps.product.models import Product
-from apps.users.models import User
+
+User = get_user_model()
 
 
 class Review(models.Model):
