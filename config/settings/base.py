@@ -63,17 +63,15 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'djoser', 'corsheaders', 'drf_spectacular']
 
-LOCAL_APPS = ['apps.users', 'apps.product']
+LOCAL_APPS = ['apps.users', 'apps.product', 'apps.reviews']
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    # 'allauth.account.auth_backends.AuthenticationBackend',
-]
+
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = 'users.User'
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
@@ -223,6 +221,8 @@ REST_FRAMEWORK = {
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
 CORS_URLS_REGEX = r'^/api/.*$'
 
+# By Default swagger ui is available only to admin user(s). You can change permission classes to change that
+# See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
 SPECTACULAR_SETTINGS = {
     'TITLE': 'online-furniture-store-backend API',
     'DESCRIPTION': 'Documentation of API endpoints of online-furniture-store-backend',
