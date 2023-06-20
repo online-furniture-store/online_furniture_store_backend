@@ -1,7 +1,7 @@
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
 
-from apps.product.models import Category, Color, Favorite, Material, Product
+from apps.product.models import Category, Color, Discount, Favorite, FurnitureDetails, Material, Product
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -28,11 +28,27 @@ class ColorSerializer(serializers.ModelSerializer):
         fields = ['name']
 
 
+class FurnitureDetailsSerializer(serializers.ModelSerializer):
+    """Сериалайзер для модели Color."""
+
+    class Meta:
+        model = FurnitureDetails
+        fields = '__all__'
+
+
+class DiscountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Discount
+        fields = ['discount']
+
+
 class ProductSerializer(serializers.ModelSerializer):
     """Сериалайзер для модели Product."""
 
     category = CategorySerializer(read_only=True)
+    furniture_details = FurnitureDetailsSerializer(read_only=True)
     material = MaterialSerializer(many=True, read_only=True)
+    discount = DiscountSerializer(read_only=True)
     image = Base64ImageField(required=True)
     is_favorited = serializers.SerializerMethodField(read_only=True)
 
@@ -48,7 +64,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
-        read_only_fields = ('material', 'category', 'is_favorited')
+        read_only_fields = ('material', 'category', 'purpose', 'is_favorited', 'furniture_details')
 
 
 class ShortProductSerializer(serializers.ModelSerializer):
