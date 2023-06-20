@@ -11,13 +11,14 @@ drf-extra-fields == 3.5.0
 django==4.2.2  # pyup: < 4.2  # https://www.djangoproject.com/
 django-environ==0.10.0  # https://github.com/joke2k/django-environ
 django-model-utils==4.3.1  # https://github.com/jazzband/django-model-utils
+django-import-export==3.2.0 # https://github.com/django-import-export/django-import-export/
 django-redis==5.3.0  # https://github.com/jazzband/django-redis
 
 # Django REST Framework
 djangorestframework==3.14.0  # https://github.com/encode/django-rest-framework
 django-cors-headers==4.1.0  # https://github.com/adamchainz/django-cors-headers
-djoser==2.2.0 #https://github.com/sunscrapers/djoser
-djangorestframework_simplejwt==5.2.2 #https://github.com/jazzband/djangorestframework-simplejwt
+djoser==2.2.0 # https://github.com/sunscrapers/djoser
+djangorestframework_simplejwt==5.2.2 # https://github.com/jazzband/djangorestframework-simplejwt
 
 # DRF-spectacular for api documentation
 drf-spectacular==0.26.2  # https://github.com/tfranzel/drf-spectacular

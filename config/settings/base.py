@@ -60,7 +60,14 @@ DJANGO_APPS = [
     'django.contrib.admin',
     'django.forms',
 ]
-THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'djoser', 'corsheaders', 'drf_spectacular']
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
+    'corsheaders',
+    'drf_spectacular',
+    'import_export',
+]
 
 LOCAL_APPS = ['apps.users', 'apps.product', 'apps.reviews']
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

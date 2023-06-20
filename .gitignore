@@ -152,17 +152,9 @@ typings/
 
 ### VisualStudioCode template
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
 
 # Local History for Visual Studio Code
 .history/
-
-
-
 
 
 ### Windows template
@@ -228,10 +220,6 @@ Temporary Items
 # Workspace files are user-specific
 *.sublime-workspace
 
-# Project files should be checked into the repository, unless a significant
-# proportion of contributors will probably not be using Sublime Text
-# *.sublime-project
-
 # SFTP configuration file
 sftp-config.json
 
@@ -283,6 +271,3 @@ media/*
 
 # .idea
 .idea
-
-# vscode
-.vscode
