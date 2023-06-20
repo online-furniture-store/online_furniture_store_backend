@@ -60,7 +60,6 @@ class ProductViewSet(ModelViewSet):
     @action(detail=False)
     def popular(self, request):
         popular_products = Product.objects.all()[:6]  # Пока нет моделей заказов
-        print(popular_products)
         # popular_products = (
         #     OrderProduct.objects
         #     .values('product__pk')
@@ -68,5 +67,4 @@ class ProductViewSet(ModelViewSet):
         #     .order_by(quantity__sum)[:6]
         # )
         serializer = ShortProductSerializer(popular_products, many=True)
-        print(serializer.data)
         return Response(serializer.data)
