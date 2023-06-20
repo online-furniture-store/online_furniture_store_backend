@@ -54,7 +54,9 @@ class Product(models.Model):
     length = models.PositiveSmallIntegerField(verbose_name='Длина, см', validators=[MaxValueValidator(15000)])
     weight = models.PositiveSmallIntegerField(verbose_name='Вес, кг', validators=[MaxValueValidator(500)])
     color = models.ForeignKey(Color, verbose_name='Цвет', on_delete=models.CASCADE, related_name='products')
-    # image = models.ImageField(verbose_name='Фотография продукта', upload_to='')
+    image = models.ImageField(
+        verbose_name='Фотография продукта', upload_to='products/', default='products/noimage_detail.png'
+    )
     material = models.ManyToManyField(Material, related_name='products')
     country = models.CharField(verbose_name='Страна-производитель', max_length=40)
     brand = models.CharField(verbose_name='Бренд', null=True, max_length=100)
