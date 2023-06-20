@@ -243,3 +243,5 @@ SIMPLE_JWT = {
 }
 
 ADMIN_EMPTY_VALUE_DISPLAY = '--пусто--'
+
+CART_SESSION_ID = 'cart'
