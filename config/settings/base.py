@@ -1,6 +1,4 @@
-"""
-Base settings to build other settings files upon.
-"""
+from datetime import timedelta
 from pathlib import Path
 
 import environ
@@ -25,7 +23,7 @@ DEBUG = env.bool('DJANGO_DEBUG', False)
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = 'UTC'
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -59,28 +57,27 @@ DJANGO_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # "django.contrib.humanize", # Handy template tags
     'django.contrib.admin',
     'django.forms',
 ]
-THIRD_PARTY_APPS = ['rest_framework', 'rest_framework.authtoken', 'corsheaders', 'drf_spectacular']
-
-LOCAL_APPS = [
-    'apps.users',
-    'apps.product',
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
+    'corsheaders',
+    'drf_spectacular',
+    'import_export',
     'apps.orders',
-    # Your stuff: custom apps go here
 ]
+
+LOCAL_APPS = ['apps.users', 'apps.product', 'apps.reviews']
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = 'users.User'
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
@@ -173,9 +170,6 @@ TEMPLATES = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
 FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
-# http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
-CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 
 # FIXTURES
 # ------------------------------------------------------------------------------
@@ -225,10 +219,7 @@ LOGGING = {
 # -------------------------------------------------------------------------------
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
@@ -242,8 +233,16 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'online-furniture-store-backend API',
     'DESCRIPTION': 'Documentation of API endpoints of online-furniture-store-backend',
     'VERSION': '1.0.0',
-    'SERVE_PERMISSIONS': ['rest_framework.permissions.IsAdminUser'],
+    'SERVE_PERMISSIONS': ['rest_framework.permissions.IsAuthenticated'],
+    'SERVE_AUTHENTICATION': ['rest_framework.authentication.SessionAuthentication'],
 }
-# Your stuff...
-# ------------------------------------------------------------------------------
+
+SIMPLE_JWT = {
+    # Устанавливаем срок жизни токена
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=100),
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
 ADMIN_EMPTY_VALUE_DISPLAY = '--пусто--'
+
+CART_SESSION_ID = 'cart'

@@ -5,12 +5,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views import defaults as default_views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from rest_framework.authtoken.views import obtain_auth_token
 
-urlpatterns = [
-    # Django Admin, use {% url 'admin:index' %}
-    path(settings.ADMIN_URL, admin.site.urls)
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = [path(settings.ADMIN_URL, admin.site.urls)] + static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+)
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
@@ -20,7 +18,8 @@ urlpatterns += [
     # API base url
     path('api/', include('config.api_router')),
     # DRF auth token
-    path('auth-token/', obtain_auth_token),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.jwt')),
     path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'), name='api-docs'),
 ]

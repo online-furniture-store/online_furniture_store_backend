@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
-from django.utils.translation import gettext_lazy as _
 
 from apps.users.forms import UserAdminChangeForm, UserAdminCreationForm
 
@@ -14,11 +13,12 @@ class UserAdmin(auth_admin.UserAdmin):
     add_form = UserAdminCreationForm
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal info'), {'fields': ('name',)}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
-        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+        ('Личная информация', {'fields': ('first_name', 'last_name', 'phone', 'birthday')}),
+        ('Разрешения', {'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions')}),
+        ('Важные даты', {'fields': ('last_login', 'date_joined')}),
     )
-    list_display = ['email', 'name', 'is_superuser']
-    search_fields = ['name']
-    ordering = ['id']
+    list_display = ['email', 'first_name', 'last_name', 'phone', 'birthday']
+    search_fields = ['email', 'last_name']
+    list_filter = ['is_superuser']
+    ordering = ('-date_joined',)
     add_fieldsets = ((None, {'classes': ('wide',), 'fields': ('email', 'password1', 'password2')}),)
