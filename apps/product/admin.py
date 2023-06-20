@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from import_export.admin import ImportExportModelAdmin
 
-
 from apps.product.models import Category, Color, Favorite, Material, Product
 from config.settings.base import ADMIN_EMPTY_VALUE_DISPLAY
 
