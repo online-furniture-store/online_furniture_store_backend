@@ -5,24 +5,28 @@ from rest_framework.decorators import action
 from rest_framework.permissions import SAFE_METHODS
 from rest_framework.response import Response
 
-from apps.orders.models import Delivery, DeliveryMethod, Orders, Storehouse
+from apps.orders.models import Delivery, DeliveryType, Order, Storehouse
 from apps.orders.serializers import (
-    DeliveryMethodSerializer,
     DeliverySerializer,
-    OrdersReadSerializer,
-    OrdersWriteSerializer,
+    DeliveryTypeSerializer,
+    OrderReadSerializer,
+    OrderWriteSerializer,
     StorehouseSerializer,
 )
 
 User = get_user_model()
 
 
-class DeliveryMethodViewSet(viewsets.ModelViewSet):
-    queryset = DeliveryMethod.objects.all()
-    serializer_class = DeliveryMethodSerializer
+class DeliveryTypeViewSet(viewsets.ModelViewSet):
+    """Вьюсет для способов доставки."""
+
+    queryset = DeliveryType.objects.all()
+    serializer_class = DeliveryTypeSerializer
 
 
 class DeliveryViewSet(viewsets.ModelViewSet):
+    """Вьюсет для доставок."""
+
     queryset = Delivery.objects.all()
     serializer_class = DeliverySerializer
 
@@ -31,22 +35,26 @@ class DeliveryViewSet(viewsets.ModelViewSet):
 
 
 class StorehouseViewSet(viewsets.ModelViewSet):
+    """Вьюсет для товаров на складе."""
+
     queryset = Storehouse.objects.all()
     serializer_class = StorehouseSerializer
 
 
-class OrdersViewSet(viewsets.ModelViewSet):
-    queryset = Orders.objects.all()
+class OrderViewSet(viewsets.ModelViewSet):
+    """Вьюсет для заказов."""
+
+    queryset = Order.objects.all()
 
     def get_serializer_class(self):
         if self.request.method in SAFE_METHODS:
-            return OrdersReadSerializer
-        return OrdersWriteSerializer
+            return OrderReadSerializer
+        return OrderWriteSerializer
 
     @action(detail=True, methods=['post'])
     def payment_confirmation(self, request, **kwargs):
         if request.method == 'POST':
-            order = get_object_or_404(Orders, id=kwargs['pk'])
+            order = get_object_or_404(Order, id=kwargs['pk'])
             order.paid = True
             order.save(update_fields=['paid'])
             return Response({'detail': 'Заказ успешно оплачен.'}, status=status.HTTP_201_CREATED)
