@@ -56,3 +56,15 @@ class ProductViewSet(ModelViewSet):
             return Response(serializer.data, status=HTTP_201_CREATED)
         get_object_or_404(Favorite, user=request.user, product=product).delete()
         return Response(status=HTTP_204_NO_CONTENT)
+
+    @action(detail=False)
+    def popular(self, request):
+        popular_products = Product.objects.all()[:6]  # Пока нет моделей заказов
+        # popular_products = (
+        #     OrderProduct.objects
+        #     .values('product__pk')
+        #     .annotate(Sum('quantity'))
+        #     .order_by(quantity__sum)[:6]
+        # )
+        serializer = ShortProductSerializer(popular_products, many=True)
+        return Response(serializer.data)

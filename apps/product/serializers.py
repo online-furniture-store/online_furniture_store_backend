@@ -52,9 +52,9 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class ShortProductSerializer(serializers.ModelSerializer):
-    """Сериалайзер для отображения избранных товаров."""
+    """Сериалайзер для отображения товаров."""
 
     class Meta:
         model = Product
-        fields = ('pk', 'name', 'article')
-        read_only_fields = ('pk', 'name', 'article')
+        fields = ('pk', 'name', 'article', 'image')
+        read_only_fields = fields
