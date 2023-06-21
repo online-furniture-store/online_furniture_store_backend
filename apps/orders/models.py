@@ -2,8 +2,8 @@ from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
 
-from apps.orders.validators import validate_phone
 from apps.product.models import Product
+from common.validators import validate_phone
 
 User = get_user_model()
 
@@ -24,19 +24,10 @@ class DeliveryType(models.Model):
 class Delivery(models.Model):
     """Модель доставки"""
 
-    # TODO поле user
-    user = models.ForeignKey(
-        User, on_delete=models.SET_NULL, blank=True, null=True, related_name='delivery', verbose_name='Клиент'
-    )
-    address = models.CharField(max_length=200, verbose_name='Адрес')
-    phone = models.CharField('Телефон', validators=(validate_phone,), max_length=30)
+    address = models.CharField(max_length=200, verbose_name='Адрес', blank=True, null=True)
+    phone = models.CharField('Телефон', validators=(validate_phone,), max_length=30, blank=True, null=True)
     type_delivery = models.ForeignKey(
-        DeliveryType,
-        related_name='delivery',
-        verbose_name='Доставка',
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
+        DeliveryType, related_name='delivery', verbose_name='Доставка', on_delete=models.SET_NULL, null=True
     )
     created = models.DateTimeField(verbose_name='Дата оформления', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
@@ -52,15 +43,12 @@ class Delivery(models.Model):
 class Order(models.Model):
     """Модель заказов"""
 
-    # TODO поле user
-    user = models.ForeignKey(
-        User, on_delete=models.SET_NULL, blank=True, null=True, related_name='orders', verbose_name='Клиент'
-    )
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='order', verbose_name='Клиент')
     created = models.DateTimeField(verbose_name='Дата заказа', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Дата обновления заказа', auto_now=True)
     products = models.ManyToManyField(Product, through='OrderProduct', verbose_name='Товар')
-    delivery = models.ForeignKey(
-        Delivery, related_name='order_delivery', verbose_name='Доставка', on_delete=models.PROTECT
+    delivery = models.OneToOneField(
+        Delivery, related_name='order_delivery', verbose_name='Доставка', on_delete=models.SET_NULL, null=True
     )
     paid = models.BooleanField(verbose_name='Оплачено', default=False)
     total_cost = models.DecimalField(verbose_name='Общая стоимость', max_digits=40, decimal_places=2)
@@ -73,23 +61,26 @@ class Order(models.Model):
     def __str__(self):
         return f'Order {self.id}'
 
-    def get_total_cost(self):
-        return sum(item.get_cost() for item in self.items.all())
+    # def get_total_cost(self):
+    #     return sum(product.cost() for product in self.items.all())
 
-    # def save(self, *args, **kwargs):
-    #     total = 0
-    #     for product in self.products:
-    #         product.order_item.price * self.
-    #     self.total_cost = self.order_item.price * self.quantity
-    #     return super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        # total = 0
+        # for product in self.products:
+        #     product.price * product.
+        self.total_cost = sum(product.cost for product in self.order_product.all())
+        return super().save(*args, **kwargs)
 
 
 class OrderProduct(models.Model):
     """Модель товаров в заказе"""
 
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ', related_name='items')
+    # @TODO related_name order, product
+    # @TODO der str order id и product id
+
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ', related_name='order_product')
     product = models.ForeignKey(
-        Product, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='Товар', related_name='order_item'
+        Product, on_delete=models.CASCADE, verbose_name='Товар', related_name='product_in_order'
     )
     quantity = models.PositiveIntegerField(verbose_name='Колличество', default=1)
     price = models.DecimalField(verbose_name='Цена', max_digits=20, decimal_places=2)
@@ -100,13 +91,11 @@ class OrderProduct(models.Model):
         verbose_name_plural = 'Товары в заказе'
 
     def __str__(self):
-        return f'{self.id}'
-
-    def get_cost(self):
-        return self.price * self.quantity
+        return f'Product {self.product.id} -->> Order {self.order.id}'
 
     def save(self, *args, **kwargs):
-        self.cost = self.order_item.price * self.quantity
+        self.cost = self.product.price * self.quantity
+        self.price = self.product.price
         return super().save(*args, **kwargs)
 
 

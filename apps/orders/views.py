@@ -5,19 +5,18 @@ from rest_framework.decorators import action
 from rest_framework.permissions import SAFE_METHODS
 from rest_framework.response import Response
 
-from apps.orders.models import Delivery, DeliveryType, Order, Storehouse
+from apps.orders.models import Delivery, DeliveryType, Order
 from apps.orders.serializers import (
     DeliverySerializer,
     DeliveryTypeSerializer,
     OrderReadSerializer,
     OrderWriteSerializer,
-    StorehouseSerializer,
 )
 
 User = get_user_model()
 
 
-class DeliveryTypeViewSet(viewsets.ModelViewSet):
+class DeliveryTypeViewSet(viewsets.ReadOnlyModelViewSet):
     """Вьюсет для способов доставки."""
 
     queryset = DeliveryType.objects.all()
@@ -32,13 +31,6 @@ class DeliveryViewSet(viewsets.ModelViewSet):
 
     # def perform_create(self, serializer):
     #     serializer.save(user=self.request.user)
-
-
-class StorehouseViewSet(viewsets.ModelViewSet):
-    """Вьюсет для товаров на складе."""
-
-    queryset = Storehouse.objects.all()
-    serializer_class = StorehouseSerializer
 
 
 class OrderViewSet(viewsets.ModelViewSet):

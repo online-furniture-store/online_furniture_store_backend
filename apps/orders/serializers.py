@@ -6,7 +6,6 @@ from rest_framework.exceptions import ValidationError
 
 from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct, Storehouse
 from apps.product.models import Product
-from apps.product.serializers import ProductSerializer
 from apps.users.serializers import UserSerializer
 
 
@@ -23,7 +22,7 @@ class DeliverySerializer(serializers.ModelSerializer):
 
     # TODO поле user
     user = UserSerializer(read_only=True)
-    # type_delivery = serializers.PrimaryKeyRelatedField(queryset=DeliveryType.objects.all())
+    type_delivery = DeliveryTypeSerializer
 
     class Meta:
         model = Delivery
@@ -33,16 +32,6 @@ class DeliverySerializer(serializers.ModelSerializer):
     #     user = self.context.get('request').user
     #     serializer = UserSerializer(user, read_only=True)
     #     return serializer.data
-
-
-class StorehouseSerializer(serializers.ModelSerializer):
-    """Сериализатор для модели Storehouse."""
-
-    product = ProductSerializer(read_only=True)
-
-    class Meta:
-        model = Storehouse
-        fields = ('id', 'product', 'quantity')
 
 
 class OrderProductWriteSerializer(serializers.ModelSerializer):
