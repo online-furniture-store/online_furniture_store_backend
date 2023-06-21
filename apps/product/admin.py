@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from import_export.admin import ImportExportModelAdmin
+from django.utils.safestring import mark_safe
 
 from apps.product.models import (
     CartItem,
@@ -46,9 +47,14 @@ class FurnitureDetailsAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin):
-    list_display = ('pk', 'article', 'name', 'brand', 'price', 'category')
+
+    def preview(self, obj):
+        return mark_safe(f'<img src="{obj.image.url}" style="max-height: 150px;">')
+
+    list_display = ('pk', 'article', 'name', 'brand', 'price', 'category', 'preview')
     search_fields = ('article', 'name', 'brand')
     list_filter = ('article', 'name')
+    readonly_fields = ['preview']
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
 
 
