@@ -41,7 +41,7 @@ class DiscountViewSet(ReadOnlyModelViewSet):
 
 
 class ColorViewSet(ReadOnlyModelViewSet):
-    """Вьюсет для материалов товаров."""
+    """Вьюсет для цветов товаров."""
 
     queryset = Color.objects.all()
     serializer_class = ColorSerializer
@@ -49,7 +49,7 @@ class ColorViewSet(ReadOnlyModelViewSet):
 
 
 class FurnitureDetailsViewSet(ReadOnlyModelViewSet):
-    """Вьюсет для информации о назначении товаров."""
+    """Вьюсет для отображения особенностей конструкции товаров."""
 
     queryset = FurnitureDetails.objects.all()
     serializer_class = FurnitureDetailsSerializer
