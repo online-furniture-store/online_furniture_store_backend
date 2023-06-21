@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.db.models import UniqueConstraint
 
 from apps.product.models import Product
 from common.validators import validate_phone
@@ -24,10 +25,10 @@ class DeliveryType(models.Model):
 class Delivery(models.Model):
     """Модель доставки"""
 
-    address = models.CharField(max_length=200, verbose_name='Адрес', blank=True, null=True)
-    phone = models.CharField('Телефон', validators=(validate_phone,), max_length=30, blank=True, null=True)
+    address = models.CharField(max_length=200, verbose_name='Адрес')
+    phone = models.CharField('Телефон', validators=(validate_phone,), max_length=30)
     type_delivery = models.ForeignKey(
-        DeliveryType, related_name='delivery', verbose_name='Доставка', on_delete=models.SET_NULL, null=True
+        DeliveryType, related_name='delivery', verbose_name='Доставка', on_delete=models.SET_DEFAULT, default=1
     )
     created = models.DateTimeField(verbose_name='Дата оформления', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
@@ -51,7 +52,9 @@ class Order(models.Model):
         Delivery, related_name='order_delivery', verbose_name='Доставка', on_delete=models.SET_NULL, null=True
     )
     paid = models.BooleanField(verbose_name='Оплачено', default=False)
-    total_cost = models.DecimalField(verbose_name='Общая стоимость', max_digits=40, decimal_places=2)
+    total_cost = models.DecimalField(
+        verbose_name='Общая стоимость', null=True, blank=True, max_digits=40, decimal_places=2
+    )
 
     class Meta:
         ordering = ('-created',)
@@ -65,18 +68,22 @@ class Order(models.Model):
     #     return sum(product.cost() for product in self.items.all())
 
     def save(self, *args, **kwargs):
-        # total = 0
-        # for product in self.products:
-        #     product.price * product.
-        self.total_cost = sum(product.cost for product in self.order_product.all())
+        # order = OrderProduct.objects.annotate(total_price=Sum(F('cost'))).get(order=self)
+        # self.total_cost = order.total_price
+        #     # total = 0
+        #     # for product in self.products:
+        #     #     product.price * product.
+        # order = super().save(*args, **kwargs)
+        # current_order = Order(id=order)
+
+        # current_order.total_cost = sum(item.get_cost() for item in self.products.all())
+        # current_order.save()
+        #     # self.total_cost = sum(product.cost for product in self.order_items.all())
         return super().save(*args, **kwargs)
 
 
 class OrderProduct(models.Model):
     """Модель товаров в заказе"""
-
-    # @TODO related_name order, product
-    # @TODO der str order id и product id
 
     order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ', related_name='order_product')
     product = models.ForeignKey(
@@ -89,9 +96,13 @@ class OrderProduct(models.Model):
     class Meta:
         verbose_name = 'Товар в заказе'
         verbose_name_plural = 'Товары в заказе'
+        constraints = [UniqueConstraint(fields=['order', 'product'], name='unique_product_order')]
 
     def __str__(self):
         return f'Product {self.product.id} -->> Order {self.order.id}'
+
+    def get_cost(self):
+        return self.price * self.quantity
 
     def save(self, *args, **kwargs):
         self.cost = self.product.price * self.quantity

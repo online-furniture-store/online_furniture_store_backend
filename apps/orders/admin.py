@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 
-from apps.orders.models import Delivery, DeliveryType, OrderProduct, Storehouse
+from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct, Storehouse
 from config.settings.base import ADMIN_EMPTY_VALUE_DISPLAY
 
 User = get_user_model()
@@ -17,31 +17,41 @@ class DeliveryTypeAdmin(admin.ModelAdmin):
 @admin.register(Delivery)
 class DeliveryAdmin(admin.ModelAdmin):
     # TODO поле user
-    list_display = ('id', 'user', 'address', 'phone', 'type_delivery', 'created', 'updated')
-    search_fields = ('phone', 'user')
-    list_filter = ('phone', 'type_delivery', 'user')
+    list_display = ('id', 'address', 'phone', 'type_delivery', 'created', 'updated')
+    search_fields = ('phone',)
+    list_filter = ('phone', 'type_delivery')
 
 
-@admin.register(OrderProduct)
-class OrderProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'product', 'quantity', 'order', 'cost')
-    search_fields = ('order', 'product', 'quantity')
-    list_filter = ('order', 'product', 'quantity')
+# @admin.register(OrderProduct)
+# class OrderProductAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'product', 'quantity', 'order', 'cost')
+#     search_fields = ('order', 'product', 'quantity')
+#     list_filter = ('order', 'product', 'quantity')
 
 
-# class OrderProductInline(admin.TabularInline):
-#     model = OrderProduct
-#     raw_id_fields = ['product']
-#     # fields = ('product', 'quantity')
-
-
+# @admin.register(Order)
 # class OrderAdmin(admin.ModelAdmin):
-#     # TODO поле user
-#     list_display = ('id', 'created', 'updated', 'paid', 'delivery')
-#     # fields = ('delivery', 'paid')
-#     search_fields = ('id', 'paid')
-#     list_filter = ('created', 'updated', 'paid', 'delivery')
-#     inlines = [OrderProductInline]
+#     list_display = ('id', 'user', 'delivery', 'paid', 'total_cost', 'created', 'updated')
+#     readonly_fields = ('total_cost', 'created', 'updated')
+#     search_fields = ('user',)
+#     list_filter = ('user',)
+
+
+class OrderProductInline(admin.TabularInline):
+    model = OrderProduct
+    raw_id_fields = ['product']
+    fields = ('product', 'quantity', 'price')
+    readonly_fields = ('price',)
+
+
+class OrderAdmin(admin.ModelAdmin):
+    # TODO поле user
+    list_display = ('id', 'user', 'created', 'updated', 'paid', 'delivery')
+    # fields = ('delivery', 'paid')
+    readonly_fields = ('total_cost', 'created', 'updated')
+    search_fields = ('id', 'paid')
+    list_filter = ('created', 'updated', 'paid', 'delivery')
+    inlines = [OrderProductInline]
 
 
 @admin.register(Storehouse)
@@ -54,5 +64,5 @@ class StorehouseAdmin(admin.ModelAdmin):
 
 # # admin.site.register(DeliveryMethod, DeliveryMethodAdmin)
 # # admin.site.register(Delivery, DeliveryAdmin)
-# admin.site.register(Order, OrderAdmin)
+admin.site.register(Order, OrderAdmin)
 # # admin.site.register(Storehouse, StorehouseAdmin)

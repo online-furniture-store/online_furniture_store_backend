@@ -5,7 +5,6 @@ from rest_framework.exceptions import ValidationError
 
 from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct, Storehouse
 from apps.product.models import Product
-from apps.users.serializers import UserSerializer
 
 
 class DeliveryTypeSerializer(serializers.ModelSerializer):
@@ -20,17 +19,32 @@ class DeliverySerializer(serializers.ModelSerializer):
     """Сериализатор для модели Delivery."""
 
     # TODO поле user
-    user = UserSerializer(read_only=True)
+    # user = UserSerializer(read_only=True)
     type_delivery = DeliveryTypeSerializer
 
     class Meta:
         model = Delivery
-        fields = ('id', 'user', 'address', 'phone', 'type_delivery', 'created', 'updated')
+        fields = ('id', 'address', 'phone', 'type_delivery', 'created', 'updated')
 
-    # def get_user(self, obj):
-    #     user = self.context.get('request').user
-    #     serializer = UserSerializer(user, read_only=True)
-    #     return serializer.data
+    def validate_phone(self, value):
+        if not value:
+            raise ValidationError('Укажите номер телефона для связи!')
+        return value
+
+    def validate_type_delivery(self, value):
+        if not value:
+            raise ValidationError('Укажите способ доставки!')
+        return value
+
+    def validate_address(self, value):
+        if not value:
+            raise ValidationError('Укажите адрес доставки')
+        return value
+
+    def validate(self, data):
+        if 'type_delivery' not in data:
+            raise ValidationError({'type_delivery': 'Обязательное поле'})
+        return data
 
 
 class OrderProductWriteSerializer(serializers.ModelSerializer):
@@ -38,14 +52,14 @@ class OrderProductWriteSerializer(serializers.ModelSerializer):
 
     id = serializers.IntegerField(write_only=True)
     quantity = serializers.IntegerField()
-    cost = serializers.SerializerMethodField
+    # cost = serializers.SerializerMethodField
 
     class Meta:
         model = OrderProduct
-        fields = ('id', 'quantity', 'cost')
+        fields = ('id', 'quantity')
 
-    def get_cost(self):
-        return self.price * self.quantity
+    # def get_cost(self):
+    #     return self.price * self.quantity
 
 
 class OrderProductReadSerializer(serializers.ModelSerializer):
@@ -63,13 +77,13 @@ class OrderReadSerializer(serializers.ModelSerializer):
     """Сериализатор для чтения Заказов из модели Order."""
 
     # TODO поле user
-    user = UserSerializer(read_only=True)
+    # user = UserSerializer(read_only=True)
     products = serializers.SerializerMethodField()
     delivery = DeliverySerializer()
 
     class Meta:
         model = Order
-        fields = ('id', 'products', 'delivery', 'total_cost', 'paid')
+        fields = ('id', 'user', 'products', 'delivery', 'total_cost', 'paid')
 
     def get_products(self, obj):
         queryset = OrderProduct.objects.filter(order=obj)
@@ -79,9 +93,7 @@ class OrderReadSerializer(serializers.ModelSerializer):
 class OrderWriteSerializer(serializers.ModelSerializer):
     """Сериализатор для записи Заказов в модель Order."""
 
-    # TODO поле user
     products = OrderProductWriteSerializer(many=True)
-    user = UserSerializer(read_only=True)
     delivery = serializers.PrimaryKeyRelatedField(queryset=Delivery.objects.all())
 
     class Meta:
@@ -100,6 +112,11 @@ class OrderWriteSerializer(serializers.ModelSerializer):
             if quantity <= 0:
                 raise ValidationError({'quantity': 'Количество товаров должно быть больше 0!'})
             product_list.append(product)
+        return value
+
+    def validate_delivery(self, value):
+        if Order.objects.filter(delivery=value).exists():
+            raise ValidationError('Эта доставка уже используется')
         return value
 
     @transaction.atomic
