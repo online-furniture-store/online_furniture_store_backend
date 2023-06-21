@@ -1,5 +1,4 @@
 from django.db import transaction
-from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
@@ -66,7 +65,6 @@ class OrderReadSerializer(serializers.ModelSerializer):
     # TODO поле user
     user = UserSerializer(read_only=True)
     products = serializers.SerializerMethodField()
-    total_cost = serializers.SerializerMethodField()
     delivery = DeliverySerializer()
 
     class Meta:
@@ -76,9 +74,6 @@ class OrderReadSerializer(serializers.ModelSerializer):
     def get_products(self, obj):
         queryset = OrderProduct.objects.filter(order=obj)
         return OrderProductReadSerializer(queryset, many=True).data
-
-    def get_total_cost(self, obj):
-        return OrderProduct.objects.filter(order=obj).aggregate(Sum('cost'))['cost__sum']
 
 
 class OrderWriteSerializer(serializers.ModelSerializer):

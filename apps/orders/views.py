@@ -29,9 +29,6 @@ class DeliveryViewSet(viewsets.ModelViewSet):
     queryset = Delivery.objects.all()
     serializer_class = DeliverySerializer
 
-    # def perform_create(self, serializer):
-    #     serializer.save(user=self.request.user)
-
 
 class OrderViewSet(viewsets.ModelViewSet):
     """Вьюсет для заказов."""
@@ -51,5 +48,5 @@ class OrderViewSet(viewsets.ModelViewSet):
             order.save(update_fields=['paid'])
             return Response({'detail': 'Заказ успешно оплачен.'}, status=status.HTTP_201_CREATED)
 
-    # def perform_create(self, serializer):
-    #     serializer.save(user=self.request.user)
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
