@@ -1,2 +1,2 @@
-article,name,width,height,length,weight,color,material,country,brand,warranty,price,description,category
-4358561,КомфоСит,66,96,36,7,1,1,Китай,ЭргоМакс,3,4200,Для персонала,1
+article,name,width,height,length,weight,color,material,country,brand,warranty,price,description,category,image
+4358561,КомфоСит,66,96,36,7,1,1,Китай,ЭргоМакс,3,4200,Для персонала,1,products/noimage_detail.png
