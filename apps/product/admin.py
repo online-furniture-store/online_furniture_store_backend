@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
-from import_export.admin import ImportExportModelAdmin
 from django.utils.safestring import mark_safe
+from import_export.admin import ImportExportModelAdmin
 
 from apps.product.models import (
     CartItem,
@@ -47,7 +47,6 @@ class FurnitureDetailsAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin):
-
     def preview(self, obj):
         return mark_safe(f'<img src="{obj.image.url}" style="max-height: 150px;">')
 
