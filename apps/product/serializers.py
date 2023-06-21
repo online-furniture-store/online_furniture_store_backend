@@ -5,7 +5,7 @@ from django.utils import timezone
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
 
-from apps.product.models import Category, Color, Discount, Favorite, FurnitureDetails, Material, Product
+from apps.product.models import Category, Collection, Color, Discount, Favorite, FurnitureDetails, Material, Product
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -112,5 +112,16 @@ class ShortProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ('pk', 'name', 'article', 'image')
+        fields = ('id', 'name', 'article', 'image')
+        read_only_fields = fields
+
+
+class CollectionSerializer(serializers.ModelSerializer):
+    """Сериалайзер для модели Collection."""
+
+    image = Base64ImageField()
+
+    class Meta:
+        model = Collection
+        fields = ('id', 'name', 'slug', 'image')
         read_only_fields = fields
