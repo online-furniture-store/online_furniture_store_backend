@@ -65,7 +65,7 @@ class ShortProductSerializer(serializers.ModelSerializer):
         Возвращает False, если пользователь не авторизован или товар не в избранном у пользователя.
         """
         request = self.context.get('request')
-        if request or request.user.is_authenticated:
+        if not request or not request.user.is_authenticated:
             return False
         return obj.favorites.filter(user=request.user).exists()
 
