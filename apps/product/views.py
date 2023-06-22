@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
@@ -90,18 +89,17 @@ class ProductViewSet(ModelViewSet):
         return Response(serializer.data)
 
 
-class CollectionViewSet(viewsets.ViewSet):
+class CollectionViewSet(ReadOnlyModelViewSet):
     """Вьюсет для коллекций. Толко чтение одного или списка объектов."""
 
-    def list(self, request):
-        """Возвращает список всех коллекций."""
-        queryset = Collection.objects.all()
-        serializer = CollectionSerializer(queryset, many=True)
-        return Response(serializer.data)
+    queryset = Collection.objects.all()
 
-    def retrieve(self, request, pk=None):
-        """Возвращает данные товаров коллекции, запрошенной по id."""
-        queryset = Collection.objects.all()
-        collection = get_object_or_404(queryset, pk=pk)
-        serializer = ProductSerializer(collection.products, many=True)
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return CollectionSerializer
+        return ProductSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        collection = self.get_object()
+        serializer = self.get_serializer(collection.products, many=True)
         return Response(serializer.data)
