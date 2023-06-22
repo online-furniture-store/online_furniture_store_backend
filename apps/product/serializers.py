@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from django.db.models import Max
+from django.db.models import Max, Q
 from django.utils import timezone
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
@@ -92,28 +92,63 @@ class ProductSerializer(serializers.ModelSerializer):
         return model.objects.filter(user=request.user, product=product).exists()
 
     def get_is_favorited(self, product):
+        """
+        Возвращает True, если товар добавлен в избранное для ползователя.
+        Возвращает False, если пользователь не авторизован или товар не в избранном у пользователя.
+        """
         return self.is_item_related(product, Favorite)
 
     def extract_discount(self, obj):
         """Возвращает скидку на продукт."""
         now = timezone.now()
-        return obj.discounts.filter(discount_end_at__gte=now).aggregate(max_discount=Max('discount'))['max_discount']
+        return obj.discounts.filter(
+            Q(discount_created_at=now, discount_end_at__gte=now)
+            | Q(discount_created_at__lte=now, discount_end_at__gte=now)
+        ).aggregate(max_discount=Max('discount'))['max_discount']
 
     def calculate_total_price(self, obj):
         """Возвращает рачитанную итоговую цену товара с учётом скидки."""
         discount = self.extract_discount(obj=obj)
         if discount is None:
             return obj.price
-        return obj.price * Decimal(discount / 100)
+        return obj.price * Decimal(1 - discount / 100)
 
 
 class ShortProductSerializer(serializers.ModelSerializer):
     """Сериалайзер для отображения товаров."""
 
+    is_favorited = serializers.SerializerMethodField(method_name='analyze_is_favorited')
+    discount = serializers.SerializerMethodField(method_name='extract_discount')
+    total_price = serializers.SerializerMethodField(method_name='calculate_total_price')
+
     class Meta:
         model = Product
-        fields = ('id', 'name', 'article', 'image')
-        read_only_fields = fields
+        fields = ('id', 'article', 'name', 'is_favorited', 'price', 'discount', 'total_price', 'image')
+
+    def analyze_is_favorited(self, obj):
+        """
+        Возвращает True, если товар добавлен в избранное для ползователя.
+        Возвращает False, если пользователь не авторизован или товар не в избранном у пользователя.
+        """
+        request = self.context.get('request')
+        if not request or not request.user.is_authenticated:
+            return False
+        return Favorite.objects.filter(user=request.user, product=obj).exists()
+
+    def extract_discount(self, obj):
+        """Возвращает скидку на продукт."""
+        now = timezone.now()
+        return obj.discounts.filter(
+            Q(discount_created_at=now, discount_end_at__gte=now)
+            | Q(discount_created_at__lte=now, discount_end_at__gte=now)
+        ).aggregate(max_discount=Max('discount'))['max_discount']
+
+    def calculate_total_price(self, obj):
+        """Возвращает рачитанную итоговую цену товара с учётом скидки."""
+        discount = self.extract_discount(obj=obj)
+        if discount is None:
+            return obj.price
+        return obj.price * Decimal(1 - discount / 100)
 
 
 class CollectionSerializer(serializers.ModelSerializer):
