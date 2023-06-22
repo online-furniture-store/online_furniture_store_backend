@@ -118,7 +118,12 @@ class Product(models.Model):
     image = models.ImageField(verbose_name='Фотография продукта', default='products/noimage_detail.png')
     material = models.ManyToManyField(Material, verbose_name='материалы', related_name='products')
     furniture_details = models.ForeignKey(
-        FurnitureDetails, verbose_name='Особенности конструкции', null=True, blank=True, on_delete=models.SET_NULL
+        FurnitureDetails,
+        verbose_name='Особенности конструкции',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='products',
     )
     fast_delivery = models.BooleanField(verbose_name='Быстрая доставка', default=False)
     country = models.CharField(verbose_name='Страна-производитель', max_length=40)
