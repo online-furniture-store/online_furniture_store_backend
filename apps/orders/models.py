@@ -44,7 +44,7 @@ class Delivery(models.Model):
 class Order(models.Model):
     """Модель заказов"""
 
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='order', verbose_name='Клиент')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='orders', verbose_name='Клиент')
     created = models.DateTimeField(verbose_name='Дата заказа', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Дата обновления заказа', auto_now=True)
     products = models.ManyToManyField(Product, through='OrderProduct', verbose_name='Товар')

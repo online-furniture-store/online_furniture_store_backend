@@ -22,21 +22,6 @@ class DeliveryAdmin(admin.ModelAdmin):
     list_filter = ('phone', 'type_delivery')
 
 
-# @admin.register(OrderProduct)
-# class OrderProductAdmin(admin.ModelAdmin):
-#     list_display = ('id', 'product', 'quantity', 'order', 'cost')
-#     search_fields = ('order', 'product', 'quantity')
-#     list_filter = ('order', 'product', 'quantity')
-
-
-# @admin.register(Order)
-# class OrderAdmin(admin.ModelAdmin):
-#     list_display = ('id', 'user', 'delivery', 'paid', 'total_cost', 'created', 'updated')
-#     readonly_fields = ('total_cost', 'created', 'updated')
-#     search_fields = ('user',)
-#     list_filter = ('user',)
-
-
 class OrderProductInline(admin.TabularInline):
     model = OrderProduct
     raw_id_fields = ['product']
