@@ -4,9 +4,10 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-from apps.product.models import Category, Color, Discount, Favorite, FurnitureDetails, Material, Product
+from apps.product.models import Category, Collection, Color, Discount, Favorite, FurnitureDetails, Material, Product
 from apps.product.serializers import (
     CategorySerializer,
+    CollectionSerializer,
     ColorSerializer,
     DiscountSerializer,
     FurnitureDetailsSerializer,
@@ -85,4 +86,20 @@ class ProductViewSet(ModelViewSet):
         #     .order_by(quantity__sum)[:6]
         # )
         serializer = ShortProductSerializer(popular_products, many=True)
+        return Response(serializer.data)
+
+
+class CollectionViewSet(ReadOnlyModelViewSet):
+    """Вьюсет для коллекций. Толко чтение одного или списка объектов."""
+
+    queryset = Collection.objects.all()
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return CollectionSerializer
+        return ProductSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        collection = self.get_object()
+        serializer = self.get_serializer(collection.products, many=True)
         return Response(serializer.data)
