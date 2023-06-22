@@ -1,5 +1,6 @@
 from django.core.validators import MaxValueValidator
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.utils import timezone
 
 from apps.users.models import User
@@ -45,7 +46,29 @@ class Color(models.Model):
         return self.name
 
 
+class Collection(models.Model):
+    """Модель коллекции мебели."""
+
+    name = models.CharField(verbose_name='Коллекция', max_length=100, unique=True)
+    slug = models.SlugField(verbose_name='Идентификатор URL на коллекцию', max_length=100, unique=True)
+    image = models.ImageField(verbose_name='Изображение коллекции', default='products/noimage_detail.png')
+
+    class Meta:
+        verbose_name = 'Коллекция'
+        verbose_name_plural = 'Коллекции'
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+
 class FurnitureDetails(models.Model):
+    """Особености конструкции"""
+
     purpose = models.CharField(verbose_name='Назначение', max_length=50, blank=True, null=True)
     furniture_type = models.CharField(verbose_name='Тип', max_length=50, blank=True, null=True)
     construction = models.CharField(verbose_name='Конструкция', max_length=50, blank=True, null=True)
@@ -57,11 +80,18 @@ class FurnitureDetails(models.Model):
     class Meta:
         verbose_name = 'Особенности конструкции'
         verbose_name_plural = 'Особенности конструкций'
+        constraints = (
+            models.UniqueConstraint(
+                fields=('purpose', 'furniture_type', 'construction', 'swing_mechanism', 'armrest_adjustment'),
+                name='unique_details',
+            ),
+        )
 
     def __str__(self):
         fields = [
             str(field)
             for field in [
+                self.pk,
                 self.purpose,
                 self.furniture_type,
                 self.construction,
@@ -85,15 +115,15 @@ class Product(models.Model):
         verbose_name='Вес, кг', validators=[MaxValueValidator(500)], decimal_places=2, max_digits=5
     )
     color = models.ForeignKey(Color, verbose_name='Цвет', on_delete=models.CASCADE, related_name='products')
-    image = models.ImageField(
-        verbose_name='Фотография продукта', upload_to='products/', default='products/noimage_detail.png'
-    )
-    material = models.ManyToManyField(Material, related_name='products')
+    image = models.ImageField(verbose_name='Фотография продукта', default='products/noimage_detail.png')
+    material = models.ManyToManyField(Material, verbose_name='материалы', related_name='products')
     furniture_details = models.ForeignKey(
-        FurnitureDetails, verbose_name='Особенности конструкции', null=True, blank=True, on_delete=models.SET_NULL
-    )
-    discount = models.ForeignKey(
-        'Discount', related_name='products', verbose_name='Скидки', null=True, blank=True, on_delete=models.SET_NULL
+        FurnitureDetails,
+        verbose_name='Особенности конструкции',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='products',
     )
     fast_delivery = models.BooleanField(verbose_name='Быстрая доставка', default=False)
     country = models.CharField(verbose_name='Страна-производитель', max_length=40)
@@ -102,15 +132,18 @@ class Product(models.Model):
         verbose_name='Гарантия , лет', null=True, validators=[MaxValueValidator(100)]
     )
     price = models.DecimalField(verbose_name='Цена', null=False, max_digits=10, decimal_places=2)
-    description = models.CharField(verbose_name='Описание')
+    description = models.TextField(verbose_name='Описание', null=True, blank=True)
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE, related_name='products')
+    collection = models.ForeignKey(
+        Collection, verbose_name='Коллекция', on_delete=models.SET_NULL, related_name='products', blank=True, null=True
+    )
 
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
 
     def __str__(self):
-        return self.name
+        return f'{self.article} - {self.name}'
 
 
 class Discount(models.Model):
@@ -118,12 +151,15 @@ class Discount(models.Model):
 
     applied_products = models.ManyToManyField(Product, verbose_name='Применяемые товары', related_name='discounts')
     discount = models.SmallIntegerField(verbose_name='Размер скидки, %', validators=[MaxValueValidator(99)], default=0)
-    discount_created_at = models.DateTimeField(verbose_name='Начало скидки', default=timezone.now)
-    discount_end_at = models.DateTimeField(verbose_name='Окончание скидки')
+    discount_created_at = models.DateField(verbose_name='Начало скидки', default=timezone.now)
+    discount_end_at = models.DateField(verbose_name='Окончание скидки')
 
     class Meta:
         verbose_name = 'Скидка'
         verbose_name_plural = 'Скидки'
+
+    def __str__(self):
+        return f'{self.discount}% от {self.discount_created_at} до {self.discount_end_at}'
 
 
 class Favorite(models.Model):

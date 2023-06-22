@@ -7,6 +7,7 @@ from apps.product.models import (
     CartItem,
     CartModel,
     Category,
+    Collection,
     Color,
     Discount,
     Favorite,
@@ -38,19 +39,34 @@ class MaterialsAdmin(ImportExportModelAdmin):
 
 
 @admin.register(FurnitureDetails)
-class FurnitureDetailsAdmin(admin.ModelAdmin):
+class FurnitureDetailsAdmin(ImportExportModelAdmin):
     list_display = ('pk', 'purpose', 'furniture_type', 'construction', 'swing_mechanism', 'armrest_adjustment')
     search_fields = ('purpose', 'furniture_type', 'construction', 'swing_mechanism', 'armrest_adjustment')
     list_filter = ('purpose', 'furniture_type', 'construction', 'swing_mechanism', 'armrest_adjustment')
+    ordering = ('pk',)
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
 
 
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin):
-    list_display = ('pk', 'article', 'name', 'brand', 'price', 'category', 'preview')
+    list_display = (
+        'pk',
+        'article',
+        'name',
+        'collection',
+        'category',
+        'brand',
+        'country',
+        'color',
+        'furniture_details',
+        'price',
+        'fast_delivery',
+        'preview',
+    )
     search_fields = ('article', 'name', 'brand')
     list_filter = ('article', 'name')
     readonly_fields = ('preview',)
+    ordering = ('pk',)
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
 
     def preview(self, obj):
@@ -95,4 +111,13 @@ class DiscountAdmin(admin.ModelAdmin):
     list_display = ('pk', 'discount', 'discount_created_at', 'discount_end_at')
     search_fields = ('discount', 'discount_created_at', 'discount_end_at')
     list_filter = ('discount', 'discount_created_at', 'discount_end_at')
+    ordering = ('pk',)
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
+
+
+@admin.register(Collection)
+class CollectionAdmin(ImportExportModelAdmin):
+    list_display = ('name', 'slug')
+    search_fields = list_display
+    list_filter = list_display
+    prepopulated_fields = {'slug': ('name',)}

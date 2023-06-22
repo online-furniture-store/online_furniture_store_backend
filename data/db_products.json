@@ -1,0 +1,6896 @@
+[
+{
+  "model": "sessions.session",
+  "pk": "lx6zmpd9w7fskgu91pi2fwv63carh2nm",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSKQVcuvcMZIYZbNVAUtqV8e7apAvd_vfef6mI2zrFrckSZ1ZnZdTpdyNMDyk74DuWW9WplnWZSe-KPmjT18ryvBzu38GEbfrWBAYFaTQGoKe-S27gjp2zmIk7CRwkDTb47D0kMs7a3GfxPI4AaLOo9wfxkThl:1qBgiu:mlrd4hX_kjJOgIYwFagsAsLPKDnUFK6uCEBgzjsvZdg",
+    "expire_date": "2023-07-04T19:09:04.618Z"
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.458Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Полиэстер",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.465Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "Пенополиуретан",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.470Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "Искусственная кожа",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.475Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "Натуральная кожа",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.481Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "5",
+    "object_repr": "ДСП",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.486Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "6",
+    "object_repr": "ЛДСП",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.491Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "7",
+    "object_repr": "Массив дерева",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.496Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "8",
+    "object_repr": "МДФ",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.501Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "9",
+    "object_repr": "Металл",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.506Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "10",
+    "object_repr": "Хлопок",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.511Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "11",
+    "object_repr": "Пластик",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2023-06-20T19:09:43.516Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "12",
+    "object_repr": "Стекло",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2023-06-20T19:10:19.604Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Черный",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2023-06-20T19:10:19.610Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "Бежевый",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2023-06-20T19:10:19.615Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "3",
+    "object_repr": "Белый",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2023-06-20T19:10:19.621Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "4",
+    "object_repr": "Синий",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2023-06-20T19:10:19.626Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "5",
+    "object_repr": "Коричневый",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2023-06-20T19:10:19.631Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "6",
+    "object_repr": "Серый",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2023-06-20T19:10:35.327Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Кресла",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2023-06-20T19:10:35.334Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Столы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2023-06-20T19:10:35.339Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Шкафы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2023-06-20T19:10:35.344Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Диваны",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2023-06-20T19:36:12.967Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2023-06-20T19:36:12.973Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2023-06-20T19:36:12.979Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2023-06-20T19:36:12.984Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2023-06-20T19:36:12.989Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "5",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2023-06-20T19:36:12.994Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "6",
+    "object_repr": "Для персонала, С колесиками, Нет, Вверх / Вниз",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.000Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "7",
+    "object_repr": "Для персонала, С колесиками, Нет, Вверх / Вниз",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.005Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "8",
+    "object_repr": "Для персонала, С колесиками, Нет, Вверх / Вниз",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.011Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "9",
+    "object_repr": "Для переговорной, Без колесиков, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.016Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "10",
+    "object_repr": "Для переговорной, Без колесиков, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.022Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "11",
+    "object_repr": "Для руководителя, С колесиками, Есть, Вверх / Вниз / В стороны",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.027Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "12",
+    "object_repr": "Для руководителя, С колесиками, Есть, Вверх / Вниз / В стороны",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.032Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "13",
+    "object_repr": "Для руководителя, С колесиками, Есть, Вверх / Вниз / В стороны",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.037Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "14",
+    "object_repr": "Для руководителя, С колесиками, Есть, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.043Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "15",
+    "object_repr": "Письменный, Прямой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.048Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "16",
+    "object_repr": "Письменный, Прямой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.054Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "17",
+    "object_repr": "Компьютерный, Прямой, Без тумбы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.059Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "18",
+    "object_repr": "Компьютерный, Прямой, Без тумбы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.065Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "19",
+    "object_repr": "Для переговоров, Составной, Без тумбы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.070Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "20",
+    "object_repr": "Компьютерный, Угловой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.075Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "21",
+    "object_repr": "Компьютерный, Угловой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.081Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "22",
+    "object_repr": "Компьютерный, Угловой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.086Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "23",
+    "object_repr": "Письменный, Прямой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.091Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "24",
+    "object_repr": "Компьютерный, Прямой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.097Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "25",
+    "object_repr": "Для переговоров, Прямой, Без тумбы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.102Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "26",
+    "object_repr": "Стеллаж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.107Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "27",
+    "object_repr": "Стеллаж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.113Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "28",
+    "object_repr": "Для одежды",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.118Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "29",
+    "object_repr": "Для одежды",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.124Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "30",
+    "object_repr": "Стеллаж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.130Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "31",
+    "object_repr": "Для документов",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.135Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "32",
+    "object_repr": "Тумбочка",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.141Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "33",
+    "object_repr": "Для документов",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.146Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "34",
+    "object_repr": "Для документов",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.152Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "35",
+    "object_repr": "Стеллаж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.157Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "36",
+    "object_repr": "Стеллаж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2023-06-20T19:36:13.162Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "37",
+    "object_repr": "Стеллаж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.191Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "49",
+    "object_repr": "КомфоСит",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.197Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "50",
+    "object_repr": "КомфоСит",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.202Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "51",
+    "object_repr": "Элемента",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.207Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "52",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.213Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "53",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.218Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "54",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.223Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "55",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.228Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "56",
+    "object_repr": "Грация",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.234Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "57",
+    "object_repr": "Престиж 2",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.239Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "58",
+    "object_repr": "Престиж 2",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.244Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "59",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.250Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "60",
+    "object_repr": "Торос",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.256Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "61",
+    "object_repr": "Торос",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.261Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "62",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.266Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "63",
+    "object_repr": "Сьерра",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.271Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "64",
+    "object_repr": "Тинта",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.276Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "65",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.282Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "66",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.287Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "67",
+    "object_repr": "КомфоСит",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.293Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "68",
+    "object_repr": "Лион",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.299Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "69",
+    "object_repr": "Торвальд",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.305Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "70",
+    "object_repr": "Торвальд",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.311Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "71",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.316Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "72",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.321Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "73",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.326Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "74",
+    "object_repr": "Соната",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.331Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "75",
+    "object_repr": "Соната",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.336Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "76",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.341Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "77",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.346Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "78",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.352Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "79",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.357Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "80",
+    "object_repr": "Грация",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.363Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "81",
+    "object_repr": "Сьерра",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.368Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "82",
+    "object_repr": "Сьерра",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.373Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "83",
+    "object_repr": "Торос",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.378Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "84",
+    "object_repr": "Рамона",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.384Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "85",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.389Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "86",
+    "object_repr": "Флоренция",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.395Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "87",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.400Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "88",
+    "object_repr": "Университо",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.405Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "89",
+    "object_repr": "Модерност",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.410Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "90",
+    "object_repr": "Ренессанс",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.416Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "91",
+    "object_repr": "Ренессанс",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.421Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "92",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.426Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "93",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.432Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "94",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.437Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "95",
+    "object_repr": "Элемента",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2023-06-20T19:38:58.442Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "96",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.828Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "96",
+    "object_repr": "Корбен",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 109,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.836Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "95",
+    "object_repr": "Элемента",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 110,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.843Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "94",
+    "object_repr": "Престиж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 111,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.849Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "93",
+    "object_repr": "Престиж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 112,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.855Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "92",
+    "object_repr": "Авантио",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 113,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.861Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "91",
+    "object_repr": "Ренессанс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 114,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.867Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "90",
+    "object_repr": "Ренессанс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 115,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.873Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "89",
+    "object_repr": "Модерност",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 116,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.879Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "88",
+    "object_repr": "Университо",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 117,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.884Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "87",
+    "object_repr": "Интерьера",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 118,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.890Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "86",
+    "object_repr": "Флоренция",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 119,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.896Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "85",
+    "object_repr": "Интерьера",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 120,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.902Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "84",
+    "object_repr": "Рамона",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 121,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.909Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "83",
+    "object_repr": "Торос",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 122,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.915Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "82",
+    "object_repr": "Сьерра",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 123,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.921Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "81",
+    "object_repr": "Сьерра",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 124,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.927Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "80",
+    "object_repr": "Грация",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 125,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.932Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "79",
+    "object_repr": "Авантио",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 126,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.938Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "78",
+    "object_repr": "Престиж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 127,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.944Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "77",
+    "object_repr": "Корбен",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 128,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.949Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "76",
+    "object_repr": "Корбен",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 129,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.956Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "75",
+    "object_repr": "Соната",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 130,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.962Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "74",
+    "object_repr": "Соната",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 131,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.967Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "73",
+    "object_repr": "Престиж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 132,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.974Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "72",
+    "object_repr": "Авантио",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 133,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.979Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "71",
+    "object_repr": "Интерьера",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 134,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.985Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "70",
+    "object_repr": "Торвальд",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 135,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.991Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "69",
+    "object_repr": "Торвальд",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 136,
+  "fields": {
+    "action_time": "2023-06-20T19:43:49.997Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "68",
+    "object_repr": "Лион",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 137,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.002Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "67",
+    "object_repr": "КомфоСит",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 138,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.008Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "66",
+    "object_repr": "Корбен",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 139,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.013Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "65",
+    "object_repr": "Корбен",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 140,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.019Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "64",
+    "object_repr": "Тинта",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 141,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.024Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "63",
+    "object_repr": "Сьерра",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 142,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.030Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "62",
+    "object_repr": "Престиж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 143,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.036Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "61",
+    "object_repr": "Торос",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 144,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.042Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "60",
+    "object_repr": "Торос",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 145,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.047Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "59",
+    "object_repr": "Интерьера",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 146,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.053Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "58",
+    "object_repr": "Престиж 2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 147,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.059Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "57",
+    "object_repr": "Престиж 2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 148,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.064Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "56",
+    "object_repr": "Грация",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 149,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.070Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "55",
+    "object_repr": "Корбен",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 150,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.076Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "54",
+    "object_repr": "Корбен",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 151,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.082Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "53",
+    "object_repr": "Авантио",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 152,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.088Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "52",
+    "object_repr": "Авантио",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 153,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.095Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "51",
+    "object_repr": "Элемента",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 154,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.100Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "50",
+    "object_repr": "КомфоСит",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 155,
+  "fields": {
+    "action_time": "2023-06-20T19:43:50.106Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "49",
+    "object_repr": "КомфоСит",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 156,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.830Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "КомфоСит",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 157,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.836Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "КомфоСит",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 158,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.841Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "Элемента",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 159,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.847Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "4",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 160,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.852Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "5",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 161,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.857Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "6",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 162,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.863Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "7",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 163,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.869Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "8",
+    "object_repr": "Грация",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 164,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.874Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "9",
+    "object_repr": "Престиж 2",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 165,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.879Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "10",
+    "object_repr": "Престиж 2",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 166,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.884Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "11",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 167,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.889Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "12",
+    "object_repr": "Торос",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 168,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.894Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "13",
+    "object_repr": "Торос",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 169,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.899Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "14",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 170,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.904Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "15",
+    "object_repr": "Сьерра",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 171,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.909Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "16",
+    "object_repr": "Тинта",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 172,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.915Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "17",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 173,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.921Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "18",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 174,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.927Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "19",
+    "object_repr": "КомфоСит",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 175,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.933Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "20",
+    "object_repr": "Лион",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 176,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.939Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "21",
+    "object_repr": "Торвальд",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 177,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.945Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "22",
+    "object_repr": "Торвальд",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 178,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.951Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "23",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 179,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.957Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "24",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 180,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.963Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "25",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 181,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.969Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "26",
+    "object_repr": "Соната",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 182,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.974Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "27",
+    "object_repr": "Соната",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 183,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.979Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "28",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 184,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.984Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "29",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 185,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.989Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "30",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 186,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.994Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "31",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 187,
+  "fields": {
+    "action_time": "2023-06-20T19:46:24.999Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "32",
+    "object_repr": "Грация",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 188,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.005Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "33",
+    "object_repr": "Сьерра",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 189,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.011Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "34",
+    "object_repr": "Сьерра",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 190,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.016Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "35",
+    "object_repr": "Торос",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 191,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.021Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "36",
+    "object_repr": "Рамона",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 192,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.026Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "37",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 193,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.032Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "38",
+    "object_repr": "Флоренция",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 194,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.037Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "39",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 195,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.043Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "40",
+    "object_repr": "Университо",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 196,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.048Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "41",
+    "object_repr": "Модерност",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 197,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.053Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "42",
+    "object_repr": "Ренессанс",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 198,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.060Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "43",
+    "object_repr": "Ренессанс",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 199,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.066Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "44",
+    "object_repr": "Авантио",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 200,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.071Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "45",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 201,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.076Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "46",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 202,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.082Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "47",
+    "object_repr": "Элемента",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 203,
+  "fields": {
+    "action_time": "2023-06-20T19:46:25.086Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "48",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 204,
+  "fields": {
+    "action_time": "2023-06-20T20:50:26.442Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 205,
+  "fields": {
+    "action_time": "2023-06-20T20:51:31.253Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 206,
+  "fields": {
+    "action_time": "2023-06-20T20:51:51.555Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "Элемента",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 207,
+  "fields": {
+    "action_time": "2023-06-20T20:53:41.789Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "4",
+    "object_repr": "Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 208,
+  "fields": {
+    "action_time": "2023-06-20T20:54:02.060Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "5",
+    "object_repr": "Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 209,
+  "fields": {
+    "action_time": "2023-06-20T20:54:23.955Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "6",
+    "object_repr": "Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 210,
+  "fields": {
+    "action_time": "2023-06-20T20:54:53.951Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "7",
+    "object_repr": "Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 211,
+  "fields": {
+    "action_time": "2023-06-20T20:55:13.652Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "8",
+    "object_repr": "Грация",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 212,
+  "fields": {
+    "action_time": "2023-06-20T20:56:40.143Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "9",
+    "object_repr": "Престиж 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 213,
+  "fields": {
+    "action_time": "2023-06-20T20:56:55.393Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "10",
+    "object_repr": "Престиж 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 214,
+  "fields": {
+    "action_time": "2023-06-20T20:57:17.053Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "11",
+    "object_repr": "Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 215,
+  "fields": {
+    "action_time": "2023-06-20T20:57:50.906Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "12",
+    "object_repr": "Торос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 216,
+  "fields": {
+    "action_time": "2023-06-20T20:58:48.889Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "13",
+    "object_repr": "Торос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 217,
+  "fields": {
+    "action_time": "2023-06-20T20:59:19.492Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "14",
+    "object_repr": "Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 218,
+  "fields": {
+    "action_time": "2023-06-20T20:59:45.342Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "33",
+    "object_repr": "Сьерра",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 219,
+  "fields": {
+    "action_time": "2023-06-20T21:00:05.500Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "34",
+    "object_repr": "Сьерра",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 220,
+  "fields": {
+    "action_time": "2023-06-20T21:00:36.692Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "38",
+    "object_repr": "Флоренция",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 221,
+  "fields": {
+    "action_time": "2023-06-20T21:00:59.475Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "39",
+    "object_repr": "Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 222,
+  "fields": {
+    "action_time": "2023-06-20T21:01:15.847Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "40",
+    "object_repr": "Университо",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 223,
+  "fields": {
+    "action_time": "2023-06-20T21:01:29.850Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "41",
+    "object_repr": "Модерност",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 224,
+  "fields": {
+    "action_time": "2023-06-20T21:01:44.930Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "42",
+    "object_repr": "Ренессанс",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 225,
+  "fields": {
+    "action_time": "2023-06-20T21:02:00.600Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "43",
+    "object_repr": "Ренессанс",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 226,
+  "fields": {
+    "action_time": "2023-06-20T21:02:15.302Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "44",
+    "object_repr": "Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 227,
+  "fields": {
+    "action_time": "2023-06-20T21:02:30.231Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "45",
+    "object_repr": "Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 228,
+  "fields": {
+    "action_time": "2023-06-20T21:02:42.400Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "46",
+    "object_repr": "Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 229,
+  "fields": {
+    "action_time": "2023-06-20T21:02:56.265Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "47",
+    "object_repr": "Элемента",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 230,
+  "fields": {
+    "action_time": "2023-06-20T21:03:09.729Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "48",
+    "object_repr": "Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Material\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 231,
+  "fields": {
+    "action_time": "2023-06-20T21:10:06.988Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Discount object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 232,
+  "fields": {
+    "action_time": "2023-06-20T21:13:39.130Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "Discount object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 233,
+  "fields": {
+    "action_time": "2023-06-20T21:14:31.168Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "Discount object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 234,
+  "fields": {
+    "action_time": "2023-06-20T21:14:53.764Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "4",
+    "object_repr": "Discount object (4)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 235,
+  "fields": {
+    "action_time": "2023-06-20T21:15:29.307Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "Discount object (5)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 236,
+  "fields": {
+    "action_time": "2023-06-20T21:15:49.729Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "6",
+    "object_repr": "Discount object (6)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 237,
+  "fields": {
+    "action_time": "2023-06-20T21:16:20.409Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "7",
+    "object_repr": "Discount object (7)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 238,
+  "fields": {
+    "action_time": "2023-06-20T21:16:38.590Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "8",
+    "object_repr": "Discount object (8)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 239,
+  "fields": {
+    "action_time": "2023-06-21T07:57:59.511Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "1",
+    "object_repr": "Collection object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 240,
+  "fields": {
+    "action_time": "2023-06-21T07:58:26.005Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "4358561 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 241,
+  "fields": {
+    "action_time": "2023-06-21T08:03:53.198Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "2",
+    "object_repr": "Collection object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 242,
+  "fields": {
+    "action_time": "2023-06-21T08:05:43.351Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "3",
+    "object_repr": "Collection object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 243,
+  "fields": {
+    "action_time": "2023-06-21T08:19:42.484Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "4358562 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 244,
+  "fields": {
+    "action_time": "2023-06-21T08:19:52.738Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "6033241 - Элемента",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 245,
+  "fields": {
+    "action_time": "2023-06-21T08:20:47.942Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "4",
+    "object_repr": "3771939 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 246,
+  "fields": {
+    "action_time": "2023-06-21T08:20:59.472Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "5",
+    "object_repr": "3771940 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 247,
+  "fields": {
+    "action_time": "2023-06-21T08:21:18.631Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "4",
+    "object_repr": "Корбен",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 248,
+  "fields": {
+    "action_time": "2023-06-21T08:21:22.241Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "6",
+    "object_repr": "6635714 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 249,
+  "fields": {
+    "action_time": "2023-06-21T08:22:48.791Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "7",
+    "object_repr": "6635715 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 250,
+  "fields": {
+    "action_time": "2023-06-21T08:23:13.412Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "5",
+    "object_repr": "Грация",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 251,
+  "fields": {
+    "action_time": "2023-06-21T08:23:15.357Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "8",
+    "object_repr": "5037469 - Грация",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 252,
+  "fields": {
+    "action_time": "2023-06-21T08:23:23.716Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "32",
+    "object_repr": "5367878 - Грация",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 253,
+  "fields": {
+    "action_time": "2023-06-21T08:24:01.464Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "6",
+    "object_repr": "Престиж 2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 254,
+  "fields": {
+    "action_time": "2023-06-21T08:24:03.253Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "9",
+    "object_repr": "6527085 - Престиж 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 255,
+  "fields": {
+    "action_time": "2023-06-21T08:24:13.209Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "10",
+    "object_repr": "6527086 - Престиж 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 256,
+  "fields": {
+    "action_time": "2023-06-21T08:24:31.480Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "7",
+    "object_repr": "Престиж",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 257,
+  "fields": {
+    "action_time": "2023-06-21T08:24:33.300Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "14",
+    "object_repr": "3528454 - Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 258,
+  "fields": {
+    "action_time": "2023-06-21T08:24:40.847Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "30",
+    "object_repr": "5062992 - Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 259,
+  "fields": {
+    "action_time": "2023-06-21T08:25:16.229Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "8",
+    "object_repr": "Интерьера",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 260,
+  "fields": {
+    "action_time": "2023-06-21T08:25:17.562Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "11",
+    "object_repr": "1906652 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 261,
+  "fields": {
+    "action_time": "2023-06-21T08:25:31.826Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "23",
+    "object_repr": "2601155 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 262,
+  "fields": {
+    "action_time": "2023-06-21T08:25:41.734Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "37",
+    "object_repr": "4746105 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 263,
+  "fields": {
+    "action_time": "2023-06-21T08:25:50.696Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "39",
+    "object_repr": "3952423 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 264,
+  "fields": {
+    "action_time": "2023-06-21T08:26:35.522Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "9",
+    "object_repr": "Торос",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 265,
+  "fields": {
+    "action_time": "2023-06-21T08:26:37.671Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "12",
+    "object_repr": "4873504 - Торос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 266,
+  "fields": {
+    "action_time": "2023-06-21T08:26:45.489Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "13",
+    "object_repr": "4873505 - Торос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 267,
+  "fields": {
+    "action_time": "2023-06-21T08:26:58.989Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "35",
+    "object_repr": "2077425 - Торос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 268,
+  "fields": {
+    "action_time": "2023-06-21T08:27:55.021Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "10",
+    "object_repr": "Сьерра",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 269,
+  "fields": {
+    "action_time": "2023-06-21T08:27:56.907Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "15",
+    "object_repr": "6723320 - Сьерра",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 270,
+  "fields": {
+    "action_time": "2023-06-21T08:28:03.710Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "33",
+    "object_repr": "6951292 - Сьерра",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 271,
+  "fields": {
+    "action_time": "2023-06-21T08:28:11.435Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "34",
+    "object_repr": "6951293 - Сьерра",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 272,
+  "fields": {
+    "action_time": "2023-06-21T08:29:06.828Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "17",
+    "object_repr": "6699993 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 273,
+  "fields": {
+    "action_time": "2023-06-21T08:29:16.706Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "18",
+    "object_repr": "6699994 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 274,
+  "fields": {
+    "action_time": "2023-06-21T08:29:24.993Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "28",
+    "object_repr": "6663457 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 275,
+  "fields": {
+    "action_time": "2023-06-21T08:29:34.109Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "29",
+    "object_repr": "6663458 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 276,
+  "fields": {
+    "action_time": "2023-06-21T08:29:41.775Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "48",
+    "object_repr": "8569874 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 277,
+  "fields": {
+    "action_time": "2023-06-21T08:30:36.109Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "19",
+    "object_repr": "8920453 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 278,
+  "fields": {
+    "action_time": "2023-06-21T08:33:37.447Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "24",
+    "object_repr": "7130943 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 279,
+  "fields": {
+    "action_time": "2023-06-21T08:33:46.684Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "31",
+    "object_repr": "8146430 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 280,
+  "fields": {
+    "action_time": "2023-06-21T08:34:56.726Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "44",
+    "object_repr": "9445906 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 281,
+  "fields": {
+    "action_time": "2023-06-21T08:35:32.378Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "25",
+    "object_repr": "1548631 - Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 282,
+  "fields": {
+    "action_time": "2023-06-21T08:35:41.157Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "45",
+    "object_repr": "5655688 - Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 283,
+  "fields": {
+    "action_time": "2023-06-21T08:35:49.024Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "46",
+    "object_repr": "5655689 - Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 284,
+  "fields": {
+    "action_time": "2023-06-21T08:38:44.677Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "47",
+    "object_repr": "3698742 - Элемента",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 285,
+  "fields": {
+    "action_time": "2023-06-21T08:43:53.766Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "19",
+    "object_repr": "8920453 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0440\\u0430\\u043d\\u0430-\\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c\", \"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 286,
+  "fields": {
+    "action_time": "2023-06-21T08:53:15.912Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "19",
+    "object_repr": "8920453 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0440\\u0430\\u043d\\u0430-\\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c\", \"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 287,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.776Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "37",
+    "object_repr": "Стеллаж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 288,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.786Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "36",
+    "object_repr": "Стеллаж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 289,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.792Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "35",
+    "object_repr": "Стеллаж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 290,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.797Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "34",
+    "object_repr": "Для документов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 291,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.802Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "33",
+    "object_repr": "Для документов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 292,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.809Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "32",
+    "object_repr": "Тумбочка",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 293,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.814Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "31",
+    "object_repr": "Для документов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 294,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.820Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "30",
+    "object_repr": "Стеллаж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 295,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.826Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "29",
+    "object_repr": "Для одежды",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 296,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.831Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "28",
+    "object_repr": "Для одежды",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 297,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.837Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "27",
+    "object_repr": "Стеллаж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 298,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.842Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "26",
+    "object_repr": "Стеллаж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 299,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.848Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "25",
+    "object_repr": "Для переговоров, Прямой, Без тумбы",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 300,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.854Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "24",
+    "object_repr": "Компьютерный, Прямой, С тумбой",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 301,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.860Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "23",
+    "object_repr": "Письменный, Прямой, С тумбой",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 302,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.866Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "22",
+    "object_repr": "Компьютерный, Угловой, С тумбой",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 303,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.872Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "21",
+    "object_repr": "Компьютерный, Угловой, С тумбой",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 304,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.877Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "20",
+    "object_repr": "Компьютерный, Угловой, С тумбой",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 305,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.883Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "19",
+    "object_repr": "Для переговоров, Составной, Без тумбы",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 306,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.888Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "18",
+    "object_repr": "Компьютерный, Прямой, Без тумбы",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 307,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.894Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "17",
+    "object_repr": "Компьютерный, Прямой, Без тумбы",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 308,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.900Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "16",
+    "object_repr": "Письменный, Прямой, С тумбой",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 309,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.906Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "15",
+    "object_repr": "Письменный, Прямой, С тумбой",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 310,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.912Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "14",
+    "object_repr": "Для руководителя, С колесиками, Есть, Нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 311,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.918Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "13",
+    "object_repr": "Для руководителя, С колесиками, Есть, Вверх / Вниз / В стороны",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 312,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.924Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "12",
+    "object_repr": "Для руководителя, С колесиками, Есть, Вверх / Вниз / В стороны",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 313,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.931Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "11",
+    "object_repr": "Для руководителя, С колесиками, Есть, Вверх / Вниз / В стороны",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 314,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.937Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "10",
+    "object_repr": "Для переговорной, Без колесиков, Нет, Нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 315,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.944Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "9",
+    "object_repr": "Для переговорной, Без колесиков, Нет, Нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 316,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.949Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "8",
+    "object_repr": "Для персонала, С колесиками, Нет, Вверх / Вниз",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 317,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.955Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "7",
+    "object_repr": "Для персонала, С колесиками, Нет, Вверх / Вниз",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 318,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.962Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "6",
+    "object_repr": "Для персонала, С колесиками, Нет, Вверх / Вниз",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 319,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.968Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "5",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 320,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.974Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 321,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.981Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 322,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.989Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 323,
+  "fields": {
+    "action_time": "2023-06-21T09:39:35.998Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 324,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.174Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Для персонала, С колесиками, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 325,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.181Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Для персонала, С колесиками, Нет, Вверх / Вниз",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 326,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.186Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "Для переговорной, Без колесиков, Нет, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 327,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.192Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "Для руководителя, С колесиками, Есть, Вверх / Вниз / В стороны",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 328,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.197Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "5",
+    "object_repr": "Для руководителя, С колесиками, Есть, Нет",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 329,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.202Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "6",
+    "object_repr": "Письменный, Прямой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 330,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.208Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "7",
+    "object_repr": "Компьютерный, Прямой, Без тумбы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 331,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.213Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "8",
+    "object_repr": "Для переговоров, Составной, Без тумбы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 332,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.218Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "9",
+    "object_repr": "Компьютерный, Угловой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 333,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.223Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "10",
+    "object_repr": "Письменный, Прямой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 334,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.229Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "11",
+    "object_repr": "Компьютерный, Прямой, С тумбой",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 335,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.234Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "12",
+    "object_repr": "Для переговоров, Прямой, Без тумбы",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 336,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.240Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "13",
+    "object_repr": "Стеллаж",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 337,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.245Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "14",
+    "object_repr": "Для одежды",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 338,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.251Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "15",
+    "object_repr": "Для документов",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 339,
+  "fields": {
+    "action_time": "2023-06-21T09:40:00.256Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "16",
+    "object_repr": "Тумбочка",
+    "action_flag": 1,
+    "change_message": "new through import_export"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 340,
+  "fields": {
+    "action_time": "2023-06-21T09:45:23.028Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "4358561 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 341,
+  "fields": {
+    "action_time": "2023-06-21T11:23:57.973Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "44",
+    "object_repr": "9445906 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0440\\u0430\\u043d\\u0430-\\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c\", \"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 342,
+  "fields": {
+    "action_time": "2023-06-21T11:26:59.949Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "19",
+    "object_repr": "8920453 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0440\\u0430\\u043d\\u0430-\\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c\", \"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 343,
+  "fields": {
+    "action_time": "2023-06-21T11:30:42.531Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "9",
+    "object_repr": "6527085 - Престиж 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 344,
+  "fields": {
+    "action_time": "2023-06-21T11:30:53.010Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "10",
+    "object_repr": "6527086 - Престиж 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 345,
+  "fields": {
+    "action_time": "2023-06-21T11:32:06.928Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "23",
+    "object_repr": "2601155 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0440\\u0430\\u043d\\u0430-\\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c\", \"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 346,
+  "fields": {
+    "action_time": "2023-06-21T11:32:21.206Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "37",
+    "object_repr": "4746105 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0440\\u0430\\u043d\\u0430-\\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c\", \"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 347,
+  "fields": {
+    "action_time": "2023-06-21T11:32:35.320Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "39",
+    "object_repr": "3952423 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0440\\u0430\\u043d\\u0430-\\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c\", \"\\u0411\\u0440\\u0435\\u043d\\u0434\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 348,
+  "fields": {
+    "action_time": "2023-06-21T11:41:38.544Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "4358562 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 349,
+  "fields": {
+    "action_time": "2023-06-21T11:41:54.673Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "6033241 - Элемента",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 350,
+  "fields": {
+    "action_time": "2023-06-21T11:42:09.870Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "4",
+    "object_repr": "3771939 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 351,
+  "fields": {
+    "action_time": "2023-06-21T11:46:56.361Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "5",
+    "object_repr": "3771940 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 352,
+  "fields": {
+    "action_time": "2023-06-21T11:47:46.438Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "6",
+    "object_repr": "6635714 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 353,
+  "fields": {
+    "action_time": "2023-06-21T11:48:06.915Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "7",
+    "object_repr": "6635715 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 354,
+  "fields": {
+    "action_time": "2023-06-21T11:48:17.839Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "8",
+    "object_repr": "5037469 - Грация",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 355,
+  "fields": {
+    "action_time": "2023-06-21T11:48:46.625Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "9",
+    "object_repr": "6527085 - Престиж 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 356,
+  "fields": {
+    "action_time": "2023-06-21T11:48:57.721Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "10",
+    "object_repr": "6527086 - Престиж 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 357,
+  "fields": {
+    "action_time": "2023-06-21T11:49:28.110Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "11",
+    "object_repr": "1906652 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 358,
+  "fields": {
+    "action_time": "2023-06-21T11:49:41.595Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "12",
+    "object_repr": "4873504 - Торос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 359,
+  "fields": {
+    "action_time": "2023-06-21T11:50:01.184Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "13",
+    "object_repr": "4873505 - Торос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 360,
+  "fields": {
+    "action_time": "2023-06-21T11:50:22.951Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "14",
+    "object_repr": "3528454 - Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 361,
+  "fields": {
+    "action_time": "2023-06-21T11:50:49.845Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "15",
+    "object_repr": "6723320 - Сьерра",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 362,
+  "fields": {
+    "action_time": "2023-06-21T11:51:00.242Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "16",
+    "object_repr": "7761085 - Тинта",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 363,
+  "fields": {
+    "action_time": "2023-06-21T11:51:23.577Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "17",
+    "object_repr": "6699993 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 364,
+  "fields": {
+    "action_time": "2023-06-21T11:51:33.889Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "18",
+    "object_repr": "6699994 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 365,
+  "fields": {
+    "action_time": "2023-06-21T11:51:58.415Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "19",
+    "object_repr": "8920453 - КомфоСит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 366,
+  "fields": {
+    "action_time": "2023-06-21T11:52:24.380Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "20",
+    "object_repr": "5791548 - Лион",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 367,
+  "fields": {
+    "action_time": "2023-06-21T11:52:34.781Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "21",
+    "object_repr": "7478869 - Торвальд",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 368,
+  "fields": {
+    "action_time": "2023-06-21T11:52:45.010Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "22",
+    "object_repr": "7478870 - Торвальд",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 369,
+  "fields": {
+    "action_time": "2023-06-21T11:53:08.063Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "23",
+    "object_repr": "2601155 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 370,
+  "fields": {
+    "action_time": "2023-06-21T11:54:18.650Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "24",
+    "object_repr": "7130943 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 371,
+  "fields": {
+    "action_time": "2023-06-21T11:54:46.176Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "25",
+    "object_repr": "1548631 - Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 372,
+  "fields": {
+    "action_time": "2023-06-21T11:55:12.747Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "26",
+    "object_repr": "7406685 - Соната",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 373,
+  "fields": {
+    "action_time": "2023-06-21T11:55:25.818Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "27",
+    "object_repr": "7406686 - Соната",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 374,
+  "fields": {
+    "action_time": "2023-06-21T11:55:44.763Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "30",
+    "object_repr": "5062992 - Престиж",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 375,
+  "fields": {
+    "action_time": "2023-06-21T11:56:19.153Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "35",
+    "object_repr": "2077425 - Торос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 376,
+  "fields": {
+    "action_time": "2023-06-21T11:56:30.074Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "36",
+    "object_repr": "1223044 - Рамона",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 377,
+  "fields": {
+    "action_time": "2023-06-21T11:56:41.630Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "37",
+    "object_repr": "4746105 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 378,
+  "fields": {
+    "action_time": "2023-06-21T11:57:06.606Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "28",
+    "object_repr": "6663457 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 379,
+  "fields": {
+    "action_time": "2023-06-21T11:57:19.375Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "29",
+    "object_repr": "6663458 - Корбен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 380,
+  "fields": {
+    "action_time": "2023-06-21T11:57:44.313Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "31",
+    "object_repr": "8146430 - Авантио",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 381,
+  "fields": {
+    "action_time": "2023-06-21T11:58:00.489Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "33",
+    "object_repr": "6951292 - Сьерра",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 382,
+  "fields": {
+    "action_time": "2023-06-21T11:58:13.610Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "34",
+    "object_repr": "6951293 - Сьерра",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 383,
+  "fields": {
+    "action_time": "2023-06-21T11:58:39.491Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "32",
+    "object_repr": "5367878 - Грация",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 384,
+  "fields": {
+    "action_time": "2023-06-21T12:16:56.206Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "15% от 2023-06-20 до 2023-06-20",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u0440\\u0438\\u043c\\u0435\\u043d\\u044f\\u0435\\u043c\\u044b\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u044b\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 385,
+  "fields": {
+    "action_time": "2023-06-21T12:18:11.979Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "10% от 2023-06-20 до 2023-06-20",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u0440\\u0438\\u043c\\u0435\\u043d\\u044f\\u0435\\u043c\\u044b\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u044b\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 386,
+  "fields": {
+    "action_time": "2023-06-21T12:18:37.636Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "20% от 2023-06-20 до 2023-06-20",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u0440\\u0438\\u043c\\u0435\\u043d\\u044f\\u0435\\u043c\\u044b\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u044b\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 387,
+  "fields": {
+    "action_time": "2023-06-21T12:19:10.154Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "4",
+    "object_repr": "35% от 2023-06-20 до 2023-06-20",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u0440\\u0438\\u043c\\u0435\\u043d\\u044f\\u0435\\u043c\\u044b\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u044b\", \"\\u0420\\u0430\\u0437\\u043c\\u0435\\u0440 \\u0441\\u043a\\u0438\\u0434\\u043a\\u0438, %\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 388,
+  "fields": {
+    "action_time": "2023-06-21T12:19:23.920Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "15% от 2023-06-20 до 2023-06-20",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 389,
+  "fields": {
+    "action_time": "2023-06-21T12:19:23.926Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "6",
+    "object_repr": "15% от 2023-06-20 до 2023-06-20",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 390,
+  "fields": {
+    "action_time": "2023-06-21T12:19:23.931Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "7",
+    "object_repr": "35% от 2023-06-20 до 2023-06-20",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 391,
+  "fields": {
+    "action_time": "2023-06-21T12:19:23.937Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "8",
+    "object_repr": "15% от 2023-06-20 до 2023-06-20",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 392,
+  "fields": {
+    "action_time": "2023-06-21T13:16:20.838Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "23",
+    "object_repr": "2601155 - Интерьера",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 393,
+  "fields": {
+    "action_time": "2023-06-21T13:16:50.527Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "10",
+    "object_repr": "10, Письменный, Прямой, С тумбой",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$ZVlDTExQWXJkSGh5NVlSVkc1R205bA$lCftfTmUhcokEK5bL+PLx/r5cHlq0/VtkeroOt2f+Dg",
+    "last_login": "2023-06-20T19:09:04.514Z",
+    "is_superuser": true,
+    "email": "mix@email.com",
+    "phone": "",
+    "first_name": null,
+    "last_name": null,
+    "birthday": null,
+    "date_joined": "2023-06-20T19:04:43.128Z",
+    "is_staff": true,
+    "is_active": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "product.category",
+  "pk": 1,
+  "fields": {
+    "name": "Кресла",
+    "slug": "chairs"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 2,
+  "fields": {
+    "name": "Столы",
+    "slug": "tables"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 3,
+  "fields": {
+    "name": "Шкафы",
+    "slug": "wardrobes"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 4,
+  "fields": {
+    "name": "Диваны",
+    "slug": "sofas"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 1,
+  "fields": {
+    "name": "Полиэстер"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 2,
+  "fields": {
+    "name": "Пенополиуретан"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 3,
+  "fields": {
+    "name": "Искусственная кожа"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 4,
+  "fields": {
+    "name": "Натуральная кожа"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 5,
+  "fields": {
+    "name": "ДСП"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 6,
+  "fields": {
+    "name": "ЛДСП"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 7,
+  "fields": {
+    "name": "Массив дерева"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 8,
+  "fields": {
+    "name": "МДФ"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 9,
+  "fields": {
+    "name": "Металл"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 10,
+  "fields": {
+    "name": "Хлопок"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 11,
+  "fields": {
+    "name": "Пластик"
+  }
+},
+{
+  "model": "product.material",
+  "pk": 12,
+  "fields": {
+    "name": "Стекло"
+  }
+},
+{
+  "model": "product.color",
+  "pk": 1,
+  "fields": {
+    "name": "Черный"
+  }
+},
+{
+  "model": "product.color",
+  "pk": 2,
+  "fields": {
+    "name": "Бежевый"
+  }
+},
+{
+  "model": "product.color",
+  "pk": 3,
+  "fields": {
+    "name": "Белый"
+  }
+},
+{
+  "model": "product.color",
+  "pk": 4,
+  "fields": {
+    "name": "Синий"
+  }
+},
+{
+  "model": "product.color",
+  "pk": 5,
+  "fields": {
+    "name": "Коричневый"
+  }
+},
+{
+  "model": "product.color",
+  "pk": 6,
+  "fields": {
+    "name": "Серый"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 1,
+  "fields": {
+    "name": "КомфоСит",
+    "slug": "komfosit",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 2,
+  "fields": {
+    "name": "Элемента",
+    "slug": "elementa",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 3,
+  "fields": {
+    "name": "Авантио",
+    "slug": "avantio",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 4,
+  "fields": {
+    "name": "Корбен",
+    "slug": "korben",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 5,
+  "fields": {
+    "name": "Грация",
+    "slug": "graciya",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 6,
+  "fields": {
+    "name": "Престиж 2",
+    "slug": "prestizh-2",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 7,
+  "fields": {
+    "name": "Престиж",
+    "slug": "prestizh",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 8,
+  "fields": {
+    "name": "Интерьера",
+    "slug": "interera",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 9,
+  "fields": {
+    "name": "Торос",
+    "slug": "toros",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.collection",
+  "pk": 10,
+  "fields": {
+    "name": "Сьерра",
+    "slug": "serra",
+    "image": "products/noimage_detail.png"
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 1,
+  "fields": {
+    "purpose": "Для персонала",
+    "furniture_type": "",
+    "construction": "С колесиками",
+    "swing_mechanism": "Нет",
+    "armrest_adjustment": "Нет"
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 2,
+  "fields": {
+    "purpose": "Для персонала",
+    "furniture_type": "",
+    "construction": "С колесиками",
+    "swing_mechanism": "Нет",
+    "armrest_adjustment": "Вверх / Вниз"
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 3,
+  "fields": {
+    "purpose": "Для переговорной",
+    "furniture_type": "",
+    "construction": "Без колесиков",
+    "swing_mechanism": "Нет",
+    "armrest_adjustment": "Нет"
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 4,
+  "fields": {
+    "purpose": "Для руководителя",
+    "furniture_type": "",
+    "construction": "С колесиками",
+    "swing_mechanism": "Есть",
+    "armrest_adjustment": "Вверх / Вниз / В стороны"
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 5,
+  "fields": {
+    "purpose": "Для руководителя",
+    "furniture_type": "",
+    "construction": "С колесиками",
+    "swing_mechanism": "Есть",
+    "armrest_adjustment": "Нет"
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 6,
+  "fields": {
+    "purpose": "Письменный",
+    "furniture_type": "Прямой",
+    "construction": "С тумбой",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 7,
+  "fields": {
+    "purpose": "Компьютерный",
+    "furniture_type": "Прямой",
+    "construction": "Без тумбы",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 8,
+  "fields": {
+    "purpose": "Для переговоров",
+    "furniture_type": "Составной",
+    "construction": "Без тумбы",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 9,
+  "fields": {
+    "purpose": "Компьютерный",
+    "furniture_type": "Угловой",
+    "construction": "С тумбой",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 11,
+  "fields": {
+    "purpose": "Компьютерный",
+    "furniture_type": "Прямой",
+    "construction": "С тумбой",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 12,
+  "fields": {
+    "purpose": "Для переговоров",
+    "furniture_type": "Прямой",
+    "construction": "Без тумбы",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 13,
+  "fields": {
+    "purpose": "Стеллаж",
+    "furniture_type": "",
+    "construction": "",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 14,
+  "fields": {
+    "purpose": "Для одежды",
+    "furniture_type": "",
+    "construction": "",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 15,
+  "fields": {
+    "purpose": "Для документов",
+    "furniture_type": "",
+    "construction": "",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.furnituredetails",
+  "pk": 16,
+  "fields": {
+    "purpose": "Тумбочка",
+    "furniture_type": "",
+    "construction": "",
+    "swing_mechanism": "",
+    "armrest_adjustment": ""
+  }
+},
+{
+  "model": "product.product",
+  "pk": 1,
+  "fields": {
+    "article": 4358561,
+    "name": "КомфоСит",
+    "width": 66,
+    "height": 96,
+    "length": 36,
+    "weight": "7.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 1,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "4200.00",
+    "description": "",
+    "category": 1,
+    "collection": 1,
+    "material": [
+      1,
+      10,
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 2,
+  "fields": {
+    "article": 4358562,
+    "name": "КомфоСит",
+    "width": 66,
+    "height": 96,
+    "length": 36,
+    "weight": "7.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 1,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "4200.00",
+    "description": "",
+    "category": 1,
+    "collection": 1,
+    "material": [
+      1,
+      10,
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 3,
+  "fields": {
+    "article": 6033241,
+    "name": "Элемента",
+    "width": 60,
+    "height": 90,
+    "length": 50,
+    "weight": "6.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 1,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 3,
+    "price": "3350.00",
+    "description": "",
+    "category": 1,
+    "collection": 2,
+    "material": [
+      1,
+      10,
+      11
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 4,
+  "fields": {
+    "article": 3771939,
+    "name": "Авантио",
+    "width": 70,
+    "height": 128,
+    "length": 33,
+    "weight": "5.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 1,
+    "fast_delivery": true,
+    "country": "Италия",
+    "brand": "Элегансио",
+    "warranty": 3,
+    "price": "7400.00",
+    "description": "",
+    "category": 1,
+    "collection": 3,
+    "material": [
+      1,
+      9,
+      11
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 5,
+  "fields": {
+    "article": 3771940,
+    "name": "Авантио",
+    "width": 70,
+    "height": 128,
+    "length": 33,
+    "weight": "5.00",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 1,
+    "fast_delivery": false,
+    "country": "Италия",
+    "brand": "Элегансио",
+    "warranty": 3,
+    "price": "7400.00",
+    "description": "",
+    "category": 1,
+    "collection": 3,
+    "material": [
+      1,
+      9,
+      11
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 6,
+  "fields": {
+    "article": 6635714,
+    "name": "Корбен",
+    "width": 69,
+    "height": 86,
+    "length": 45,
+    "weight": "6.00",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 2,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 5,
+    "price": "9600.00",
+    "description": "",
+    "category": 1,
+    "collection": 4,
+    "material": [
+      2,
+      9,
+      11
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 7,
+  "fields": {
+    "article": 6635715,
+    "name": "Корбен",
+    "width": 69,
+    "height": 86,
+    "length": 45,
+    "weight": "6.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 2,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 5,
+    "price": "9600.00",
+    "description": "",
+    "category": 1,
+    "collection": 4,
+    "material": [
+      2,
+      9,
+      11
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 8,
+  "fields": {
+    "article": 5037469,
+    "name": "Грация",
+    "width": 71,
+    "height": 58,
+    "length": 39,
+    "weight": "8.00",
+    "color": 4,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 2,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "Авангард Мебель",
+    "warranty": 3,
+    "price": "8700.00",
+    "description": "",
+    "category": 1,
+    "collection": 5,
+    "material": [
+      1,
+      9,
+      10
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 9,
+  "fields": {
+    "article": 6527085,
+    "name": "Престиж 2",
+    "width": 71,
+    "height": 132,
+    "length": 40,
+    "weight": "10.00",
+    "color": 5,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 3,
+    "fast_delivery": true,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 5,
+    "price": "19600.00",
+    "description": "",
+    "category": 1,
+    "collection": 6,
+    "material": [
+      3,
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 10,
+  "fields": {
+    "article": 6527086,
+    "name": "Престиж 2",
+    "width": 71,
+    "height": 132,
+    "length": 40,
+    "weight": "10.00",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 3,
+    "fast_delivery": true,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 5,
+    "price": "19600.00",
+    "description": "",
+    "category": 1,
+    "collection": 6,
+    "material": [
+      3,
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 11,
+  "fields": {
+    "article": 1906652,
+    "name": "Интерьера",
+    "width": 60,
+    "height": 90,
+    "length": 39,
+    "weight": "13.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 4,
+    "fast_delivery": false,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 3,
+    "price": "14400.00",
+    "description": "",
+    "category": 1,
+    "collection": 8,
+    "material": [
+      3,
+      9
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 12,
+  "fields": {
+    "article": 4873504,
+    "name": "Торос",
+    "width": 70,
+    "height": 112,
+    "length": 33,
+    "weight": "16.50",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 4,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 5,
+    "price": "17850.00",
+    "description": "",
+    "category": 1,
+    "collection": 9,
+    "material": [
+      3,
+      9,
+      11
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 13,
+  "fields": {
+    "article": 4873505,
+    "name": "Торос",
+    "width": 70,
+    "height": 112,
+    "length": 33,
+    "weight": "16.50",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 4,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 5,
+    "price": "17850.00",
+    "description": "",
+    "category": 1,
+    "collection": 9,
+    "material": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 14,
+  "fields": {
+    "article": 3528454,
+    "name": "Престиж",
+    "width": 69,
+    "height": 130,
+    "length": 45,
+    "weight": "18.00",
+    "color": 5,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 5,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 5,
+    "price": "23800.00",
+    "description": "",
+    "category": 1,
+    "collection": 7,
+    "material": [
+      4,
+      9,
+      2
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 15,
+  "fields": {
+    "article": 6723320,
+    "name": "Сьерра",
+    "width": 120,
+    "height": 75,
+    "length": 60,
+    "weight": "15.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 6,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "11600.00",
+    "description": "",
+    "category": 2,
+    "collection": 10,
+    "material": [
+      5
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 16,
+  "fields": {
+    "article": 7761085,
+    "name": "Тинта",
+    "width": 140,
+    "height": 75,
+    "length": 70,
+    "weight": "18.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 6,
+    "fast_delivery": true,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "18200.00",
+    "description": "",
+    "category": 2,
+    "collection": null,
+    "material": [
+      5
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 17,
+  "fields": {
+    "article": 6699993,
+    "name": "Корбен",
+    "width": 160,
+    "height": 75,
+    "length": 80,
+    "weight": "20.00",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 7,
+    "fast_delivery": true,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "25100.00",
+    "description": "",
+    "category": 2,
+    "collection": 4,
+    "material": [
+      5
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 18,
+  "fields": {
+    "article": 6699994,
+    "name": "Корбен",
+    "width": 160,
+    "height": 75,
+    "length": 80,
+    "weight": "20.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 7,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "25100.00",
+    "description": "",
+    "category": 2,
+    "collection": 4,
+    "material": [
+      5
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 19,
+  "fields": {
+    "article": 8920453,
+    "name": "КомфоСит",
+    "width": 180,
+    "height": 75,
+    "length": 90,
+    "weight": "22.00",
+    "color": 5,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 8,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "23400.00",
+    "description": "",
+    "category": 2,
+    "collection": 1,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 20,
+  "fields": {
+    "article": 5791548,
+    "name": "Лион",
+    "width": 200,
+    "height": 75,
+    "length": 100,
+    "weight": "25.00",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 9,
+    "fast_delivery": false,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 3,
+    "price": "12200.00",
+    "description": "",
+    "category": 2,
+    "collection": null,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 21,
+  "fields": {
+    "article": 7478869,
+    "name": "Торвальд",
+    "width": 120,
+    "height": 75,
+    "length": 80,
+    "weight": "17.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 9,
+    "fast_delivery": false,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 3,
+    "price": "36900.00",
+    "description": "",
+    "category": 2,
+    "collection": null,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 22,
+  "fields": {
+    "article": 7478870,
+    "name": "Торвальд",
+    "width": 120,
+    "height": 75,
+    "length": 80,
+    "weight": "17.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 9,
+    "fast_delivery": false,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 3,
+    "price": "36900.00",
+    "description": "",
+    "category": 2,
+    "collection": null,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 23,
+  "fields": {
+    "article": 2601155,
+    "name": "Интерьера",
+    "width": 70,
+    "height": 75,
+    "length": 70,
+    "weight": "12.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 6,
+    "fast_delivery": false,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 3,
+    "price": "7800.00",
+    "description": "",
+    "category": 2,
+    "collection": 8,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 24,
+  "fields": {
+    "article": 7130943,
+    "name": "Авантио",
+    "width": 125,
+    "height": 75,
+    "length": 80,
+    "weight": "20.00",
+    "color": 6,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 11,
+    "fast_delivery": true,
+    "country": "Италия",
+    "brand": "Элегансио",
+    "warranty": 3,
+    "price": "9500.00",
+    "description": "",
+    "category": 2,
+    "collection": 3,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 25,
+  "fields": {
+    "article": 1548631,
+    "name": "Престиж",
+    "width": 200,
+    "height": 75,
+    "length": 100,
+    "weight": "25.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 12,
+    "fast_delivery": true,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 3,
+    "price": "8700.00",
+    "description": "",
+    "category": 2,
+    "collection": 7,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 26,
+  "fields": {
+    "article": 7406685,
+    "name": "Соната",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 13,
+    "fast_delivery": false,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 3,
+    "price": "12500.00",
+    "description": "",
+    "category": 3,
+    "collection": null,
+    "material": [
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 27,
+  "fields": {
+    "article": 7406686,
+    "name": "Соната",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 13,
+    "fast_delivery": true,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 3,
+    "price": "13200.00",
+    "description": "",
+    "category": 3,
+    "collection": null,
+    "material": [
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 28,
+  "fields": {
+    "article": 6663457,
+    "name": "Корбен",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 14,
+    "fast_delivery": true,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "17000.00",
+    "description": "",
+    "category": 3,
+    "collection": 4,
+    "material": [
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 29,
+  "fields": {
+    "article": 6663458,
+    "name": "Корбен",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 14,
+    "fast_delivery": true,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 3,
+    "price": "17000.00",
+    "description": "",
+    "category": 3,
+    "collection": 4,
+    "material": [
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 30,
+  "fields": {
+    "article": 5062992,
+    "name": "Престиж",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 13,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 3,
+    "price": "8000.00",
+    "description": "",
+    "category": 3,
+    "collection": 7,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 31,
+  "fields": {
+    "article": 8146430,
+    "name": "Авантио",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 15,
+    "fast_delivery": false,
+    "country": "Италия",
+    "brand": "Элегансио",
+    "warranty": 3,
+    "price": "9500.00",
+    "description": "",
+    "category": 3,
+    "collection": 3,
+    "material": [
+      8
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 32,
+  "fields": {
+    "article": 5367878,
+    "name": "Грация",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 16,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "Авангард Мебель",
+    "warranty": 2,
+    "price": "14000.00",
+    "description": "",
+    "category": 3,
+    "collection": 5,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 33,
+  "fields": {
+    "article": 6951292,
+    "name": "Сьерра",
+    "width": 120,
+    "height": 200,
+    "length": 50,
+    "weight": "70.00",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 15,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 2,
+    "price": "10500.00",
+    "description": "",
+    "category": 3,
+    "collection": 10,
+    "material": [
+      6,
+      12
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 34,
+  "fields": {
+    "article": 6951293,
+    "name": "Сьерра",
+    "width": 120,
+    "height": 200,
+    "length": 50,
+    "weight": "70.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 15,
+    "fast_delivery": false,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 2,
+    "price": "10500.00",
+    "description": "",
+    "category": 3,
+    "collection": 10,
+    "material": [
+      6,
+      12
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 35,
+  "fields": {
+    "article": 2077425,
+    "name": "Торос",
+    "width": 120,
+    "height": 200,
+    "length": 50,
+    "weight": "70.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 13,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 2,
+    "price": "13200.00",
+    "description": "",
+    "category": 3,
+    "collection": 9,
+    "material": [
+      7
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 36,
+  "fields": {
+    "article": 1223044,
+    "name": "Рамона",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 13,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 2,
+    "price": "9800.00",
+    "description": "",
+    "category": 3,
+    "collection": null,
+    "material": [
+      8
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 37,
+  "fields": {
+    "article": 4746105,
+    "name": "Интерьера",
+    "width": 100,
+    "height": 180,
+    "length": 45,
+    "weight": "60.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": 13,
+    "fast_delivery": true,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 2,
+    "price": "12900.00",
+    "description": "",
+    "category": 3,
+    "collection": 8,
+    "material": [
+      6
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 38,
+  "fields": {
+    "article": 3177242,
+    "name": "Флоренция",
+    "width": 210,
+    "height": 105,
+    "length": 70,
+    "weight": "65.00",
+    "color": 6,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": true,
+    "country": "Россия",
+    "brand": "ЭргоСиденье",
+    "warranty": 2,
+    "price": "23000.00",
+    "description": null,
+    "category": 4,
+    "collection": null,
+    "material": [
+      5,
+      3
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 39,
+  "fields": {
+    "article": 3952423,
+    "name": "Интерьера",
+    "width": 150,
+    "height": 95,
+    "length": 65,
+    "weight": "70.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": false,
+    "country": "Беларусь",
+    "brand": "АртМебель",
+    "warranty": 2,
+    "price": "72000.00",
+    "description": "",
+    "category": 4,
+    "collection": 8,
+    "material": [
+      7,
+      10
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 40,
+  "fields": {
+    "article": 6221969,
+    "name": "Университо",
+    "width": 160,
+    "height": 101,
+    "length": 73,
+    "weight": "72.00",
+    "color": 5,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 2,
+    "price": "65799.00",
+    "description": null,
+    "category": 4,
+    "collection": null,
+    "material": [
+      7,
+      1
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 41,
+  "fields": {
+    "article": 8118249,
+    "name": "Модерност",
+    "width": 135,
+    "height": 140,
+    "length": 65,
+    "weight": "59.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "ОфисМягкость",
+    "warranty": 2,
+    "price": "35700.00",
+    "description": null,
+    "category": 4,
+    "collection": null,
+    "material": [
+      5,
+      1
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 42,
+  "fields": {
+    "article": 4450514,
+    "name": "Ренессанс",
+    "width": 200,
+    "height": 125,
+    "length": 62,
+    "weight": "80.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "ОфисМягкость",
+    "warranty": 2,
+    "price": "70000.00",
+    "description": null,
+    "category": 4,
+    "collection": null,
+    "material": [
+      7,
+      3
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 43,
+  "fields": {
+    "article": 4450515,
+    "name": "Ренессанс",
+    "width": 200,
+    "height": 125,
+    "length": 62,
+    "weight": "80.00",
+    "color": 6,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": true,
+    "country": "Россия",
+    "brand": "ОфисМягкость",
+    "warranty": 2,
+    "price": "70000.00",
+    "description": null,
+    "category": 4,
+    "collection": null,
+    "material": [
+      7,
+      3
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 44,
+  "fields": {
+    "article": 9445906,
+    "name": "Авантио",
+    "width": 190,
+    "height": 120,
+    "length": 70,
+    "weight": "73.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": false,
+    "country": "Италия",
+    "brand": "Элегансио",
+    "warranty": 2,
+    "price": "23999.00",
+    "description": "",
+    "category": 4,
+    "collection": 3,
+    "material": [
+      9,
+      1
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 45,
+  "fields": {
+    "article": 5655688,
+    "name": "Престиж",
+    "width": 185,
+    "height": 105,
+    "length": 75,
+    "weight": "65.00",
+    "color": 5,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": true,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 2,
+    "price": "20000.00",
+    "description": "",
+    "category": 4,
+    "collection": 7,
+    "material": [
+      5,
+      3
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 46,
+  "fields": {
+    "article": 5655689,
+    "name": "Престиж",
+    "width": 185,
+    "height": 105,
+    "length": 75,
+    "weight": "65.00",
+    "color": 2,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 2,
+    "price": "20000.00",
+    "description": "",
+    "category": 4,
+    "collection": 7,
+    "material": [
+      5,
+      3
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 47,
+  "fields": {
+    "article": 3698742,
+    "name": "Элемента",
+    "width": 200,
+    "height": 115,
+    "length": 55,
+    "weight": "60.00",
+    "color": 1,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": false,
+    "country": "Россия",
+    "brand": "СамПро",
+    "warranty": 2,
+    "price": "32900.00",
+    "description": "",
+    "category": 4,
+    "collection": 2,
+    "material": [
+      7,
+      10
+    ]
+  }
+},
+{
+  "model": "product.product",
+  "pk": 48,
+  "fields": {
+    "article": 8569874,
+    "name": "Корбен",
+    "width": 205,
+    "height": 125,
+    "length": 60,
+    "weight": "70.00",
+    "color": 3,
+    "image": "products/noimage_detail.png",
+    "furniture_details": null,
+    "fast_delivery": true,
+    "country": "Китай",
+    "brand": "ЭргоМакс",
+    "warranty": 2,
+    "price": "27499.00",
+    "description": "",
+    "category": 4,
+    "collection": 4,
+    "material": [
+      7,
+      1
+    ]
+  }
+},
+{
+  "model": "product.discount",
+  "pk": 1,
+  "fields": {
+    "discount": 15,
+    "discount_created_at": "2023-06-20",
+    "discount_end_at": "2023-06-20",
+    "applied_products": [
+      1,
+      28,
+      29,
+      46
+    ]
+  }
+},
+{
+  "model": "product.discount",
+  "pk": 2,
+  "fields": {
+    "discount": 10,
+    "discount_created_at": "2023-06-20",
+    "discount_end_at": "2023-06-20",
+    "applied_products": [
+      10,
+      20
+    ]
+  }
+},
+{
+  "model": "product.discount",
+  "pk": 3,
+  "fields": {
+    "discount": 20,
+    "discount_created_at": "2023-06-20",
+    "discount_end_at": "2023-06-20",
+    "applied_products": [
+      13
+    ]
+  }
+},
+{
+  "model": "product.discount",
+  "pk": 4,
+  "fields": {
+    "discount": 35,
+    "discount_created_at": "2023-06-20",
+    "discount_end_at": "2023-06-20",
+    "applied_products": [
+      43
+    ]
+  }
+}
+]
