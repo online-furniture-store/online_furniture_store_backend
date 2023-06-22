@@ -49,7 +49,7 @@ class Order(models.Model):
     updated = models.DateTimeField(verbose_name='Дата обновления заказа', auto_now=True)
     products = models.ManyToManyField(Product, through='OrderProduct', verbose_name='Товар')
     delivery = models.OneToOneField(
-        Delivery, related_name='order_delivery', verbose_name='Доставка', on_delete=models.SET_NULL, null=True
+        Delivery, related_name='orders_delivery', verbose_name='Доставка', on_delete=models.SET_NULL, null=True
     )
     paid = models.BooleanField(verbose_name='Оплачено', default=False)
     total_cost = models.DecimalField(
@@ -85,9 +85,9 @@ class Order(models.Model):
 class OrderProduct(models.Model):
     """Модель товаров в заказе"""
 
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ', related_name='order_product')
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ', related_name='orders_product')
     product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, verbose_name='Товар', related_name='product_in_order'
+        Product, on_delete=models.CASCADE, verbose_name='Товар', related_name='products_in_order'
     )
     quantity = models.PositiveIntegerField(verbose_name='Колличество', default=1)
     price = models.DecimalField(verbose_name='Цена', max_digits=20, decimal_places=2)

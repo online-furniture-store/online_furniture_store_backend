@@ -18,33 +18,16 @@ class DeliveryTypeSerializer(serializers.ModelSerializer):
 class DeliverySerializer(serializers.ModelSerializer):
     """Сериализатор для модели Delivery."""
 
-    # TODO поле user
-    # user = UserSerializer(read_only=True)
     type_delivery = DeliveryTypeSerializer
 
     class Meta:
         model = Delivery
         fields = ('id', 'address', 'phone', 'type_delivery', 'created', 'updated')
-
-    def validate_phone(self, value):
-        if not value:
-            raise ValidationError('Укажите номер телефона для связи!')
-        return value
-
-    def validate_type_delivery(self, value):
-        if not value:
-            raise ValidationError('Укажите способ доставки!')
-        return value
-
-    def validate_address(self, value):
-        if not value:
-            raise ValidationError('Укажите адрес доставки')
-        return value
-
-    def validate(self, data):
-        if 'type_delivery' not in data:
-            raise ValidationError({'type_delivery': 'Обязательное поле'})
-        return data
+        extra_kwargs = {
+            'address': {'required': True},
+            'phone': {'required': True},
+            'type_delivery': {'required': True},
+        }
 
 
 class OrderProductWriteSerializer(serializers.ModelSerializer):
@@ -76,7 +59,6 @@ class OrderProductReadSerializer(serializers.ModelSerializer):
 class OrderReadSerializer(serializers.ModelSerializer):
     """Сериализатор для чтения Заказов из модели Order."""
 
-    # TODO поле user
     # user = UserSerializer(read_only=True)
     products = serializers.SerializerMethodField()
     delivery = DeliverySerializer()

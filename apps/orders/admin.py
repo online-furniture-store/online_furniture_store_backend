@@ -44,6 +44,7 @@ class OrderProductInline(admin.TabularInline):
     readonly_fields = ('price',)
 
 
+@admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     # TODO поле user
     list_display = ('id', 'user', 'created', 'updated', 'paid', 'delivery')
@@ -60,9 +61,3 @@ class StorehouseAdmin(admin.ModelAdmin):
     search_fields = ('product',)
     list_filter = ('product',)
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
-
-
-# # admin.site.register(DeliveryMethod, DeliveryMethodAdmin)
-# # admin.site.register(Delivery, DeliveryAdmin)
-admin.site.register(Order, OrderAdmin)
-# # admin.site.register(Storehouse, StorehouseAdmin)
