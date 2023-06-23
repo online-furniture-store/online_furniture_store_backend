@@ -19,6 +19,11 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
 
 class Material(models.Model):
     """Модель материалов товаров в магазине."""
@@ -173,11 +178,13 @@ class Favorite(models.Model):
         verbose_name_plural = 'Избранные товары'
         constraints = (models.UniqueConstraint(fields=('product', 'user'), name='product_user_unique'),)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f'{self.user} -> {self.product}'
 
 
 class CartModel(models.Model):
+    """Модель корзины пользователя."""
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -186,8 +193,13 @@ class CartModel(models.Model):
         verbose_name = 'Корзина пользователя'
         verbose_name_plural = 'Корзины пользователей'
 
+    def __str__(self):
+        return self.user.get_full_name()
+
 
 class CartItem(models.Model):
+    """Модель товара в корзине."""
+
     cart = models.ForeignKey(CartModel, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
@@ -197,3 +209,6 @@ class CartItem(models.Model):
     class Meta:
         verbose_name = 'Корзина с товарами'
         verbose_name_plural = 'Корзины с товарами'
+
+    def __str__(self):
+        return f'{self.cart}: {self.product}'
