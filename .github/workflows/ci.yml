@@ -76,6 +76,7 @@ jobs:
             echo DJANGO_ADMIN_URL=${{ secrets.DJANGO_ADMIN_URL }} >> .env
             echo DJANGO_ALLOWED_HOSTS=${{ secrets.DJANGO_ALLOWED_HOSTS }} >> .env
             echo DJANGO_SECURE_SSL_REDIRECT=${{ secrets.DJANGO_SECURE_SSL_REDIRECT }} >> .env
+            echo DJANGO_MEDIA_ROOT=${{ secrets.DJANGO_MEDIA_ROOT }} >> .env
 
             echo POSTGRES_HOST=${{ secrets.POSTGRES_HOST }} >> .env
             echo POSTGRES_PORT=${{ secrets.POSTGRES_PORT }} >> .env

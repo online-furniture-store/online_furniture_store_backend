@@ -18,7 +18,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - dev_prod_django_media:/app/online_furniture_store_backend/media:rw
+      - dev_prod_django_media:/var/www/django/media
       - dev_prod_django_static:/var/www/django/static
     env_file:
       - ./.env
