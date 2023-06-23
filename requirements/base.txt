@@ -21,4 +21,4 @@ djoser==2.2.0 # https://github.com/sunscrapers/djoser
 djangorestframework_simplejwt==5.2.2 # https://github.com/jazzband/djangorestframework-simplejwt
 
 # DRF-spectacular for api documentation
-drf-spectacular==0.26.2  # https://github.com/tfranzel/drf-spectacular
+drf-spectacular==0.26.3  # https://github.com/tfranzel/drf-spectacular
