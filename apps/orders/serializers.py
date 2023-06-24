@@ -96,11 +96,6 @@ class OrderWriteSerializer(serializers.ModelSerializer):
             product_list.append(product)
         return value
 
-    def validate_delivery(self, value):
-        if Order.objects.filter(delivery=value).exists():
-            raise ValidationError('Эта доставка уже используется')
-        return value
-
     @transaction.atomic
     def create_product_quantity(self, products, order):
         OrderProduct.objects.bulk_create(

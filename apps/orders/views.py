@@ -5,23 +5,15 @@ from rest_framework.decorators import action
 from rest_framework.permissions import SAFE_METHODS
 from rest_framework.response import Response
 
-from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct
+from apps.orders.models import Delivery, DeliveryType, Order
 from apps.orders.serializers import (
     DeliverySerializer,
     DeliveryTypeSerializer,
-    OrderProductReadSerializer,
     OrderReadSerializer,
     OrderWriteSerializer,
 )
 
 User = get_user_model()
-
-
-class OrderProductReadViewSet(viewsets.ReadOnlyModelViewSet):
-    """Вьюсет для способов доставки."""
-
-    queryset = OrderProduct.objects.all()
-    serializer_class = OrderProductReadSerializer
 
 
 class DeliveryTypeViewSet(viewsets.ReadOnlyModelViewSet):
