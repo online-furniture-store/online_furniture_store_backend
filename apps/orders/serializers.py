@@ -18,7 +18,7 @@ class DeliveryTypeSerializer(serializers.ModelSerializer):
 class DeliverySerializer(serializers.ModelSerializer):
     """Сериализатор для модели Delivery."""
 
-    type_delivery = DeliveryTypeSerializer
+    type_delivery = DeliveryTypeSerializer(read_only=True)
 
     class Meta:
         model = Delivery

@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
-from django.db.models import UniqueConstraint
+from django.db.models import Sum, UniqueConstraint
 
 from apps.product.models import Product
 from common.validators import validate_phone
@@ -53,7 +53,7 @@ class Order(models.Model):
     )
     paid = models.BooleanField(verbose_name='Оплачено', default=False)
     total_cost = models.DecimalField(
-        verbose_name='Общая стоимость', null=True, blank=True, max_digits=40, decimal_places=2
+        verbose_name='Общая стоимость', null=True, blank=True, default=0.00, max_digits=40, decimal_places=2
     )
 
     class Meta:
@@ -68,30 +68,23 @@ class Order(models.Model):
     #     return sum(product.cost() for product in self.items.all())
 
     def save(self, *args, **kwargs):
-        # order = OrderProduct.objects.annotate(total_price=Sum(F('cost'))).get(order=self)
-        # self.total_cost = order.total_price
-        #     # total = 0
-        #     # for product in self.products:
-        #     #     product.price * product.
-        # order = super().save(*args, **kwargs)
-        # current_order = Order(id=order)
+        total_cost = OrderProduct.objects.filter(order=self).aggregate(Sum('cost'))['cost__sum']
+        # total_cost = self.order_products.aggregate(Sum('cost'))
+        self.total_cost = total_cost
 
-        # current_order.total_cost = sum(item.get_cost() for item in self.products.all())
-        # current_order.save()
-        #     # self.total_cost = sum(product.cost for product in self.order_items.all())
         return super().save(*args, **kwargs)
 
 
 class OrderProduct(models.Model):
     """Модель товаров в заказе"""
 
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ', related_name='orders_product')
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ', related_name='order_products')
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, verbose_name='Товар', related_name='products_in_order'
     )
     quantity = models.PositiveIntegerField(verbose_name='Колличество', default=1)
     price = models.DecimalField(verbose_name='Цена', max_digits=20, decimal_places=2)
-    cost = models.DecimalField(verbose_name='Стоимость', max_digits=40, decimal_places=2)
+    cost = models.DecimalField(verbose_name='Стоимость', default=0, max_digits=40, decimal_places=2)
 
     class Meta:
         verbose_name = 'Товар в заказе'
