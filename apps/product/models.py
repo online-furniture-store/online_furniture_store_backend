@@ -194,7 +194,7 @@ class CartModel(models.Model):
         verbose_name_plural = 'Корзины пользователей'
 
     def __str__(self):
-        return self.user.get_full_name()
+        return self.user.email
 
 
 class CartItem(models.Model):
