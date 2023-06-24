@@ -131,7 +131,7 @@ class OrderWriteSerializer(serializers.ModelSerializer):
             quantity_storehouse = get_object_or_404(Storehouse, id=item['id']).quantity
             if quantity_storehouse == 0:
                 raise ValidationError(f'product: {product} -->> Товар закончился')
-            if new_quantity >= quantity_storehouse:
+            if new_quantity > quantity_storehouse:
                 raise ValidationError(f'product: {product}: quantity: Не больше {quantity_storehouse}')
             product_storehouse = get_object_or_404(Storehouse, id=item['id'])
             product_storehouse.quantity = product_storehouse.quantity - new_quantity

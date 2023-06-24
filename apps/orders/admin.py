@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 
 from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct, Storehouse
-from config.settings.base import ADMIN_EMPTY_VALUE_DISPLAY
 
 User = get_user_model()
 
@@ -45,4 +44,3 @@ class StorehouseAdmin(admin.ModelAdmin):
     list_display = ('id', 'product', 'quantity')
     search_fields = ('product',)
     list_filter = ('product',)
-    empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY

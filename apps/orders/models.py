@@ -65,14 +65,17 @@ class Order(models.Model):
         return f'Order {self.id}'
 
     # def get_total_cost(self):
-    #     return sum(product.cost() for product in self.items.all())
+    #     # self.products.aggregate(Sum('cost'))
+    #     return OrderProduct.objects.filter(order=self).aggregate(Sum('cost'))['cost__sum']
 
-    def save(self, *args, **kwargs):
-        total_cost = OrderProduct.objects.filter(order=self).aggregate(Sum('cost'))['cost__sum']
-        # total_cost = self.order_products.aggregate(Sum('cost'))
-        self.total_cost = total_cost
+    # def save(self, *args, **kwargs):
+    #     order = Order(**kwargs=)
+    # #     # total_cost = sum(product.cost for product in OrderProduct.objects.filter(order=self))
+    #     total_cost = OrderProduct.objects.filter(order=self).aggregate(Sum('cost'))['cost__sum']
+    # #     # total_cost = self.products.aggregate(Sum('cost'))
+    #     self.total_cost = total_cost
 
-        return super().save(*args, **kwargs)
+    #     return super().save(*args, **kwargs)
 
 
 class OrderProduct(models.Model):
@@ -100,7 +103,10 @@ class OrderProduct(models.Model):
     def save(self, *args, **kwargs):
         self.cost = self.product.price * self.quantity
         self.price = self.product.price
-        return super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
+        self.order.total_cost = OrderProduct.objects.filter(order=self.order).aggregate(Sum('cost'))['cost__sum']
+        self.order.save(update_fields=['total_cost'])
+        return
 
 
 class Storehouse(models.Model):
