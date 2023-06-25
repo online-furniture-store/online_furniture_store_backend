@@ -20,12 +20,37 @@ from config.settings.base import ADMIN_EMPTY_VALUE_DISPLAY
 User = get_user_model()
 
 
+class CartItemInLine(admin.TabularInline):
+    model = CartItem
+    extra = 1
+
+
+class DiscountInLine(admin.TabularInline):
+    model = Discount.applied_products.through
+    extra = 1
+    verbose_name = 'Скидка'
+    verbose_name_plural = 'Скидки'
+
+
+class FavoriteInLine(admin.TabularInline):
+    model = Favorite
+    extra = 1
+    verbose_name_plural = 'В избранном'
+
+
+class ProductMaterialInLine(admin.TabularInline):
+    model = Product.material.through
+    extra = 1
+    verbose_name = 'Материал'
+    verbose_name_plural = 'Материалы'
+
+
 @admin.register(Category)
 class CategoriesAdmin(ImportExportModelAdmin):
     list_display = ('pk', 'name', 'slug')
     search_fields = ('name',)
-    list_filter = ('name',)
     ordering = ('pk',)
+    prepopulated_fields = {'slug': ('name',)}
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
 
 
@@ -33,7 +58,6 @@ class CategoriesAdmin(ImportExportModelAdmin):
 class MaterialsAdmin(ImportExportModelAdmin):
     list_display = ('pk', 'name')
     search_fields = ('name',)
-    list_filter = ('name',)
     ordering = ('pk',)
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
 
@@ -63,8 +87,11 @@ class ProductAdmin(ImportExportModelAdmin):
         'fast_delivery',
         'preview',
     )
+    exclude = ('material',)
+    list_editable = ('price', 'fast_delivery')
+    inlines = (ProductMaterialInLine, DiscountInLine, FavoriteInLine, CartItemInLine)
     search_fields = ('article', 'name', 'brand')
-    list_filter = ('article', 'name')
+    list_filter = ('article', 'name', 'category')
     readonly_fields = ('preview',)
     ordering = ('pk',)
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
@@ -76,6 +103,7 @@ class ProductAdmin(ImportExportModelAdmin):
 @admin.register(CartModel)
 class CartAdmin(admin.ModelAdmin):
     list_display = ('pk', 'user', 'created_at', 'updated_at')
+    inlines = (CartItemInLine,)
     search_fields = ('user', 'created_at', 'updated_at')
     list_filter = ('user', 'created_at', 'updated_at')
     empty_value_display = ADMIN_EMPTY_VALUE_DISPLAY
@@ -98,7 +126,7 @@ class FavoriteAdmin(admin.ModelAdmin):
 
 
 @admin.register(Color)
-class ColorsAdmin(ImportExportModelAdmin):
+class ColorAdmin(ImportExportModelAdmin):
     list_display = ('pk', 'name')
     search_fields = ('name',)
     list_filter = ('name',)
@@ -109,6 +137,8 @@ class ColorsAdmin(ImportExportModelAdmin):
 @admin.register(Discount)
 class DiscountAdmin(admin.ModelAdmin):
     list_display = ('pk', 'discount', 'discount_created_at', 'discount_end_at')
+    exclude = ('applied_products',)
+    inlines = (DiscountInLine,)
     search_fields = ('discount', 'discount_created_at', 'discount_end_at')
     list_filter = ('discount', 'discount_created_at', 'discount_end_at')
     ordering = ('pk',)
