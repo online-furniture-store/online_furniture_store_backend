@@ -34,17 +34,21 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_full_name(self):
         """
-        Return the first_name plus the last_name, with a space in between.
+        Возвращает имя и фамилию.
         """
         full_name = f'{self.first_name} {self.last_name}'
         return full_name.strip()
 
     def get_short_name(self):
-        """Return the short name for the user."""
+        """
+        Возвращает имя пользователя.
+        """
         return self.first_name
 
     def email_user(self, subject, message, from_email=None, **kwargs):
-        """Send an email to this user."""
+        """
+        Высылает email этому пользователю.
+        """
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
     class Meta:
