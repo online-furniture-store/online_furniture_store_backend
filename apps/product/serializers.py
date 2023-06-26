@@ -5,7 +5,17 @@ from django.utils import timezone
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
 
-from apps.product.models import Category, Collection, Color, Discount, FurnitureDetails, Material, Product
+from apps.product.models import (
+    CartItem,
+    CartModel,
+    Category,
+    Collection,
+    Color,
+    Discount,
+    FurnitureDetails,
+    Material,
+    Product,
+)
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -120,3 +130,19 @@ class CollectionSerializer(serializers.ModelSerializer):
         model = Collection
         fields = ('id', 'name', 'slug', 'image')
         read_only_fields = fields
+
+
+class CartItemSerializer(serializers.ModelSerializer):
+    product = serializers.StringRelatedField()
+
+    class Meta:
+        model = CartItem
+        fields = ('id', 'product', 'quantity')
+
+
+class CartSerializer(serializers.ModelSerializer):
+    cartitems = CartItemSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = CartModel
+        fields = ('id', 'cartitems', 'created_at', 'updated_at')

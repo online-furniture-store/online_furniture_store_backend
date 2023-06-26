@@ -2,6 +2,7 @@ from django.conf import settings
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
 from apps.product.views import (
+    CartViewSet,
     CategoryViewSet,
     CollectionViewSet,
     ColorViewSet,
@@ -25,7 +26,6 @@ router.register('products', ProductViewSet, basename='products')
 router.register('collections', CollectionViewSet, basename='collections')
 router.register('reviews', ReviewViewSet, basename='reviews')
 router.register('discounts', DiscountViewSet, basename='discounts')
-
-
+router.register('cart', CartViewSet, basename='cart')
 app_name = 'api'
 urlpatterns = router.urls

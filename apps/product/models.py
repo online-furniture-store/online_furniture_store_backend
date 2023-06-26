@@ -185,7 +185,7 @@ class Favorite(models.Model):
 class CartModel(models.Model):
     """Модель корзины пользователя."""
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='cartmodels')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -200,8 +200,8 @@ class CartModel(models.Model):
 class CartItem(models.Model):
     """Модель товара в корзине."""
 
-    cart = models.ForeignKey(CartModel, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    cart = models.ForeignKey(CartModel, on_delete=models.CASCADE, related_name='cartitems')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='cartitems')
     quantity = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
