@@ -1,4 +1,5 @@
 from django.db import transaction
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
@@ -144,10 +145,15 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         products = validated_data.pop('products')
-        # order = validated_data.pop('order')
+        # current_products = OrderProduct.objects.filter(order=instance)
         for new_product in products:
             product = get_object_or_404(Product, id=new_product['id'])
             new_quantity = int(new_product['quantity'])
+            if not OrderProduct.objects.filter(order=instance, product=product).exists():
+                price = Product.objects.get(id=new_product['id']).price
+                OrderProduct.objects.create(
+                    order=instance, product=product, price=price, quantity=new_product['quantity']
+                )
             current_quantity = get_object_or_404(OrderProduct, order=instance, product=new_product['id']).quantity
             quantity_storehouse = get_object_or_404(Storehouse, id=new_product['id']).quantity
             remains = quantity_storehouse + current_quantity - new_quantity
@@ -157,6 +163,7 @@ class OrderWriteSerializer(serializers.ModelSerializer):
         instance = super().update(instance, validated_data)
         instance.products.clear()
         self.create_product_quantity(order=instance, products=products)
+        instance.total_cost = OrderProduct.objects.filter(order=instance).aggregate(Sum('cost'))['cost__sum']
         instance.save()
         return instance
 

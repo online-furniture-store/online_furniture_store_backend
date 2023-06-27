@@ -66,8 +66,8 @@ class Order(models.Model):
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
 
-    # def __str__(self):
-    #     return f'Order {self.id}, {self.user.email}'
+    def __str__(self):
+        return f'Order {self.id}, {self.user}'
 
 
 class OrderProduct(models.Model):
