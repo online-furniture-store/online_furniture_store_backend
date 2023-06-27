@@ -10,14 +10,12 @@ from apps.product.views import (
     ProductViewSet,
 )
 from apps.reviews.views import ReviewViewSet
-from apps.users.views import UserViewSet
 
 if settings.DEBUG:
     router = DefaultRouter()
 else:
     router = SimpleRouter()
 
-router.register('users', UserViewSet, basename='users')
 router.register('colors', ColorViewSet, basename='colors')
 router.register('categories', CategoryViewSet, basename='categories')
 router.register('materials', MaterialViewSet, basename='materials')
