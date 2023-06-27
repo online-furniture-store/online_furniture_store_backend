@@ -113,10 +113,10 @@ class OrderWriteSerializer(serializers.ModelSerializer):
 
     @transaction.atomic
     def update_storehouse(self, products, order):
-        for item in products:
-            new_quantity = int(item['quantity'])
-            current_quantity = get_object_or_404(OrderProduct, order=order).quantity
-            product_storehouse = get_object_or_404(Storehouse, id=item['id'])
+        for product in products:
+            new_quantity = int(product['quantity'])
+            current_quantity = get_object_or_404(OrderProduct, order=order, product=product['id']).quantity
+            product_storehouse = get_object_or_404(Storehouse, id=product['id'])
             quantity_storehouse = product_storehouse.quantity
             remains = quantity_storehouse + current_quantity - new_quantity
             product_storehouse.quantity = remains
@@ -125,15 +125,16 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def create(self, validated_data):
         products = validated_data.pop('products')
-        for item in products:
-            product = get_object_or_404(Product, id=item['id'])
-            new_quantity = int(item['quantity'])
-            quantity_storehouse = get_object_or_404(Storehouse, id=item['id']).quantity
+        for new_product in products:
+            product = get_object_or_404(Product, id=new_product['id'])
+            new_quantity = int(new_product['quantity'])
+            product_storehouse = get_object_or_404(Storehouse, product=new_product['id'])
+            quantity_storehouse = product_storehouse.quantity
             if quantity_storehouse == 0:
                 raise ValidationError(f'product: {product} -->> Товар закончился')
             if new_quantity > quantity_storehouse:
                 raise ValidationError(f'product: {product}: quantity: Не больше {quantity_storehouse}')
-            product_storehouse = get_object_or_404(Storehouse, id=item['id'])
+
             product_storehouse.quantity = product_storehouse.quantity - new_quantity
             product_storehouse.save(update_fields=['quantity'])
         order = Order.objects.create(**validated_data)
@@ -143,11 +144,12 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         products = validated_data.pop('products')
-        for item in products:
-            product = get_object_or_404(Product, id=item['id'])
-            new_quantity = int(item['quantity'])
-            current_quantity = get_object_or_404(OrderProduct, order=instance).quantity
-            quantity_storehouse = get_object_or_404(Storehouse, id=item['id']).quantity
+        # order = validated_data.pop('order')
+        for new_product in products:
+            product = get_object_or_404(Product, id=new_product['id'])
+            new_quantity = int(new_product['quantity'])
+            current_quantity = get_object_or_404(OrderProduct, order=instance, product=new_product['id']).quantity
+            quantity_storehouse = get_object_or_404(Storehouse, id=new_product['id']).quantity
             remains = quantity_storehouse + current_quantity - new_quantity
             if remains < 0:
                 raise ValidationError(f'product: {product} -->> quantity: На складе недостаточно товаров')

@@ -21,6 +21,11 @@ class DeliveryAdmin(admin.ModelAdmin):
     list_filter = ('phone', 'type_delivery')
 
 
+@admin.register(OrderProduct)
+class OrderProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'order', 'product', 'quantity')
+
+
 class OrderProductInline(admin.TabularInline):
     model = OrderProduct
     raw_id_fields = ['product']
