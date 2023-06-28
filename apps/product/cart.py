@@ -9,10 +9,7 @@ class Cart:
     def __init__(self, request, user=None):
         self.session = request.session
         self.user = user
-        cart = self.session.get(settings.CART_SESSION_ID)
-        if cart is None:
-            cart = self.session[settings.CART_SESSION_ID] = {}
-        self.cart = cart
+        self.cart = self.session.get(settings.CART_SESSION_ID) or {}
 
     def __len__(self):
         """Количество всех товаров в корзине."""
