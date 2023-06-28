@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.template.defaultfilters import slugify
@@ -150,6 +152,22 @@ class Product(models.Model):
     def __str__(self):
         return f'{self.article} - {self.name}'
 
+    def extract_discount(self):
+        """Возвращает скидку на продукт."""
+        now = timezone.now()
+        return (
+            self.discounts.filter(
+                models.Q(discount_created_at=now, discount_end_at__gte=now)
+                | models.Q(discount_created_at__lte=now, discount_end_at__gte=now)
+            ).aggregate(max_discount=models.Max('discount'))['max_discount']
+            or 0
+        )
+
+    def calculate_total_price(self):
+        """Возвращает расчитанную итоговую цену товара с учётом скидки."""
+        discount = self.extract_discount()
+        return self.price * Decimal(1 - discount / 100)
+
 
 class Discount(models.Model):
     """Модель скидок для  товаров в магазине."""
@@ -194,11 +212,11 @@ class CartModel(models.Model):
         verbose_name_plural = 'Корзины пользователей'
 
     def __str__(self):
-        return self.user.email
+        return f'Cart of {self.user.email}'
 
 
 class CartItem(models.Model):
-    """Модель товара в корзине."""
+    """Модель содержимого корзины пользователя"""
 
     cart = models.ForeignKey(CartModel, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -211,4 +229,4 @@ class CartItem(models.Model):
         verbose_name_plural = 'Корзины с товарами'
 
     def __str__(self):
-        return f'{self.cart}: {self.product}'
+        return f'{self.product.name} {self.quantity}'

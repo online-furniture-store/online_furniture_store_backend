@@ -1,7 +1,3 @@
-from decimal import Decimal
-
-from django.db.models import Max, Q
-from django.utils import timezone
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
 
@@ -71,18 +67,11 @@ class ShortProductSerializer(serializers.ModelSerializer):
 
     def extract_discount(self, obj):
         """Возвращает скидку на продукт."""
-        now = timezone.now()
-        return obj.discounts.filter(
-            Q(discount_created_at=now, discount_end_at__gte=now)
-            | Q(discount_created_at__lte=now, discount_end_at__gte=now)
-        ).aggregate(max_discount=Max('discount'))['max_discount']
+        return obj.extract_discount()
 
     def calculate_total_price(self, obj):
         """Возвращает рачитанную итоговую цену товара с учётом скидки."""
-        discount = self.extract_discount(obj=obj)
-        if discount is None:
-            return obj.price
-        return obj.price * Decimal(1 - discount / 100)
+        return obj.calculate_total_price()
 
 
 class ProductSerializer(ShortProductSerializer):
