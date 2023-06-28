@@ -20,7 +20,7 @@ def cart_items(request, pk=None):
     """Возвращает данные о товарах в корзине пользователя."""
     user = request.user
     if user.is_authenticated:
-        cart = get_object_or_404(CartModel, user=user)
+        cart, _ = CartModel.objects.get_or_create(user=user)
         serializer = CartModelSerializer(instance=cart, context={'request': request})
         return Response(serializer.data)
     cart = Cart(request=request)
