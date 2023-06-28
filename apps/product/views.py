@@ -1,9 +1,11 @@
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
+from apps.orders.models import OrderProduct
 from apps.product.models import Category, Collection, Color, Discount, Favorite, FurnitureDetails, Material, Product
 from apps.product.serializers import (
     CategorySerializer,
@@ -77,20 +79,20 @@ class ProductViewSet(ModelViewSet):
         return Response(status=HTTP_204_NO_CONTENT)
 
     @action(detail=False)
-    def popular(self, request):
-        popular_products = Product.objects.all()[:6]  # Пока нет моделей заказов
-        # popular_products = (
-        #     OrderProduct.objects
-        #     .values('product__pk')
-        #     .annotate(Sum('quantity'))
-        #     .order_by(quantity__sum)[:6]
-        # )
+    def popular(self, request, top=6):
+        """Возвращает топ популярных товаров."""
+
+        popular_orders = (
+            OrderProduct.objects.values('product').annotate(Sum('quantity')).order_by('quantity__sum')[:top]
+        )
+        products_id = [pk['product'] for pk in popular_orders]
+        popular_products = Product.objects.filter(id__in=products_id)
         serializer = ShortProductSerializer(popular_products, many=True)
         return Response(serializer.data)
 
 
 class CollectionViewSet(ReadOnlyModelViewSet):
-    """Вьюсет для коллекций. Толко чтение одного или списка объектов."""
+    """Вьюсет для коллекций. Только чтение одного или списка объектов."""
 
     queryset = Collection.objects.all()
 

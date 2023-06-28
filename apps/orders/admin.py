@@ -15,7 +15,6 @@ class DeliveryTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Delivery)
 class DeliveryAdmin(admin.ModelAdmin):
-    # TODO поле user
     list_display = ('id', 'address', 'phone', 'type_delivery', 'created', 'updated')
     search_fields = ('phone',)
     list_filter = ('phone', 'type_delivery')
@@ -23,21 +22,19 @@ class DeliveryAdmin(admin.ModelAdmin):
 
 @admin.register(OrderProduct)
 class OrderProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'order', 'product', 'quantity')
+    list_display = ('id', 'order', 'product', 'quantity', 'price', 'cost')
 
 
 class OrderProductInline(admin.TabularInline):
     model = OrderProduct
     raw_id_fields = ['product']
-    fields = ('product', 'quantity', 'price')
+    fields = ('product', 'price', 'quantity')
     readonly_fields = ('price',)
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    # TODO поле user
-    list_display = ('id', 'user', 'created', 'updated', 'paid', 'delivery')
-    # fields = ('delivery', 'paid')
+    list_display = ('id', 'user', 'created', 'updated', 'paid', 'delivery', 'total_cost')
     readonly_fields = ('total_cost', 'created', 'updated')
     search_fields = ('id', 'paid')
     list_filter = ('created', 'updated', 'paid', 'delivery')
