@@ -21,11 +21,11 @@ def cart_items(request, pk=None):
     user = request.user
     if user.is_authenticated:
         cart = get_object_or_404(CartModel, user=user)
-        serializer = CartModelSerializer(instance=cart)
+        serializer = CartModelSerializer(instance=cart, context={'request': request})
         return Response(serializer.data)
     cart = Cart(request=request)
     cart_items = cart.extract_items_cart()
-    serializer = CartModelDictSerializer(instance=cart_items)
+    serializer = CartModelDictSerializer(instance=cart_items, context={'request': request})
     return Response(serializer.data)
 
 
@@ -47,11 +47,11 @@ def add_item(request):
     user = request.user
     if not user.is_authenticated:
         cart = Cart(request=request)
-        serializer = CartItemCreateDictSerializer(data=request.data)
+        serializer = CartItemCreateDictSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         cart.add(product_id=serializer.data.get('product'), quantity=serializer.data.get('quantity'))
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    serializer = CartItemCreateSerializer(data=request.data)
+    serializer = CartItemCreateSerializer(data=request.data, context={'request': request})
     serializer.is_valid(raise_exception=True)
     cart = get_object_or_404(CartModel, user=user)
     product = get_object_or_404(Product, pk=request.data['product'])
