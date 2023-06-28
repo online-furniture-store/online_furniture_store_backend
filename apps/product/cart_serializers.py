@@ -35,7 +35,7 @@ class CartModelSerializer(serializers.ModelSerializer):
         fields = ('total_quantity', 'total_price', 'products')
 
     def calculate_total_quantity(self, obj):
-        return obj.cartitem_set.all().aggregate(Sum('quantity'))['quantity__sum']
+        return obj.cartitem_set.all().aggregate(Sum('quantity'))['quantity__sum'] or 0
 
     def calculate_total_price(self, obj):
         return sum(item.product.calculate_total_price() * item.quantity for item in obj.cartitem_set.all())
