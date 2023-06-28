@@ -1,6 +1,8 @@
 from django.conf import settings
+from django.urls import include, path
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
+from apps.product.cart_views import add_item, cart_items, del_item
 from apps.product.views import (
     CategoryViewSet,
     CollectionViewSet,
@@ -23,7 +25,13 @@ router.register('products', ProductViewSet, basename='products')
 router.register('collections', CollectionViewSet, basename='collections')
 router.register('reviews', ReviewViewSet, basename='reviews')
 router.register('discounts', DiscountViewSet, basename='discounts')
+# router.register('carts', CartViewSet, basename='carts')
 
 
 app_name = 'api'
-urlpatterns = router.urls
+urlpatterns = [
+    path('carts/items/', cart_items, name='items'),
+    path('carts/add_item/', add_item, name='add_item'),
+    path('carts/del_item/<int:pk>/', del_item, name='del_item'),
+    path('', include(router.urls)),
+]
