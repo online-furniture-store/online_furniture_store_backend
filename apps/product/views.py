@@ -69,7 +69,7 @@ class ProductViewSet(ModelViewSet):
     def favorite(self, request, pk):
         product = get_object_or_404(Product, pk=pk)
         if request.method == 'POST':
-            serializer = ShortProductSerializer(product, data=request.data)
+            serializer = ShortProductSerializer(product, data=request.data, context={'request': request})
             serializer.is_valid(raise_exception=True)
             Favorite.objects.get_or_create(user=request.user, product=product)
             return Response(serializer.data, status=HTTP_201_CREATED)
@@ -85,7 +85,7 @@ class ProductViewSet(ModelViewSet):
         #     .annotate(Sum('quantity'))
         #     .order_by(quantity__sum)[:6]
         # )
-        serializer = ShortProductSerializer(popular_products, many=True)
+        serializer = ShortProductSerializer(popular_products, many=True, context={'request': request})
         return Response(serializer.data)
 
 
