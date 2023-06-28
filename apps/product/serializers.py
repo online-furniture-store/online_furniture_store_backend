@@ -54,10 +54,22 @@ class ShortProductSerializer(serializers.ModelSerializer):
     is_favorited = serializers.SerializerMethodField(method_name='analyze_is_favorited')
     discount = serializers.SerializerMethodField(method_name='extract_discount')
     total_price = serializers.SerializerMethodField(method_name='calculate_total_price')
+    image = Base64ImageField(required=True)
+    available_quantity = serializers.SerializerMethodField(method_name='fetch_available_quantity')
 
     class Meta:
         model = Product
-        fields = ('id', 'article', 'name', 'is_favorited', 'price', 'discount', 'total_price', 'image')
+        fields = (
+            'id',
+            'article',
+            'name',
+            'is_favorited',
+            'price',
+            'discount',
+            'total_price',
+            'available_quantity',
+            'image',
+        )
 
     def analyze_is_favorited(self, obj):
         """
@@ -91,7 +103,6 @@ class ProductSerializer(ShortProductSerializer):
     category = CategorySerializer()
     color = ColorSerializer()
     material = MaterialSerializer(many=True)
-    image = Base64ImageField(required=True)
 
     class Meta(ShortProductSerializer.Meta):
         fields = ShortProductSerializer.Meta.fields + (

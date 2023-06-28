@@ -276,3 +276,5 @@ media/*
 
 # .idea
 .idea
+
+dump.json
