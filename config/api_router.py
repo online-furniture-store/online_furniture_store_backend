@@ -2,6 +2,7 @@ from django.conf import settings
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
+from apps.orders.views import DeliveryTypeViewSet, DeliveryViewSet, OrderViewSet
 from apps.product.cart_views import add_item, cart_items, del_item
 from apps.product.views import (
     CategoryViewSet,
@@ -27,6 +28,9 @@ router.register('reviews', ReviewViewSet, basename='reviews')
 router.register('discounts', DiscountViewSet, basename='discounts')
 # router.register('carts', CartViewSet, basename='carts')
 
+router.register('delivery_types', DeliveryTypeViewSet, basename='delivery_types')
+router.register('delivery', DeliveryViewSet, basename='delivery')
+router.register('orders', OrderViewSet, basename='orders')
 
 app_name = 'api'
 urlpatterns = [

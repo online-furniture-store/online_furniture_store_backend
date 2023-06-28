@@ -157,6 +157,9 @@ typings/
 .history/
 
 
+
+
+
 ### Windows template
 # Windows thumbnail cache files
 Thumbs.db
@@ -268,6 +271,8 @@ media/*
 .env
 .envs/*
 !.envs/.local/
+
+.vscode
 
 # .idea
 .idea
