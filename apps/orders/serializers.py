@@ -120,6 +120,10 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         products = validated_data.pop('products')
+        current_products = OrderProduct.objects.filter(order=instance)
+        for current in current_products:
+            if current.id not in products:
+                OrderProduct.objects.filter(id=current.id).delete()
         for new_product in products:
             product = new_product.get('product')
             new_quantity = int(new_product['quantity'])
