@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
+from import_export.admin import ImportExportModelAdmin
 
 from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct, Storehouse
 
@@ -7,21 +8,21 @@ User = get_user_model()
 
 
 @admin.register(DeliveryType)
-class DeliveryTypeAdmin(admin.ModelAdmin):
+class DeliveryTypeAdmin(ImportExportModelAdmin):
     list_display = ('id', 'name')
     search_fields = ('name',)
     list_filter = ('name',)
 
 
 @admin.register(Delivery)
-class DeliveryAdmin(admin.ModelAdmin):
+class DeliveryAdmin(ImportExportModelAdmin):
     list_display = ('id', 'address', 'phone', 'type_delivery', 'created', 'updated')
     search_fields = ('phone',)
     list_filter = ('phone', 'type_delivery')
 
 
 @admin.register(OrderProduct)
-class OrderProductAdmin(admin.ModelAdmin):
+class OrderProductAdmin(ImportExportModelAdmin):
     list_display = ('id', 'order', 'product', 'quantity', 'price', 'cost')
 
 
@@ -33,7 +34,7 @@ class OrderProductInline(admin.TabularInline):
 
 
 @admin.register(Order)
-class OrderAdmin(admin.ModelAdmin):
+class OrderAdmin(ImportExportModelAdmin):
     list_display = ('id', 'user', 'created', 'updated', 'paid', 'delivery', 'total_cost')
     readonly_fields = ('total_cost', 'created', 'updated')
     search_fields = ('id', 'paid')
@@ -42,7 +43,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 @admin.register(Storehouse)
-class StorehouseAdmin(admin.ModelAdmin):
+class StorehouseAdmin(ImportExportModelAdmin):
     list_display = ('id', 'product', 'quantity')
     search_fields = ('product',)
     list_filter = ('product',)
