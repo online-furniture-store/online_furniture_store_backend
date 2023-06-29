@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
+from import_export.admin import ImportExportModelAdmin
 
 from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct, Storehouse
 
@@ -42,7 +43,8 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 @admin.register(Storehouse)
-class StorehouseAdmin(admin.ModelAdmin):
+class StorehouseAdmin(ImportExportModelAdmin):
     list_display = ('id', 'product', 'quantity')
     search_fields = ('product',)
     list_filter = ('product',)
+    ordering = ('pk',)
