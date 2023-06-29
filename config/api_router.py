@@ -36,6 +36,6 @@ app_name = 'api'
 urlpatterns = [
     path('carts/items/', cart_items, name='items'),
     path('carts/add_item/', add_item, name='add_item'),
-    path('carts/del_item/<int:pk>/', del_item, name='del_item'),
+    path('carts/del_item/<int:id>/', del_item, name='del_item'),
     path('', include(router.urls)),
 ]
