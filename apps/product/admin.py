@@ -135,7 +135,7 @@ class ColorAdmin(ImportExportModelAdmin):
 
 
 @admin.register(Discount)
-class DiscountAdmin(admin.ModelAdmin):
+class DiscountAdmin(ImportExportModelAdmin):
     list_display = ('pk', 'discount', 'discount_created_at', 'discount_end_at')
     exclude = ('applied_products',)
     inlines = (DiscountInLine,)

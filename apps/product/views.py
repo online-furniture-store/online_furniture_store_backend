@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-from apps.orders.models import OrderProduct
 from apps.product.models import Category, Collection, Color, Discount, Favorite, FurnitureDetails, Material, Product
 from apps.product.serializers import (
     CategorySerializer,
@@ -82,11 +81,11 @@ class ProductViewSet(ModelViewSet):
     def popular(self, request, top=6):
         """Возвращает топ популярных товаров."""
 
-        popular_orders = (
-            OrderProduct.objects.values('product').annotate(Sum('quantity')).order_by('quantity__sum')[:top]
+        popular_products = (
+            Product.objects.annotate(total_quantity=Sum('order_products__quantity'))
+            .filter(total_quantity__gt=0)
+            .order_by('-total_quantity')[:top]
         )
-        products_id = [pk['product'] for pk in popular_orders]
-        popular_products = Product.objects.filter(id__in=products_id)
         serializer = ShortProductSerializer(popular_products, many=True)
         return Response(serializer.data)
 
