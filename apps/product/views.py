@@ -86,7 +86,7 @@ class ProductViewSet(ModelViewSet):
             .filter(total_quantity__gt=0)
             .order_by('-total_quantity')[:top]
         )
-        serializer = ShortProductSerializer(popular_products, many=True)
+        serializer = ShortProductSerializer(popular_products, many=True, context={'request': request})
         return Response(serializer.data)
 
 
