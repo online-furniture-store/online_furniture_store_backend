@@ -1,24 +1,12 @@
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-from apps.product.models import (
-    CartModel,
-    Category,
-    Collection,
-    Color,
-    Discount,
-    Favorite,
-    FurnitureDetails,
-    Material,
-    Product,
-)
+from apps.product.models import Category, Collection, Color, Discount, Favorite, FurnitureDetails, Material, Product
 from apps.product.serializers import (
-    CartSerializer,
     CategorySerializer,
     CollectionSerializer,
     ColorSerializer,
@@ -28,7 +16,6 @@ from apps.product.serializers import (
     ProductSerializer,
     ShortProductSerializer,
 )
-from common.permisions import CanAccessCartItems
 
 
 class CategoryViewSet(ReadOnlyModelViewSet):
@@ -116,21 +103,4 @@ class CollectionViewSet(ReadOnlyModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         collection = self.get_object()
         serializer = self.get_serializer(collection.products, many=True)
-        return Response(serializer.data)
-
-
-class CartViewSet(ModelViewSet):
-    serializer_class = CartSerializer
-    permission_classes = (IsAuthenticated, CanAccessCartItems)
-
-    def get_queryset(self):
-        user = self.request.user
-        if CartModel.objects.filter(user=user).exists():
-            return CartModel.objects.filter(user=user)
-        CartModel.objects.create(user=user)
-        return CartModel.objects.filter(user=user)
-
-    def retrieve(self, request, *args, **kwargs):
-        cart = self.get_object()
-        serializer = self.get_serializer(cart)
         return Response(serializer.data)
