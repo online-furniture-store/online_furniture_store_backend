@@ -4,8 +4,10 @@ from django.db.models import Sum
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
+from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
 
 from apps.orders.models import Delivery, DeliveryType, Order
 from apps.orders.serializers import (
@@ -32,8 +34,8 @@ class DeliveryViewSet(viewsets.ModelViewSet):
     serializer_class = DeliverySerializer
 
 
-class OrderViewSet(viewsets.ModelViewSet):
-    """Вьюсет для заказов."""
+class OrderViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixin, GenericViewSet):
+    """Вьюсет для заказов. Создание заказа либо получение заказов. Обновление, улаление не предусмотрено."""
 
     queryset = Order.objects.all()
     permission_classes = (IsAuthenticated,)

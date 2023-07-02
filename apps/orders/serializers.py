@@ -1,5 +1,5 @@
 from django.db import transaction
-from django.db.models import F, Sum
+from django.db.models import Sum
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
@@ -114,32 +114,6 @@ class OrderWriteSerializer(serializers.ModelSerializer):
         order = Order.objects.create(user=self.context.get('request').user, **validated_data)
         self.add_products(order, products)
         return order
-
-    @transaction.atomic
-    def update(self, order, validated_data):
-        """Обновляет заказ и склад в базе."""
-
-        products = validated_data.pop('products')
-        self.increase_stock(order, products)
-        order.products.clear()
-        self.update_storehouse(products)
-        self.add_products(order, products)
-        return super().update(order, validated_data)
-
-    @staticmethod
-    def increase_stock(order, products):
-        """Возвращает на склад количество товаров, удаляемых или обновляемых заказов."""
-
-        Storehouse.objects.bulk_update(
-            [
-                Storehouse(
-                    id=product['product'].id,
-                    quantity=F('quantity') + order.order_products.get(product=product['product'].id).quantity,
-                )
-                for product in products
-            ],
-            ['quantity'],
-        )
 
     def to_representation(self, instance):
         return OrderReadSerializer(instance, context={'request': self.context.get('request')}).data
