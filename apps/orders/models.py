@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.db.models import Sum, UniqueConstraint
 
@@ -77,7 +78,11 @@ class OrderProduct(models.Model):
     order = models.ForeignKey(Order, verbose_name='Заказ', on_delete=models.CASCADE, related_name='order_products')
     product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, related_name='order_products')
     price = models.DecimalField(verbose_name='Цена', max_digits=20, decimal_places=2)
-    quantity = models.PositiveIntegerField(verbose_name='Колличество', default=1)
+    quantity = models.PositiveIntegerField(
+        verbose_name='Колличество',
+        validators=[MinValueValidator(1, message='Минимальное количество: 1 шт.')],
+        default=1,
+    )
     cost = models.DecimalField(verbose_name='Стоимость', max_digits=40, decimal_places=2, default=0)
 
     class Meta:

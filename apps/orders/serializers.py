@@ -1,6 +1,5 @@
 from django.db import transaction
-from django.db.models import Sum
-from django.shortcuts import get_object_or_404
+from django.db.models import F, Sum
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
@@ -28,16 +27,9 @@ class DeliverySerializer(serializers.ModelSerializer):
 class OrderProductWriteSerializer(serializers.ModelSerializer):
     """Сериализатор для записи товаров в заказе в модель OrderProduct."""
 
-    quantity = serializers.IntegerField()
-
     class Meta:
         model = OrderProduct
         fields = ('product', 'quantity')
-
-    def validate_quantity(self, value):
-        if value <= 0:
-            value = 1
-        return value
 
 
 class OrderProductReadSerializer(serializers.ModelSerializer):
@@ -70,10 +62,33 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('user', 'products', 'delivery', 'total_cost', 'paid')
-        read_only_fields = ('user',)
+        read_only_fields = ('user', 'total_cost')
 
-    @transaction.atomic
-    def add_products(self, order, products):
+    @staticmethod
+    def update_storehouse(products):
+        """Проверяет и обновляет кличество на складе после заказа."""
+
+        storehouse = []
+        for product in products:
+            ordered_product = product.get('product')
+            ordered_quantity = int(product.get('quantity'))
+            storehouse_product = ordered_product.storehouse
+
+            storehouse_product_quantity = storehouse_product.quantity
+            if storehouse_product_quantity < ordered_quantity:
+                raise ValidationError(
+                    f'Для заказа товара {ordered_product} доступно {storehouse_product_quantity} шт.'
+                )
+
+            storehouse_product.quantity -= ordered_quantity
+            storehouse.append(storehouse_product)
+
+        Storehouse.objects.bulk_update(storehouse, ['quantity'])
+
+    @staticmethod
+    def add_products(order, products):
+        """Сохраняет в базу данные заказа в OrderProduct, общую стоимость в Order."""
+
         OrderProduct.objects.bulk_create(
             [
                 OrderProduct(
@@ -87,61 +102,44 @@ class OrderWriteSerializer(serializers.ModelSerializer):
             ]
         )
 
-    @transaction.atomic
-    def update_storehouse(self, order, products):
-        for product in products:
-            new_quantity = int(product['quantity'])
-            current_quantity = get_object_or_404(OrderProduct, order=order, product=product.get('product')).quantity
-            product_storehouse = get_object_or_404(Storehouse, product=product.get('product'))
-            quantity_storehouse = product_storehouse.quantity
-            remains = quantity_storehouse + current_quantity - new_quantity
-            product_storehouse.quantity = remains
-            product_storehouse.save(update_fields=['quantity'])
+        order.total_cost = order.order_products.aggregate(Sum('cost'))['cost__sum']
+        order.save()
 
     @transaction.atomic
     def create(self, validated_data):
-        products = validated_data.pop('products')
-        for new_product in products:
-            product = new_product.get('product')
-            new_quantity = int(new_product['quantity'])
-            product_storehouse = get_object_or_404(Storehouse, product=product)
-            quantity_storehouse = product_storehouse.quantity
-            if quantity_storehouse == 0:
-                raise ValidationError(f'product: {product} -->> Товар закончился')
-            if new_quantity > quantity_storehouse:
-                raise ValidationError(f'product: {product}: quantity: Не больше {quantity_storehouse}')
+        """Сохраняет заказ в базе, обрновляет склад."""
 
-            product_storehouse.quantity = product_storehouse.quantity - new_quantity
-            product_storehouse.save(update_fields=['quantity'])
+        products = validated_data.pop('products')
+        self.update_storehouse(products)
         order = Order.objects.create(user=self.context.get('request').user, **validated_data)
-        self.add_products(order=order, products=products)
+        self.add_products(order, products)
         return order
 
     @transaction.atomic
-    def update(self, instance, validated_data):
+    def update(self, order, validated_data):
+        """Обновляет заказ и склад в базе."""
+
         products = validated_data.pop('products')
-        current_products = OrderProduct.objects.filter(order=instance)
-        for current in current_products:
-            if current.id not in products:
-                OrderProduct.objects.filter(id=current.id).delete()
-        for new_product in products:
-            product = new_product.get('product')
-            new_quantity = int(new_product['quantity'])
-            if not OrderProduct.objects.filter(order=instance, product=product).exists():
-                price = product.price
-                OrderProduct.objects.create(order=instance, product=product, price=price, quantity=new_quantity)
-            current_quantity = get_object_or_404(OrderProduct, order=instance, product=product).quantity
-            quantity_storehouse = get_object_or_404(Storehouse, product=product).quantity
-            remains = quantity_storehouse + current_quantity - new_quantity
-            if remains < 0:
-                raise ValidationError(f'product: {product} -->> quantity: На складе недостаточно товаров')
-        self.update_storehouse(order=instance, products=products)
-        instance = super().update(instance, validated_data)
-        instance.products.clear()
-        self.add_products(order=instance, products=products)
-        instance.total_cost = OrderProduct.objects.filter(order=instance).aggregate(Sum('cost'))['cost__sum']
-        instance.save()
-        return instance
+        self.increase_stock(order, products)
+        order.products.clear()
+        self.update_storehouse(products)
+        self.add_products(order, products)
+        return super().update(order, validated_data)
+
+    @staticmethod
+    def increase_stock(order, products):
+        """Возвращает на склад количество товаров, удаляемых или обновляемых заказов."""
+
+        Storehouse.objects.bulk_update(
+            [
+                Storehouse(
+                    id=product['product'].id,
+                    quantity=F('quantity') + order.order_products.get(product=product['product'].id).quantity,
+                )
+                for product in products
+            ],
+            ['quantity'],
+        )
 
     def to_representation(self, instance):
         return OrderReadSerializer(instance, context={'request': self.context.get('request')}).data
