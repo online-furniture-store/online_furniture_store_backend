@@ -5,6 +5,8 @@ from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateMode
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from apps.orders.models import Order
+from apps.orders.serializers import OrderReadSerializer
 from apps.users.serializers import UserSerializer
 
 User = get_user_model()
@@ -23,3 +25,9 @@ class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericV
     def me(self, request):
         serializer = UserSerializer(request.user, context={'request': request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+    @action(detail=False, serializer_class=OrderReadSerializer)
+    def my_orders(self, request):
+        queryset = Order.objects.filter(user=request.user.id)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)

@@ -1,3 +1,4 @@
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
@@ -82,7 +83,7 @@ class ProductViewSet(ModelViewSet):
     def favorite(self, request, pk):
         product = get_object_or_404(Product, pk=pk)
         if request.method == 'POST':
-            serializer = ShortProductSerializer(product, data=request.data)
+            serializer = ShortProductSerializer(product, data=request.data, context={'request': request})
             serializer.is_valid(raise_exception=True)
             Favorite.objects.get_or_create(user=request.user, product=product)
             return Response(serializer.data, status=HTTP_201_CREATED)
@@ -90,20 +91,20 @@ class ProductViewSet(ModelViewSet):
         return Response(status=HTTP_204_NO_CONTENT)
 
     @action(detail=False)
-    def popular(self, request):
-        popular_products = Product.objects.all()[:6]  # Пока нет моделей заказов
-        # popular_products = (
-        #     OrderProduct.objects
-        #     .values('product__pk')
-        #     .annotate(Sum('quantity'))
-        #     .order_by(quantity__sum)[:6]
-        # )
-        serializer = ShortProductSerializer(popular_products, many=True)
+    def popular(self, request, top=6):
+        """Возвращает топ популярных товаров."""
+
+        popular_products = (
+            Product.objects.annotate(total_quantity=Sum('order_products__quantity'))
+            .filter(total_quantity__gt=0)
+            .order_by('-total_quantity')[:top]
+        )
+        serializer = ShortProductSerializer(popular_products, many=True, context={'request': request})
         return Response(serializer.data)
 
 
 class CollectionViewSet(ReadOnlyModelViewSet):
-    """Вьюсет для коллекций. Толко чтение одного или списка объектов."""
+    """Вьюсет для коллекций. Только чтение одного или списка объектов."""
 
     queryset = Collection.objects.all()
 

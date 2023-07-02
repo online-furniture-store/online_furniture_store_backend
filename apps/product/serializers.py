@@ -1,7 +1,3 @@
-from decimal import Decimal
-
-from django.db.models import Max, Q
-from django.utils import timezone
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
 
@@ -64,10 +60,22 @@ class ShortProductSerializer(serializers.ModelSerializer):
     is_favorited = serializers.SerializerMethodField(method_name='analyze_is_favorited')
     discount = serializers.SerializerMethodField(method_name='extract_discount')
     total_price = serializers.SerializerMethodField(method_name='calculate_total_price')
+    image = Base64ImageField(required=True)
+    available_quantity = serializers.SerializerMethodField(method_name='fetch_available_quantity')
 
     class Meta:
         model = Product
-        fields = ('id', 'article', 'name', 'is_favorited', 'price', 'discount', 'total_price', 'image')
+        fields = (
+            'id',
+            'article',
+            'name',
+            'is_favorited',
+            'price',
+            'discount',
+            'total_price',
+            'available_quantity',
+            'image',
+        )
 
     def analyze_is_favorited(self, obj):
         """
@@ -81,18 +89,15 @@ class ShortProductSerializer(serializers.ModelSerializer):
 
     def extract_discount(self, obj):
         """Возвращает скидку на продукт."""
-        now = timezone.now()
-        return obj.discounts.filter(
-            Q(discount_created_at=now, discount_end_at__gte=now)
-            | Q(discount_created_at__lte=now, discount_end_at__gte=now)
-        ).aggregate(max_discount=Max('discount'))['max_discount']
+        return obj.extract_discount()
 
     def calculate_total_price(self, obj):
         """Возвращает рачитанную итоговую цену товара с учётом скидки."""
-        discount = self.extract_discount(obj=obj)
-        if discount is None:
-            return obj.price
-        return obj.price * Decimal(1 - discount / 100)
+        return obj.calculate_total_price()
+
+    def fetch_available_quantity(self, obj):
+        """Возвращает доступное для заказ количество товара на складе."""
+        return 5
 
 
 class ProductSerializer(ShortProductSerializer):
@@ -101,7 +106,6 @@ class ProductSerializer(ShortProductSerializer):
     category = CategorySerializer()
     color = ColorSerializer()
     material = MaterialSerializer(many=True)
-    image = Base64ImageField(required=True)
 
     class Meta(ShortProductSerializer.Meta):
         fields = ShortProductSerializer.Meta.fields + (

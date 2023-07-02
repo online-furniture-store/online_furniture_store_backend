@@ -69,7 +69,7 @@ THIRD_PARTY_APPS = [
     'import_export',
 ]
 
-LOCAL_APPS = ['apps.users', 'apps.product', 'apps.reviews']
+LOCAL_APPS = ['apps.users', 'apps.product', 'apps.reviews', 'apps.orders']
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -227,6 +227,7 @@ REST_FRAMEWORK = {
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
 CORS_URLS_REGEX = r'^/api/.*$'
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 # By Default swagger ui is available only to admin user(s). You can change permission classes to change that
 # See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
