@@ -1,12 +1,15 @@
 from django.contrib.auth import get_user_model
+from django.db import IntegrityError
 from django.db.models import Sum
-from django.shortcuts import get_object_or_404
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
+from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
 
-from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct
+from apps.orders.models import Delivery, DeliveryType, Order
 from apps.orders.serializers import (
     DeliverySerializer,
     DeliveryTypeSerializer,
@@ -31,8 +34,8 @@ class DeliveryViewSet(viewsets.ModelViewSet):
     serializer_class = DeliverySerializer
 
 
-class OrderViewSet(viewsets.ModelViewSet):
-    """Вьюсет для заказов."""
+class OrderViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixin, GenericViewSet):
+    """Вьюсет для заказов. Создание заказа либо получение заказов."""
 
     queryset = Order.objects.all()
     permission_classes = (IsAuthenticated,)
@@ -42,16 +45,28 @@ class OrderViewSet(viewsets.ModelViewSet):
             return OrderReadSerializer
         return OrderWriteSerializer
 
+    def perform_create(self, serializer):
+        try:
+            serializer.save()
+        except IntegrityError:
+            raise ValidationError(
+                {'product': 'Товары в заказе не могут повторяться. Добавлять товар следует через количество.'}
+            )
+
     @action(detail=True, methods=['post'])
-    def payment_confirmation(self, request, **kwargs):
-        order = get_object_or_404(Order, id=kwargs['pk'])
+    def payment_confirmation(self, request, pk):
+        """Оплата заказа."""
+
+        order = self.get_object()
         order.paid = True
         order.save(update_fields=['paid'])
         return Response({'detail': 'Заказ успешно оплачен.'}, status=status.HTTP_201_CREATED)
 
     @action(detail=True, methods=['post'])
     def save_total_cost(self, request, pk):
-        order = get_object_or_404(Order, id=pk)
-        order.total_cost = OrderProduct.objects.filter(order=pk).aggregate(Sum('cost'))['cost__sum']
+        """Сохранение общей стоимости заказа."""
+
+        order = self.get_object()
+        order.total_cost = order.order_products.aggregate(Sum('cost'))['cost__sum']
         order.save(update_fields=['total_cost'])
         return Response({'detail': 'Заказ обновлен.'}, status=status.HTTP_201_CREATED)

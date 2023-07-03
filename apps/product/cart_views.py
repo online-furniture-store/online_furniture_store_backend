@@ -62,7 +62,7 @@ def add_item(request):
     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product, defaults={'quantity': quantity})
     if not created:
         cart_item.quantity = int(quantity)
-        cart_item.save(update_fields=('quantity'))
+        cart_item.save(update_fields=('quantity',))
     serializer = CartModelSerializer(instance=cart, context={'request': request})
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -91,4 +91,4 @@ def del_item(request, id):
     instance = get_object_or_404(CartItem, product=product, cart=cart)
     instance.delete()
     serializer = CartModelSerializer(instance=cart, context={'request': request})
-    return Response(status=status.HTTP_204_NO_CONTENT)
+    return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
