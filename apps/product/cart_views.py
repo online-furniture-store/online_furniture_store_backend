@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
-from drf_spectacular.utils import OpenApiResponse, extend_schema
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import OpenApiParameter, OpenApiResponse, extend_schema
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -33,7 +34,7 @@ def cart_items(request, pk=None):
     request=CartItemCreateSerializer,
     responses={
         status.HTTP_201_CREATED: OpenApiResponse(
-            response=CartItemCreateSerializer, description='Успешное добавление товара в корзину'
+            response=CartModelSerializer, description='Успешное добавление товара в корзину'
         )
     },
     methods=['POST'],
@@ -61,12 +62,20 @@ def add_item(request):
     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product, defaults={'quantity': quantity})
     if not created:
         cart_item.quantity = int(quantity)
-        cart_item.save(update_fields=('quantity'))
+        cart_item.save(update_fields=('quantity',))
     serializer = CartModelSerializer(instance=cart, context={'request': request})
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@extend_schema(responses={status.HTTP_204_NO_CONTENT: None}, methods=['DELETE'])
+@extend_schema(
+    parameters=[OpenApiParameter('id', OpenApiTypes.INT, OpenApiParameter.PATH, description='Идентификатор продукта')],
+    responses={
+        status.HTTP_204_NO_CONTENT: OpenApiResponse(
+            response=CartModelSerializer, description='Успешное удаление товара из корзины'
+        )
+    },
+    methods=['DELETE'],
+)
 @api_view(['DELETE'])
 def del_item(request, id):
     """Удаляет товар из корзины."""
@@ -75,7 +84,11 @@ def del_item(request, id):
     if not user.is_authenticated:
         cart = Cart(request=request)
         cart.remove(product_id=product.id)
-        return Response(status=status.HTTP_204_NO_CONTENT)
-    instance = get_object_or_404(CartItem, product=product, cart=user.cartmodel)
+        cart_items = cart.extract_items_cart()
+        serializer = CartModelDictSerializer(instance=cart_items, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+    cart = user.cartmodel
+    instance = get_object_or_404(CartItem, product=product, cart=cart)
     instance.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
+    serializer = CartModelSerializer(instance=cart, context={'request': request})
+    return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
