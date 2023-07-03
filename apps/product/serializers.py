@@ -82,7 +82,7 @@ class ShortProductSerializer(serializers.ModelSerializer):
         return obj.extract_discount()
 
     def calculate_total_price(self, obj):
-        """Возвращает рачитанную итоговую цену товара с учётом скидки."""
+        """Возвращает рассчитанную итоговую цену товара с учётом скидки."""
         return obj.calculate_total_price()
 
     def fetch_available_quantity(self, obj):
