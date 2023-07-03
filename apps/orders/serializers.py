@@ -64,6 +64,16 @@ class OrderWriteSerializer(serializers.ModelSerializer):
         fields = ('user', 'products', 'delivery', 'total_cost', 'paid')
         read_only_fields = ('user', 'total_cost')
 
+    @transaction.atomic
+    def create(self, validated_data):
+        """Сохраняет заказ в базе, обрновляет склад."""
+
+        products = validated_data.pop('products')
+        self.update_storehouse(products)
+        order = Order.objects.create(user=self.context.get('request').user, **validated_data)
+        self.add_products(order, products)
+        return order
+
     @staticmethod
     def update_storehouse(products):
         """Проверяет и обновляет кличество на складе после заказа."""
@@ -86,6 +96,7 @@ class OrderWriteSerializer(serializers.ModelSerializer):
         Storehouse.objects.bulk_update(storehouse, ['quantity'])
 
     @staticmethod
+    @transaction.atomic
     def add_products(order, products):
         """Сохраняет в базу данные заказа в OrderProduct, общую стоимость в Order."""
 
@@ -104,16 +115,6 @@ class OrderWriteSerializer(serializers.ModelSerializer):
 
         order.total_cost = order.order_products.aggregate(Sum('cost'))['cost__sum']
         order.save()
-
-    @transaction.atomic
-    def create(self, validated_data):
-        """Сохраняет заказ в базе, обрновляет склад."""
-
-        products = validated_data.pop('products')
-        self.update_storehouse(products)
-        order = Order.objects.create(user=self.context.get('request').user, **validated_data)
-        self.add_products(order, products)
-        return order
 
     def to_representation(self, instance):
         return OrderReadSerializer(instance, context={'request': self.context.get('request')}).data

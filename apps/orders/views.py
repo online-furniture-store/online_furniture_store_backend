@@ -45,6 +45,14 @@ class OrderViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixin, Generic
             return OrderReadSerializer
         return OrderWriteSerializer
 
+    def perform_create(self, serializer):
+        try:
+            serializer.save()
+        except IntegrityError:
+            raise ValidationError(
+                {'product': 'Товары в заказе не могут повторяться. Добавлять товар следует через количество.'}
+            )
+
     @action(detail=True, methods=['post'])
     def payment_confirmation(self, request, pk):
         """Оплата заказа."""
@@ -62,11 +70,3 @@ class OrderViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixin, Generic
         order.total_cost = order.order_products.aggregate(Sum('cost'))['cost__sum']
         order.save(update_fields=['total_cost'])
         return Response({'detail': 'Заказ обновлен.'}, status=status.HTTP_201_CREATED)
-
-    def perform_create(self, serializer):
-        try:
-            serializer.save()
-        except IntegrityError:
-            raise ValidationError(
-                {'product': 'Товары в заказе не могут повторяться. Добавлять товар следует через количество.'}
-            )
