@@ -70,7 +70,7 @@ def add_item(request):
 @extend_schema(
     parameters=[OpenApiParameter('id', OpenApiTypes.INT, OpenApiParameter.PATH, description='Идентификатор продукта')],
     responses={
-        status.HTTP_204_NO_CONTENT: OpenApiResponse(
+        status.HTTP_200_OK: OpenApiResponse(
             response=CartModelSerializer, description='Успешное удаление товара из корзины'
         )
     },
@@ -86,9 +86,9 @@ def del_item(request, id):
         cart.remove(product_id=product.id)
         cart_items = cart.extract_items_cart()
         serializer = CartModelDictSerializer(instance=cart_items, context={'request': request})
-        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     cart = user.cartmodel
     instance = get_object_or_404(CartItem, product=product, cart=cart)
     instance.delete()
     serializer = CartModelSerializer(instance=cart, context={'request': request})
-    return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+    return Response(serializer.data, status=status.HTTP_200_OK)

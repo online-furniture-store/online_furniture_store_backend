@@ -10,10 +10,7 @@ services:
   django: &django
     image: onlinefurniturestore/online_furniture_store_dev_prod:latest
     container_name: online_furniture_store_dev_prod_django
-    build:
-      args:
-        - UID=${UID:-1000}
-        - GID=${GID:-1000}
+
     restart: unless-stopped
     depends_on:
       - postgres
