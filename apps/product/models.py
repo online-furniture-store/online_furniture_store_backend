@@ -210,8 +210,8 @@ class CartModel(models.Model):
     """Модель корзины пользователя."""
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='cartmodels')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
 
     class Meta:
         verbose_name = 'Корзина пользователя'
@@ -224,11 +224,11 @@ class CartModel(models.Model):
 class CartItem(models.Model):
     """Модель содержимого корзины пользователя"""
 
-    cart = models.ForeignKey(CartModel, on_delete=models.CASCADE, related_name='cartitems')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='cartitems')
-    quantity = models.PositiveIntegerField(default=0)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    cart = models.ForeignKey(CartModel, verbose_name='Корзина', on_delete=models.CASCADE, related_name='cartitems')
+    product = models.ForeignKey(Product, verbose_name='Продукт', on_delete=models.CASCADE, related_name='cartitems')
+    quantity = models.PositiveIntegerField(verbose_name='Количество', default=0)
+    created_at = models.DateTimeField(verbose_name='Дата добавления в корзину', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Дата обновления в корзине', auto_now=True)
 
     class Meta:
         verbose_name = 'Корзина с товарами'
