@@ -43,7 +43,7 @@ class CartModelSerializer(serializers.ModelSerializer):
 
     def calculate_total_price(self, obj):
         """Возвращает общую стоимость товара в корзине."""
-        return sum(item.product.price() * item.quantity for item in obj.cartitems.all())
+        return sum(item.product.price * item.quantity for item in obj.cartitems.all())
 
     def calculate_total_discount_price(self, obj):
         """Возвращает общую сумму товара в корзине с учётом скидки."""
