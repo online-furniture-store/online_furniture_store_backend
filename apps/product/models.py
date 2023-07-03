@@ -35,6 +35,7 @@ class Material(models.Model):
     class Meta:
         verbose_name = 'Материал'
         verbose_name_plural = 'Материалы'
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
@@ -48,6 +49,7 @@ class Color(models.Model):
     class Meta:
         verbose_name = 'Цвет'
         verbose_name_plural = 'Цвета'
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
@@ -63,6 +65,7 @@ class Collection(models.Model):
     class Meta:
         verbose_name = 'Коллекция'
         verbose_name_plural = 'Коллекции'
+        ordering = ('id',)
 
     def __str__(self):
         return self.name
@@ -93,6 +96,7 @@ class FurnitureDetails(models.Model):
                 name='unique_details',
             ),
         )
+        ordering = ('purpose',)
 
     def __str__(self):
         fields = [
@@ -148,6 +152,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
+        ordering = ('name',)
 
     def __str__(self):
         return f'{self.article} - {self.name}'
@@ -180,6 +185,7 @@ class Discount(models.Model):
     class Meta:
         verbose_name = 'Скидка'
         verbose_name_plural = 'Скидки'
+        ordering = ('discount_created_at',)
 
     def __str__(self):
         return f'{self.discount}% от {self.discount_created_at} до {self.discount_end_at}'
@@ -203,9 +209,9 @@ class Favorite(models.Model):
 class CartModel(models.Model):
     """Модель корзины пользователя."""
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='cartmodels')
+    created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
 
     class Meta:
         verbose_name = 'Корзина пользователя'
@@ -218,11 +224,11 @@ class CartModel(models.Model):
 class CartItem(models.Model):
     """Модель содержимого корзины пользователя"""
 
-    cart = models.ForeignKey(CartModel, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=0)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    cart = models.ForeignKey(CartModel, verbose_name='Корзина', on_delete=models.CASCADE, related_name='cartitems')
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, related_name='cartitems')
+    quantity = models.PositiveIntegerField(verbose_name='Количество', default=0)
+    created_at = models.DateTimeField(verbose_name='Дата добавления в корзину', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Дата обновления в корзине', auto_now=True)
 
     class Meta:
         verbose_name = 'Корзина с товарами'
