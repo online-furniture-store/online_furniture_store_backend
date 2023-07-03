@@ -35,6 +35,7 @@ class Material(models.Model):
     class Meta:
         verbose_name = 'Материал'
         verbose_name_plural = 'Материалы'
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
@@ -48,6 +49,7 @@ class Color(models.Model):
     class Meta:
         verbose_name = 'Цвет'
         verbose_name_plural = 'Цвета'
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
@@ -63,6 +65,7 @@ class Collection(models.Model):
     class Meta:
         verbose_name = 'Коллекция'
         verbose_name_plural = 'Коллекции'
+        ordering = ('id',)
 
     def __str__(self):
         return self.name
@@ -93,6 +96,7 @@ class FurnitureDetails(models.Model):
                 name='unique_details',
             ),
         )
+        ordering = ('purpose',)
 
     def __str__(self):
         fields = [
@@ -148,6 +152,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
+        ordering = ('name',)
 
     def __str__(self):
         return f'{self.article} - {self.name}'
@@ -180,6 +185,7 @@ class Discount(models.Model):
     class Meta:
         verbose_name = 'Скидка'
         verbose_name_plural = 'Скидки'
+        ordering = ('discount_created_at',)
 
     def __str__(self):
         return f'{self.discount}% от {self.discount_created_at} до {self.discount_end_at}'

@@ -33,7 +33,7 @@ class CartModelSerializer(serializers.ModelSerializer):
     total_discount_amount = serializers.SerializerMethodField(method_name='calculate_total_discount_amount')
     total_weight = serializers.SerializerMethodField(method_name='calculate_total_weight')
 
-    products = CartItemSerializer(source='cartitem_set', many=True)
+    products = CartItemSerializer(source='cartitems', many=True)
 
     class Meta:
         model = CartModel
@@ -41,22 +41,22 @@ class CartModelSerializer(serializers.ModelSerializer):
 
     def calculate_total_quantity(self, obj):
         """Возвращает общее количество товара в корзине."""
-        return obj.cartitem_set.all().aggregate(Sum('quantity'))['quantity__sum'] or 0
+        return obj.cartitems.all().aggregate(Sum('quantity'))['quantity__sum'] or 0
 
     def calculate_total_price(self, obj):
         """Возвращает общую стоимость товара в корзине."""
-        return sum(item.product.calculate_total_price() * item.quantity for item in obj.cartitem_set.all())
+        return sum(item.product.calculate_total_price() * item.quantity for item in obj.cartitems.all())
 
     def calculate_total_discount_amount(self, obj):
         """Возвращает общую сумму скидки на товар в корзине."""
         return sum(
             (item.product.price - item.product.calculate_total_price()).quantize(Decimal('1.00'), ROUND_HALF_DOWN)
-            for item in obj.cartitem_set.all()
+            for item in obj.cartitems.all()
         )
 
     def calculate_total_weight(self, obj):
         """Возвращает общий вес товара в корзине."""
-        return sum(item.product.weight * item.quantity for item in obj.cartitem_set.all())
+        return sum(item.product.weight * item.quantity for item in obj.cartitems.all())
 
 
 class CartItemDictSerializer(serializers.Serializer):

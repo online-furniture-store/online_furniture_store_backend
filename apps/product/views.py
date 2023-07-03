@@ -31,7 +31,6 @@ class MaterialViewSet(ReadOnlyModelViewSet):
 
     queryset = Material.objects.all()
     serializer_class = MaterialSerializer
-    ordering_fields = ['name']
 
 
 class DiscountViewSet(ReadOnlyModelViewSet):
@@ -39,7 +38,6 @@ class DiscountViewSet(ReadOnlyModelViewSet):
 
     queryset = Discount.objects.all()
     serializer_class = DiscountSerializer
-    ordering_fields = ['name']
 
 
 class ColorViewSet(ReadOnlyModelViewSet):
@@ -47,7 +45,6 @@ class ColorViewSet(ReadOnlyModelViewSet):
 
     queryset = Color.objects.all()
     serializer_class = ColorSerializer
-    ordering_fields = ['name']
 
 
 class FurnitureDetailsViewSet(ReadOnlyModelViewSet):
@@ -55,7 +52,6 @@ class FurnitureDetailsViewSet(ReadOnlyModelViewSet):
 
     queryset = FurnitureDetails.objects.all()
     serializer_class = FurnitureDetailsSerializer
-    ordering_fields = ['purpose']
 
 
 class ProductViewSet(ModelViewSet):
@@ -63,8 +59,6 @@ class ProductViewSet(ModelViewSet):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    lookup_field = 'pk'
-    ordering_fields = ['name']
 
     @action(detail=True, methods=['post', 'delete'], url_path='favorite')
     def favorite(self, request, pk):
