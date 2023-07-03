@@ -225,7 +225,7 @@ class CartItem(models.Model):
     """Модель содержимого корзины пользователя"""
 
     cart = models.ForeignKey(CartModel, verbose_name='Корзина', on_delete=models.CASCADE, related_name='cartitems')
-    product = models.ForeignKey(Product, verbose_name='Продукт', on_delete=models.CASCADE, related_name='cartitems')
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, related_name='cartitems')
     quantity = models.PositiveIntegerField(verbose_name='Количество', default=0)
     created_at = models.DateTimeField(verbose_name='Дата добавления в корзину', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата обновления в корзине', auto_now=True)
