@@ -35,7 +35,7 @@ class DeliveryViewSet(viewsets.ModelViewSet):
 
 
 class OrderViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixin, GenericViewSet):
-    """Вьюсет для заказов. Создание заказа либо получение заказов. Обновление, улаление не предусмотрено."""
+    """Вьюсет для заказов. Создание заказа либо получение заказов."""
 
     queryset = Order.objects.all()
     permission_classes = (IsAuthenticated,)
