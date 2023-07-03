@@ -26,23 +26,19 @@ class Cart:
 
     def add(self, product_id, quantity=1):
         """Добавить продукт в корзину или обновить его количество."""
-        if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': quantity}
-        else:
-            self.cart[product_id]['quantity'] = quantity
+        self.cart[str(product_id)] = {'quantity': quantity}
         self.save()
 
     def save(self):
-        """СЩхраняет данные в сессии."""
+        """Сохраняет данные в сессии."""
         self.session[settings.CART_SESSION_ID] = self.cart
         self.session.modified = True
 
-    def remove(self, product):
+    def remove(self, product_id):
         """Удаление товара из корзины."""
-        product_id = str(product.id)
-        if product_id in self.cart:
-            del self.cart[product_id]
-        self.save()
+        if str(product_id) in self.cart:
+            del self.cart[str(product_id)]
+            self.save()
 
     def clear(self):
         """Удаляет корзину из сессии."""
