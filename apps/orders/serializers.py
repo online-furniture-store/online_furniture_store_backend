@@ -58,19 +58,22 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     """Сериализатор для записи Заказов в модель Order."""
 
     products = OrderProductWriteSerializer(many=True)
+    delivery = DeliverySerializer()
 
     class Meta:
         model = Order
         fields = ('user', 'products', 'delivery', 'total_cost', 'paid')
-        read_only_fields = ('user', 'total_cost')
+        read_only_fields = ('total_cost',)
 
     @transaction.atomic
     def create(self, validated_data):
         """Сохраняет заказ в базе, обрновляет склад."""
 
         products = validated_data.pop('products')
+        delivery_data = validated_data.pop('delivery')
+        delivery = Delivery.objects.create(**delivery_data)
+        order = Order.objects.create(delivery=delivery, **validated_data)
         self.update_storehouse(products)
-        order = Order.objects.create(user=self.context.get('request').user, **validated_data)
         self.add_products(order, products)
         return order
 
