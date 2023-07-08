@@ -7,10 +7,10 @@ env:
 
 on:
   pull_request:
-    branches: ['master', 'main', 'dev', 'feat/setup_ci_cd']
+    branches: ['master', 'main', 'dev']
 
   push:
-    branches: ['master', 'main', 'dev', 'feat/setup_ci_cd']
+    branches: ['master', 'main', 'dev']
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
@@ -31,7 +31,7 @@ jobs:
         uses: pre-commit/action@v3.0.0
 
   build_and_push_to_docker_hub:
-      if: github.ref == 'refs/heads/feat/setup_ci_cd'
+      if: github.ref == 'refs/heads/feat/dev'
       name: Push Docker image to Docker Hub
       runs-on: ubuntu-latest
       steps:
@@ -52,7 +52,7 @@ jobs:
             tags: ${{ secrets.BACKEND_IMAGE_TAG }}:${{ github.sha }}
 
   deploy:
-    if: github.ref == 'refs/heads/feat/setup_ci_cd'
+    if: github.ref == 'refs/heads/feat/dev'
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
     steps:
@@ -82,8 +82,8 @@ jobs:
             echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-            export BACKEND_IMAGE_TAG=${{ secrets.BACKEND_IMAGE_TAG }}
-            export BACKEND_IMAGE_VERSION=${{ github.sha }}
+            echo BACKEND_IMAGE_TAG=${{ secrets.BACKEND_IMAGE_TAG }} >> .env
+            echo BACKEND_IMAGE_VERSION=${{ github.sha }} >> .env
 
             docker compose -f dev_prod.yml up -d
             docker image prune -af
