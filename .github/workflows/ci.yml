@@ -7,10 +7,10 @@ env:
 
 on:
   pull_request:
-    branches: ['master', 'main', 'dev']
+    branches: ['master', 'main', 'dev', 'feat/setup_ci_cd']
 
   push:
-    branches: ['master', 'main', 'dev']
+    branches: ['master', 'main', 'dev', 'feat/setup_ci_cd']
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
@@ -27,7 +27,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      # Consider using pre-commit.ci for open source project
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.0
 
@@ -50,7 +49,7 @@ jobs:
           with:
             file: ./compose/dev_prod/django/Dockerfile
             push: true
-            tags: onlinefurniturestore/online_furniture_store_dev_prod:latest
+            tags: ${{ secrets.BACKEND_IMAGE_TAG }}:${{ github.sha }}
 
   deploy:
     if: github.ref == 'refs/heads/dev'
@@ -66,11 +65,11 @@ jobs:
 
         script: |
             cd ~/infra
-            docker compose stop
+            docker compose down --remove-orphans
             docker compose rm -f django
-            docker pull onlinefurniturestore/online_furniture_store_dev_prod:latest
-            rm -f .env
+            docker compose -f dev_prod.yml pull
             touch .env
+            echo "" > .env
             echo DJANGO_SETTINGS_MODULE=${{ secrets.DJANGO_SETTINGS_MODULE }} >> .env
             echo DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} >> .env
             echo DJANGO_ADMIN_URL=${{ secrets.DJANGO_ADMIN_URL }} >> .env
@@ -83,5 +82,8 @@ jobs:
             echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+            export BACKEND_IMAGE_TAG=${{ secrets.BACKEND_IMAGE_TAG }}
+            export BACKEND_IMAGE_VERSION=${{ github.sha }}
 
             docker compose -f dev_prod.yml up -d
+            docker image prune -af

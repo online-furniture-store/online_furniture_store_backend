@@ -8,7 +8,7 @@ volumes:
 
 services:
   django: &django
-    image: onlinefurniturestore/online_furniture_store_dev_prod:latest
+    image: $BACKEND_IMAGE_TAG:$BACKEND_IMAGE_VERSION
     container_name: online_furniture_store_dev_prod_django
 
     restart: unless-stopped
