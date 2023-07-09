@@ -77,7 +77,7 @@ class Collection(models.Model):
 
 
 class FurnitureDetails(models.Model):
-    """Особености конструкции"""
+    """Особенности конструкции"""
 
     purpose = models.CharField(verbose_name='Назначение', max_length=50, blank=True, null=True)
     furniture_type = models.CharField(verbose_name='Тип', max_length=50, blank=True, null=True)

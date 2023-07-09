@@ -253,3 +253,11 @@ SIMPLE_JWT = {
 ADMIN_EMPTY_VALUE_DISPLAY = '--пусто--'
 
 CART_SESSION_ID = 'cart'
+
+# Djoser settings
+DJOSER = {
+    'SERIALIZERS': {
+        'user': 'apps.users.serializers.UserSerializer',
+        'current_user': 'apps.users.serializers.UserSerializer',
+    }
+}
