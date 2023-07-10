@@ -50,13 +50,13 @@ class Order(models.Model):
     """Модель заказов"""
 
     user = models.ForeignKey(
-        User, verbose_name='Пользователь', on_delete=models.SET_NULL, related_name='orders', null=True
+        User, verbose_name='Пользователь', on_delete=models.CASCADE, related_name='orders', null=True
     )
     products = models.ManyToManyField(Product, through='OrderProduct', verbose_name='Товар')
     created = models.DateTimeField(verbose_name='Дата заказа', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Дата обновления заказа', auto_now=True)
     delivery = models.ForeignKey(
-        Delivery, verbose_name='Доставка', on_delete=models.SET_NULL, related_name='orders', null=True
+        Delivery, verbose_name='Доставка', on_delete=models.SET_NULL, related_name='orders', null=True, blank=True
     )
     total_cost = models.DecimalField(
         verbose_name='Общая стоимость', default=0.00, max_digits=40, decimal_places=2, null=True, blank=True
