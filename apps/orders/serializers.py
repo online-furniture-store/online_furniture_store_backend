@@ -72,7 +72,7 @@ class OrderReadSerializer(serializers.ModelSerializer):
 class OrderWriteSerializer(serializers.ModelSerializer):
     """Сериализатор для записи Заказов в модель Order."""
 
-    user = UserSerializer()
+    user = UserSerializer(required=False)
     products = OrderProductWriteSerializer(many=True)
     delivery = DeliverySerializer()
 
@@ -85,12 +85,15 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """Сохраняет заказ в базе, обрновляет склад."""
 
-        user_data = validated_data.pop('user')
+        if user_data := validated_data.pop('user', {}):
+            user = User.objects.create(password=generate_password(), **user_data)
+        else:
+            user = self.context['request'].user
+
         delivery_data = validated_data.pop('delivery')
         products = validated_data.pop('products')
-        created_user = User.objects.create(email=user_data['email'], password=generate_password())
-        created_delivery = Delivery.objects.create(**delivery_data)
-        order = Order.objects.create(user=created_user, delivery=created_delivery, **validated_data)
+        delivery = Delivery.objects.create(**delivery_data)
+        order = Order.objects.create(user=user, delivery=delivery, **validated_data)
         self.update_storehouse(products)
         self.add_products(order, products)
         return order
