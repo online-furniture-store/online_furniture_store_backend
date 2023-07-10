@@ -1,6 +1,8 @@
+from django.db import IntegrityError
 from django.db.models import Sum
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
 from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
 from rest_framework.permissions import SAFE_METHODS
 from rest_framework.response import Response
@@ -38,6 +40,14 @@ class OrderViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixin, Generic
         if self.request.method in SAFE_METHODS:
             return OrderReadSerializer
         return OrderWriteSerializer
+
+    def perform_create(self, serializer):
+        try:
+            serializer.save()
+        except IntegrityError:
+            raise ValidationError(
+                {'product': 'Товары в заказе не могут повторяться. Добавлять товар следует через количество.'}
+            )
 
     @action(detail=True, methods=['post'])
     def payment_confirmation(self, request, pk):
