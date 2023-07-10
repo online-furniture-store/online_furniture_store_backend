@@ -1,9 +1,24 @@
+import random
+import string
+
+from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import make_password
 from django.db import transaction
 from django.db.models import Sum
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
 from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct, Storehouse
+from apps.users.serializers import UserSerializer
+
+User = get_user_model()
+
+
+def generate_password(length=12):
+    characters = string.ascii_letters + string.digits
+    password = ''.join(random.choice(characters) for _ in range(length))
+    print(password)  # Здесь будет вызов отправки пароля на почту
+    return make_password(password)
 
 
 class DeliveryTypeSerializer(serializers.ModelSerializer):
@@ -57,6 +72,7 @@ class OrderReadSerializer(serializers.ModelSerializer):
 class OrderWriteSerializer(serializers.ModelSerializer):
     """Сериализатор для записи Заказов в модель Order."""
 
+    user = UserSerializer()
     products = OrderProductWriteSerializer(many=True)
     delivery = DeliverySerializer()
 
@@ -69,10 +85,12 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """Сохраняет заказ в базе, обрновляет склад."""
 
-        products = validated_data.pop('products')
+        user_data = validated_data.pop('user')
         delivery_data = validated_data.pop('delivery')
-        delivery = Delivery.objects.create(**delivery_data)
-        order = Order.objects.create(delivery=delivery, **validated_data)
+        products = validated_data.pop('products')
+        created_user = User.objects.create(email=user_data['email'], password=generate_password())
+        created_delivery = Delivery.objects.create(**delivery_data)
+        order = Order.objects.create(user=created_user, delivery=created_delivery, **validated_data)
         self.update_storehouse(products)
         self.add_products(order, products)
         return order
