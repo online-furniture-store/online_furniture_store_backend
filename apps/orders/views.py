@@ -41,6 +41,11 @@ class OrderViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixin, Generic
             return OrderReadSerializer
         return OrderWriteSerializer
 
+    def create(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            request.data.pop('user')
+        return super().create(request, *args, **kwargs)
+
     def perform_create(self, serializer):
         try:
             serializer.save()
