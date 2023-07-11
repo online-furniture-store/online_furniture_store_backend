@@ -12,20 +12,14 @@ User = get_user_model()
 
 
 class UserViewSet(DjoserUserViewSet):
-    queryset = User.objects.all()
     lookup_field = 'pk'
-
-    def get_queryset(self, *args, **kwargs):
-        queryset = super().get_queryset()
-        assert isinstance(self.request.user.id, int)
-        return queryset.filter(id=self.request.user.id)
 
     def get_serializer_class(self):
         if self.action == 'my_orders':
             return OrderReadSerializer
         return UserSerializer
 
-    @action(detail=False, methods=['get'])
+    @action(detail=False)
     def my_orders(self, request):
         queryset = Order.objects.filter(user=request.user)
         serializer = self.get_serializer(queryset, many=True)
@@ -36,6 +30,11 @@ class UserViewSet(DjoserUserViewSet):
         user = request.user
         current_password = request.data.get('current_password')
         new_password = request.data.get('new_password')
+        if not current_password or not new_password:
+            return Response(
+                {'error': 'Требуется указать текущий и новый пароль, заполните поля current_password и new_password'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         if not user.check_password(current_password):
             return Response({'error': 'Неверный текущий пароль'}, status=status.HTTP_400_BAD_REQUEST)
