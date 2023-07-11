@@ -10,7 +10,7 @@ on:
     branches: ['master', 'main', 'dev', 'develop']
 
   push:
-    branches: ['master', 'main', 'dev', 'develop', feat/deploy-frontend-backend-together']
+    branches: ['master', 'main', 'dev', 'develop', 'feat/deploy-frontend-backend-together']
     paths:
          - 'frontend/**'
 
