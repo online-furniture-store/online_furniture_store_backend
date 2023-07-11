@@ -77,7 +77,7 @@ class Collection(models.Model):
 
 
 class FurnitureDetails(models.Model):
-    """Особености конструкции"""
+    """Особенности конструкции"""
 
     purpose = models.CharField(verbose_name='Назначение', max_length=50, blank=True, null=True)
     furniture_type = models.CharField(verbose_name='Тип', max_length=50, blank=True, null=True)
@@ -169,13 +169,13 @@ class Product(models.Model):
         )
 
     def calculate_total_price(self):
-        """Возвращает расчитанную итоговую цену товара с учётом скидки."""
+        """Возвращает рассчитанную итоговую цену товара с учётом скидки."""
         discount = self.extract_discount()
         return self.price * Decimal(1 - discount / 100)
 
 
 class Discount(models.Model):
-    """Модель скидок для  товаров в магазине."""
+    """Модель скидок для товаров в магазине."""
 
     applied_products = models.ManyToManyField(Product, verbose_name='Применяемые товары', related_name='discounts')
     discount = models.SmallIntegerField(verbose_name='Размер скидки, %', validators=[MaxValueValidator(99)], default=0)

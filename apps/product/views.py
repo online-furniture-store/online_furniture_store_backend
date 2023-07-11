@@ -1,10 +1,13 @@
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import action
+from rest_framework.filters import SearchFilter
 from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
+from apps.product.filters import ProductsFilter
 from apps.product.models import Category, Collection, Color, Discount, Favorite, FurnitureDetails, Material, Product
 from apps.product.serializers import (
     CategorySerializer,
@@ -59,6 +62,9 @@ class ProductViewSet(ModelViewSet):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filterset_class = ProductsFilter
+    search_fields = ('name',)
 
     @action(detail=True, methods=['post', 'delete'], url_path='favorite')
     def favorite(self, request, pk):

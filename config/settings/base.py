@@ -64,6 +64,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'djoser',
+    'django_filters',
     'corsheaders',
     'drf_spectacular',
     'import_export',
@@ -219,6 +220,10 @@ LOGGING = {
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
+    'DEFAULT_FILTER_BACKENDS': [
+        'rest_framework.filters.SearchFilter',
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ],
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'COERCE_DECIMAL_TO_STRING': False,
@@ -248,3 +253,11 @@ SIMPLE_JWT = {
 ADMIN_EMPTY_VALUE_DISPLAY = '--пусто--'
 
 CART_SESSION_ID = 'cart'
+
+# Djoser settings
+DJOSER = {
+    'SERIALIZERS': {
+        'user': 'apps.users.serializers.UserSerializer',
+        'current_user': 'apps.users.serializers.UserSerializer',
+    }
+}
