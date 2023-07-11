@@ -11,6 +11,8 @@ User = get_user_model()
 
 
 class UserViewSet(DjoserUserViewSet):
+    """Вьюсет для пользователя магазина."""
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

@@ -6,7 +6,7 @@ from common.permisions import IsOwner
 
 
 class ReviewViewSet(ModelViewSet):
-    """Представление  для отзывов."""
+    """Представление для отзывов."""
 
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer

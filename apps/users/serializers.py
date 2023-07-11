@@ -8,5 +8,3 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('email', 'first_name', 'last_name', 'birthday', 'phone')
-
-        extra_kwargs = {'phone': {'allow_blank': True}}
