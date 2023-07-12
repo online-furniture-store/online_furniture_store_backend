@@ -1,3 +1,0 @@
-[submodule "frontend"]
-	path = frontend
-	url = git@github.com:online-furniture-store/online_furniture_store_frontend.git
