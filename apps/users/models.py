@@ -6,7 +6,7 @@ from django.db.models import CharField, DateField, EmailField
 from django.utils import timezone
 
 from apps.users.managers import UserManager
-from apps.users.validators import validate_email, validate_phone
+from common.validators import validate_phone
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -14,8 +14,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     Настраиваемая модель пользователя.
     """
 
-    email = EmailField('Email', validators=(validate_email,), unique=True)
-    phone = CharField('Телефон', validators=(validate_phone,), max_length=30)
+    email = EmailField('Email', unique=True)
+    phone = CharField('Телефон', validators=[validate_phone], max_length=30, blank=True, null=True)
     first_name = CharField('Имя', max_length=30, blank=True, null=True)
     last_name = CharField('Фамилия', max_length=50, blank=True, null=True)
     birthday = DateField('День рождения', blank=True, null=True)

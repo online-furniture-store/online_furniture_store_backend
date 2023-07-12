@@ -1,9 +1,10 @@
-from re import match
+import re
 
 from django.core.exceptions import ValidationError
 
 
 def validate_phone(value):
-    if match(r'^((8|' r'\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7}$', value):
-        return ''.join([i for i in value if i.isdigit()][-10:])
+    pattern = r'\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$'
+    if re.match(pattern, value):
+        return value
     raise ValidationError('Некорректный номер телефона.')
