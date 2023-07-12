@@ -191,7 +191,7 @@ X_FRAME_OPTIONS = 'DENY'
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.filebased.EmailBackend')
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-timeout
 EMAIL_TIMEOUT = 5
-
+EMAIL_FILE_PATH = str(BASE_DIR / 'sent_emails')
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
@@ -259,9 +259,7 @@ DJOSER = {
     'SERIALIZERS': {
         'user': 'apps.users.serializers.UserSerializer',
         'current_user': 'apps.users.serializers.UserSerializer',
+        'user_create': 'apps.users.serializers.UserSerializer',
     },
     'PASSWORD_RESET_CONFIRM_URL': 'http://127.0.0.1:8000/reset-password-confirm/',
 }
-
-
-EMAIL_FILE_PATH = [str(BASE_DIR / 'sent_emails')]
