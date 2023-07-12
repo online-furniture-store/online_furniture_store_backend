@@ -1,8 +1,4 @@
-import random
-import string
-
 from django.contrib.auth import get_user_model
-from django.contrib.auth.hashers import make_password
 from django.db import transaction
 from django.db.models import Sum
 from rest_framework import serializers
@@ -12,13 +8,6 @@ from apps.orders.models import Delivery, DeliveryType, Order, OrderProduct, Stor
 from apps.users.serializers import UserSerializer
 
 User = get_user_model()
-
-
-def generate_password(length=12):
-    characters = string.ascii_letters + string.digits
-    password = ''.join(random.choice(characters) for _ in range(length))
-    print(password)  # Здесь будет вызов отправки пароля на почту
-    return make_password(password)
 
 
 class DeliveryTypeSerializer(serializers.ModelSerializer):
@@ -86,7 +75,7 @@ class OrderWriteSerializer(serializers.ModelSerializer):
         """Сохраняет заказ в базе, обрновляет склад."""
 
         if user_data := validated_data.pop('user', {}):
-            user = User.objects.create(password=generate_password(), **user_data)
+            user = User.objects.create_user(**user_data)
         else:
             user = self.context['request'].user
 
