@@ -6,8 +6,6 @@ from django.urls import include, path
 from django.views import defaults as default_views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
-from apps.users.views import UserViewSet
-
 urlpatterns = [path(settings.ADMIN_URL, admin.site.urls)] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
@@ -20,13 +18,6 @@ urlpatterns += [
     # API base url
     path('api/', include('config.api_router')),
     # DRF auth token
-    path('api/auth/users/', UserViewSet.as_view({'get': 'me', 'post': 'create', 'patch': 'me'})),
-    path(
-        'api/auth/users/change_password/',
-        UserViewSet.as_view({'post': 'change_password'}),
-        name='user-change-password',
-    ),
-    path('api/auth/users/my_orders/', UserViewSet.as_view({'get': 'my_orders'}), name='user-my-orders'),
     path('api/auth/', include('djoser.urls.jwt')),
     path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'), name='api-docs'),
