@@ -1,4 +1,3 @@
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import UserManager as DjangoUserManager
 from django.utils.crypto import get_random_string
 
@@ -14,13 +13,14 @@ class UserManager(DjangoUserManager):
         if password is None:
             password = get_random_string(length=12)
         user = self.model(email=email, **extra_fields)
-        user.password = make_password(password)
+        user.set_password(password)
         user.save(using=self._db)
         user.email_user(
             'Регистрация на сайте',
-            message=f'Ваш email успешно зарегистрирован на сайте OFS.\n'
-            f'Вам сгенерирован временный пароль {password}.\n'
-            f'Пожалуйста, войдите в личный кабинет и смените пароль.',
+            message=f'Ваш email успешно зарегистрирован на сайте OFS '
+            f'https://online-furniture-store.github.io/online_furniture_store_frontend/.\n'
+            f'Ваш пароль: {password}.\n'
+            f'Вы можете сменить пароль в личном кабинете.',
             from_email='ofs@admin.com',
         )
         return user
