@@ -7,6 +7,7 @@ volumes:
   dev_prod_django_static: {}
   certbot-etc: {}
   certbot-data: {}
+  front-data: {}
 
 services:
   django: &django
@@ -38,6 +39,11 @@ services:
     networks:
       - postgres_net
 
+  frontend:
+    image: $FRONTEND_IMAGE_TAG:$FRONTEND_IMAGE_VERSION
+    volumes:
+      - front-data:/app/result_build/build
+
   nginx:
     image: onlinefurniturestore/online_furniture_store_dev_prod_nginx:0.1
     restart: unless-stopped
@@ -53,6 +59,7 @@ services:
       - dev_prod_django_static:/usr/share/nginx/static:ro
       - certbot-etc:/etc/letsencrypt
       - certbot-data:/var/www/html
+      - front-data:/usr/share/nginx/html/
       - ./logs/:/var/log/nginx/
     env_file:
       - ./.env

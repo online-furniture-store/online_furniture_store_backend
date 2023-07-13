@@ -7,17 +7,23 @@ env:
 
 on:
   pull_request:
-    branches: ['master', 'main', 'dev']
+    branches: ['master', 'main', 'dev', 'develop']
 
   push:
-    branches: ['master', 'main', 'dev']
+    branches: ['master', 'main', 'dev', 'develop', 'feat/deploy-frontend-backend-together']
+    paths:
+         - 'frontend/**'
+
+  repository_dispatch:
+    types: [build-project]
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
-  linter:
+  linter_backend:
+    if: github.repository == 'online-furniture-store/online_furniture_store_backend'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code Repository
@@ -30,8 +36,20 @@ jobs:
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.0
 
-  build_and_push_to_docker_hub:
-      if: github.ref == 'refs/heads/dev'
+  front_event:
+    if: github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+      - run: |
+          echo "Frontend image ${{ github.event.client_payload.image }}:${{ github.event.client_payload.sha }}"
+          run: echo "front_sha=${{ github.event.client_payload.sha }}" >> "$GITHUB_ENV"
+
+
+  backend_build_and_push_to_docker_hub:
+      if: github.ref == 'refs/heads/feat/deploy-frontend-backend-together'
       name: Push Docker image to Docker Hub
       runs-on: ubuntu-latest
       steps:
@@ -51,10 +69,31 @@ jobs:
             push: true
             tags: ${{ secrets.BACKEND_IMAGE_TAG }}:${{ github.sha }}
 
+  frontend_build_and_push_to_docker_hub:
+    if: github.ref == 'refs/heads/feat/develop'
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v4
+        with:
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.FRONTEND_IMAGE_TAG }}:${{ github.sha }}
+
   deploy:
     if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
-    needs: build_and_push_to_docker_hub
+    needs: backend_build_and_push_to_docker_hub
     steps:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
@@ -66,7 +105,6 @@ jobs:
         script: |
             cd ~/infra
             docker compose down --remove-orphans
-            docker compose rm -f django
             docker compose -f dev_prod.yml pull
             touch .env
             echo "" > .env
@@ -83,7 +121,10 @@ jobs:
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
             echo BACKEND_IMAGE_TAG=${{ secrets.BACKEND_IMAGE_TAG }} >> .env
+            echo BACKEND_IMAGE_TAG=${{ secrets.FRONTEND_IMAGE_TAG }} >> .env
             echo BACKEND_IMAGE_VERSION=${{ github.sha }} >> .env
+            echo FRONTEND_IMAGE_TAG=${{ secrets.FRONTEND_IMAGE_TAG }} >> .env
+            echo FRONTEND_IMAGE_VERSION=${{ env.front_sha || 'latest' }} >> .env
 
             docker compose -f dev_prod.yml up -d
             docker image prune -af
