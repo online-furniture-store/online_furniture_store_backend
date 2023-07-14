@@ -1,4 +1,4 @@
-exclude: '^docs/|/migrations/'
+exclude: "^docs/|/migrations/"
 default_stages: [commit]
 
 repos:
@@ -7,49 +7,50 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
-      - id: check-json
       - id: check-toml
-      - id: check-xml
       - id: check-yaml
-      - id: debug-statements
-      - id: check-builtin-literals
-      - id: check-case-conflict
-      - id: check-docstring-first
       - id: detect-private-key
+      - id: double-quote-string-fixer
+      - id: end-of-file-fixer
+        exclude: \.svg$
 
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.9-for-vscode
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
     hooks:
-      - id: prettier
-        args: ['--tab-width', '2', '--single-quote']
-        exclude: 'online_furniture_store_backend/templates/'
-
-  - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.13.0'
-    hooks:
-      - id: django-upgrade
-        args: ['--target-version', '4.1']
+    - id: python-check-blanket-noqa
+    - id: python-check-mock-methods
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.4.0
+    rev: v3.3.1
     hooks:
       - id: pyupgrade
         args: [--py311-plus]
+
+  - repo: https://github.com/MarcoGorelli/absolufy-imports
+    rev: v0.3.1
+    hooks:
+      - id: absolufy-imports
 
   - repo: https://github.com/psf/black
     rev: 23.3.0
     hooks:
       - id: black
+        language_version: python
+        exclude: /migrations/
 
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
     hooks:
       - id: isort
+        args: ["--profile", "black", "--filter-files"]
 
   - repo: https://github.com/PyCQA/flake8
     rev: 6.0.0
     hooks:
       - id: flake8
+        args: ["--config=setup.cfg"]
+        additional_dependencies: [flake8-isort]
+
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:
