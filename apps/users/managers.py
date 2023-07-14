@@ -1,19 +1,30 @@
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import UserManager as DjangoUserManager
+from django.utils.crypto import get_random_string
+
+from config.settings.base import SITE_EMAIL, SITE_URL
 
 
 class UserManager(DjangoUserManager):
     """Индивидуальная модель пользователя."""
 
     def _create_user(self, email: str, password: str | None, **extra_fields):
-        """
-        Создание пользователя с помощью email.
-        """
+        """Создание пользователя с помощью email."""
+
         if not email:
             raise ValueError('Необходим email.')
+        if password is None:
+            password = get_random_string(length=12)
         user = self.model(email=email, **extra_fields)
-        user.password = make_password(password)
+        user.set_password(password)
         user.save(using=self._db)
+        user.email_user(
+            'Регистрация на сайте',
+            message=f'Ваш email успешно зарегистрирован на сайте OFS '
+            f'{SITE_URL}.\n'
+            f'Ваш пароль: {password}.\n'
+            f'Вы можете сменить пароль в личном кабинете.',
+            from_email=SITE_EMAIL,
+        )
         return user
 
     def create_user(self, email: str, password: str | None = None, **extra_fields):
