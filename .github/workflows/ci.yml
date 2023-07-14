@@ -42,7 +42,7 @@ jobs:
           ref: ${{ github.event.client_payload.ref }}
       - run: |
           echo "Frontend image ${{ github.event.client_payload.image }}:${{ github.event.client_payload.sha }}"
-          run: echo "front_sha=${{ github.event.client_payload.sha }}" >> "$GITHUB_ENV"
+          echo "front_sha=${{ github.event.client_payload.sha }}" >> "$GITHUB_ENV"
 
 
   backend_build_and_push_to_docker_hub:
@@ -96,9 +96,10 @@ jobs:
             echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+
             echo BACKEND_IMAGE_TAG=${{ secrets.BACKEND_IMAGE_TAG }} >> .env
-            echo BACKEND_IMAGE_TAG=${{ secrets.FRONTEND_IMAGE_TAG }} >> .env
             echo BACKEND_IMAGE_VERSION=${{ github.sha }} >> .env
+
             echo FRONTEND_IMAGE_TAG=${{ secrets.FRONTEND_IMAGE_TAG }} >> .env
             echo FRONTEND_IMAGE_VERSION=${{ env.front_sha || 'latest' }} >> .env
 
