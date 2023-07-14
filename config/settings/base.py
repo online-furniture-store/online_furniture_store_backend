@@ -192,6 +192,8 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.f
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-timeout
 EMAIL_TIMEOUT = 5
 EMAIL_FILE_PATH = str(BASE_DIR / 'sent_emails')
+SITE_EMAIL = env('SITE_EMAIL', default='furniture@ofs.ru')
+
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
@@ -253,6 +255,8 @@ SIMPLE_JWT = {
 ADMIN_EMPTY_VALUE_DISPLAY = '--пусто--'
 
 CART_SESSION_ID = 'cart'
+
+SITE_URL = env('SITE_URL', default='https://online-furniture-store.github.io/online_furniture_store_frontend/')
 
 # Djoser settings
 DJOSER = {

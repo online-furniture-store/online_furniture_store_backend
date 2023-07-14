@@ -1,6 +1,8 @@
 from django.contrib.auth.models import UserManager as DjangoUserManager
 from django.utils.crypto import get_random_string
 
+from config.settings.base import SITE_EMAIL, SITE_URL
+
 
 class UserManager(DjangoUserManager):
     """Индивидуальная модель пользователя."""
@@ -18,10 +20,10 @@ class UserManager(DjangoUserManager):
         user.email_user(
             'Регистрация на сайте',
             message=f'Ваш email успешно зарегистрирован на сайте OFS '
-            f'https://online-furniture-store.github.io/online_furniture_store_frontend/.\n'
+            f'{SITE_URL}.\n'
             f'Ваш пароль: {password}.\n'
             f'Вы можете сменить пароль в личном кабинете.',
-            from_email='ofs@admin.com',
+            from_email=SITE_EMAIL,
         )
         return user
 
